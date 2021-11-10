@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import uniqueValidator from 'mongoose-unique-validator'
 
 //Cast Schema
 const castSchema = new mongoose.Schema({
@@ -16,6 +17,8 @@ const movieSchema = new mongoose.Schema({
   cast: [{ type: String }],
   rating: { type: Number, required: true, min: 1, max: 10 }
 })
+
+movieSchema.plugin(uniqueValidator)
 
 export default mongoose.model('Movie', movieSchema)
 // console.log(Movie)

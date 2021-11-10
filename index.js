@@ -1,8 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Movie from './models/movie.js'
+import { getAllMovies } from './controllers/movies.js'
 import { port, dbURI } from './config/environment.js'
-import movie from './models/movie.js'
 
 const app = express()
 
@@ -16,13 +16,6 @@ app.use((req, _res, next) => {
 })
 
 //Routes
-
-//Get /movies
-app.get('/movies', async (req, res) => {
-  const movies = await Movie.find()
-  console.log('movies', movies)
-  return res.status(200).json(movies)
-})
 
 //Post /movies
 app.post('/movies', async (req, res) => {
