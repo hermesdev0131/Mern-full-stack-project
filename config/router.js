@@ -1,6 +1,15 @@
 import express from 'express'
-import { getAllMovies } from '../controllers/movies'
+//Bringing in our controllers
+import { addMovie, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies'
 
+
+//Invoking Express router
 const router = express.Router()
 
-router.route('/movies').get(getAllMovies)
+//Setting up a route
+router.route('/movies').get(getAllMovies).post(addMovie)
+
+router.route('/movies/:id').get(getSingleMovie).put(updateMovie).delete(removeMovie)
+
+//Exporting the router to be used as middleware in index.js
+export default router 
