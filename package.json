@@ -6,6 +6,9 @@
   "author": "shahrukh-hughes <s.khan_1987@hotmail.co.uk>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "serve": "npx nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "uuid": "^8.3.2"
