@@ -1,0 +1,13 @@
+{
+  "name": "MERN-Full-Stack-Project---Movie-Review-Site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Shak-H/MERN-Full-Stack-Project---Movie-Review-Site.git",
+  "author": "shahrukh-hughes <s.khan_1987@hotmail.co.uk>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}
