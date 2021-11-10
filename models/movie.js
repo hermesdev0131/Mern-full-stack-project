@@ -1,5 +1,11 @@
 import mongoose from 'mongoose'
 
+//Cast Schema
+const castSchema = new mongoose.Schema({
+  name: { type: String },
+  image: { type: String }
+})
+
 //Movie schema
 const movieSchema = new mongoose.Schema({
   title: { type: String, unique: true, required: true },

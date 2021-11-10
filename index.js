@@ -1,10 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Movie from './models/movie.js'
+import { port, dbURI } from './config/environment.js'
+import movie from './models/movie.js'
 
 const app = express()
-const port = 4005
-const dbURI = 'mongodb://127.0.0.1:27017/burnt-toast-db'
 
 //JSON Parser
 app.use(express.json())
@@ -48,6 +48,31 @@ app.get('/movies/:id', async (req, res) => {
     console.log(`Movie not found`)
     console.log(err)
     return res.status(404).json({ message: 'Movie Not Found'})
+  }
+})
+
+//Edit /movies/title
+app.put('/movies/:title', async (req, res) => {
+  try {
+    const { id } = req.params
+    const movieToUpdate = await Movie.findOneAndUpdate({ title: title })
+    Object.assign(movieToUpdate, req.body)
+    movieToUpdate.title
+    movieToUpdate.save()
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+//Delete /movies/:id
+app.delete('/movies/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const movieToDelete = await Movie.findById(id)
+    await movieToDelete.remove()
+    return res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
   }
 })
 
