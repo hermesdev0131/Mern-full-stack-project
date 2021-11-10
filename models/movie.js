@@ -13,8 +13,8 @@ const movieSchema = new mongoose.Schema({
   director: { type: String },
   releaseYear: { type: Number },
   description: { type: String, required: true, maxlength: 280 },
-  genre: { type: String },
   cast: [{ type: String }],
+  genre: [{ type: String }],
   rating: { type: Number, required: true, min: 1, max: 10 }
 })
 

@@ -12,7 +12,7 @@ const seedDatabase = async () => {
     await mongoose.connection.db.dropDatabase()
     console.log(`DB Dropped`)
     //Seed the db with data file
-    const moviesAdded = Movie.create(movieData)
+    const moviesAdded = await Movie.create(movieData)
     console.log(`${moviesAdded.length} Movies added`)
     //Close our connection to db
     await mongoose.connection.close()
