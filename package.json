@@ -7,7 +7,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "serve": "npx nodemon index.js"
+    "serve": "npx nodemon index.js",
+    "seed": "node db/seeds.js"
   },
   "dependencies": {
     "express": "^4.17.1",
