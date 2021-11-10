@@ -1,6 +1,6 @@
 import express from 'express'
 //Bringing in our controllers
-import { addMovie, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies'
+import { addMovie, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
 
 
 //Invoking Express router
