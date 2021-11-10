@@ -1,24 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import Movie from './models/movie.js'
 
 const app = express()
 const port = 4005
 const dbURI = 'mongodb://127.0.0.1:27017/burnt-toast-db'
-
-//Movie schema
-
-const movieSchema = new mongoose.Schema({
-  title: { type: String, unique: true, required: true },
-  director: { type: String },
-  releaseYear: { type: Number },
-  description: { type: String, required: true, maxlength: 280 },
-  genre: { type: String },
-  cast: [{ type: String }],
-  rating: { type: Number, required: true, min: 1, max: 10 }
-})
-
-const Movie = mongoose.model('Movie', movieSchema)
-// console.log(Movie)
 
 //JSON Parser
 app.use(express.json())
@@ -55,10 +41,13 @@ app.post('/movies', async (req, res) => {
 app.get('/movies/:id', async (req, res) => {
   try {
     const { id } = req.params
-    const movie = await Movie.findById()
-
+    const movie = await Movie.findById(id)
+    console.log(movie)
+    return res.status(200).json(movie)
   } catch (err) {
-    
+    console.log(`Movie not found`)
+    console.log(err)
+    return res.status(404).json({ message: 'Movie Not Found'})
   }
 })
 
