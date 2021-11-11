@@ -6,7 +6,6 @@ export default [
     description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
     cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
     genre: ['Drama'],
-    rating: 7
 },
 {
   title: 'The Godfather',
@@ -15,7 +14,6 @@ export default [
   description: 'An organized crime dynasty\'s aging patriarch transfers control of his clandestine empire to his reluctant son.',
   cast: ['Marlon Brando', 'Al Pacino', 'James Caan'],
   genres: ['Crime', 'Drama'],
-  rating: 9
 },
 {
   title: 'The Dark Knight',
@@ -24,6 +22,5 @@ export default [
   description: 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
   cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
   genres: ['Action', 'Crime', 'Drama', 'Thriller'],
-  rating: 8
 }
 ]

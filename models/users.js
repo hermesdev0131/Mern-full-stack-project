@@ -2,20 +2,21 @@ import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 import bcrypt from 'bcrypt'
 
-//username
-//email
-//password
-//image
-
-//password confirmation
-
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true, maxlength: 30},
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
   image: { type: String }
+  
 })
 
+//Remove password when returning over as JSON
+userSchema.set('toJSON', {
+  transform(_doc, json){
+    delete json.password
+    return json
+  }
+})
 
 //validate
 

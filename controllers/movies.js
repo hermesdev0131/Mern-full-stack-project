@@ -12,9 +12,8 @@ export const getAllMovies = async (_req, res) => {
 //Adds a movie to the movies collection
 export const addMovie = async (req, res) => {
   try {
-    console.log(req.body)
-    const movieToAdd = await Movie.create(req.body)
-    console.log(movieToAdd)
+    newMovie = { ...req.body, owner: req.currentUser._id }
+    const movieToAdd = await Movie.create(newMovie)
     return res.status(201).json(movieToAdd)
   } catch (err) {
     console.log(err)
@@ -27,7 +26,7 @@ export const addMovie = async (req, res) => {
 export const getSingleMovie = async (req, res) => {
   try {
     const { id } = req.params
-    const movie = await Movie.findById(id)
+    const movie = await Movie.findById(id).populate('owner')
     console.log(movie)
     return res.status(200).json(movie)
   } catch (err) {
@@ -57,10 +56,30 @@ export const removeMovie = async (req, res) => {
   try {
     const { id } = req.params
     const movieToDelete = await Movie.findById(id)
+    if (!movieToDelete) throw new Error()
+    if (!movieToDelete.owner.equals(req.currentUser._id)) throw new Error()
     await movieToDelete.remove()
     return res.sendStatus(204)
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: 'Not Found'})
+  }
+}
+
+//Add a comment
+export const addARating = async (req, res) => {
+  try {
+    const { id } = req.params
+    const movie = await Movie.findById(id)
+    if (!movie) throw new Error()
+    const newRating = { ...req.body, owner: req.currentUser._id }
+    console.log('newRating', newRating)
+    movie.rating.push(newRating)
+    console.log('Movie ->', movie)
+    await movie.save()
+    return res.status(200).json(movie)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ message: 'Something went wrong'})
   }
 }

@@ -15,6 +15,8 @@ export const secureRoute = async (req, res, next) => {
     
     //Use the token to query the User model
     const userToVerify = await User.findById(payload.sub)
+
+    //Otherwise unauthorised
     if (!userToVerify) throw new Error('Missing Header')
     
     //Pass user through to controller that will handle request
