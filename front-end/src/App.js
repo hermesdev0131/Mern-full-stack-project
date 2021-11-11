@@ -1,26 +1,41 @@
-import React from 'react'
+import * as React from 'react'
 // import axios from 'axios'
 import MovieList from './components/MovieList'
+import { Routes, Route, Link } from 'react-router-dom'
 
-const App = () => {
+function Home() {
+  return (
+    <>
+      <h1>Welcome to Burnt Toast</h1>
+      <nav>
+        <Link to="/movies">Movies</Link>
+      </nav>
+    </>
+  )
+}
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const { data } = await axios.get('/api/movies')
-  //       console.log(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   } 
-  //   getData()
-  // }, [])
+function Movies() {
+  return (
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+      </nav>
+      <main>
+        <MovieList />
+      </main>
+    </>
+  )
+}
 
+function App() {
 
   return (
-    <div>
-      <MovieList />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />}/>
+      </Routes>
+    </>
   )
 }
 

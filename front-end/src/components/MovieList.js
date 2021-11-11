@@ -23,9 +23,6 @@ const MovieList = () => {
     fetchMovies()
   }, [])
   
-
-
-
   return (
     <div>
       <ul>

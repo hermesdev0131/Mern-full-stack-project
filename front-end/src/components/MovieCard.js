@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from '@restart/ui/esm/Button'
+import { Link } from 'react-router-dom'
 
 const MovieCard = ({ 
   title, 
@@ -16,7 +17,7 @@ const MovieCard = ({
           <Card.Text>
             {averageRating}
           </Card.Text>
-          <Button variant="primary">More Info</Button>
+          <Button><Link to="/movies/${_id}">More Info</Link></Button>
         </Card.Body>
       </Card>
     </div>
