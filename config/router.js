@@ -11,9 +11,9 @@ import { secureRoute } from './secureRoute.js'
 const router = express.Router()
 
 //Setting up a route
-router.route('/movies').get(getAllMovies).post(addMovie)
+router.route('/movies').get(getAllMovies).post(secureRoute, addMovie)
 
-router.route('/movies/:id').get(getSingleMovie).put(secureRoute, updateMovie).delete(removeMovie)
+router.route('/movies/:id').get(getSingleMovie).put(secureRoute, updateMovie).delete(secureRoute, removeMovie)
 
 router.route('/register').post(registerUser)
 

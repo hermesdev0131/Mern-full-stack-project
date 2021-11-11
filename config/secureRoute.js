@@ -14,9 +14,14 @@ export const secureRoute = async (req, res, next) => {
     const payload = jwt.verify(token, secret)
     
     //Use the token to query the User model
-    const userToVerify = User.findById(payload.sub)
-    console.log(userToVerify)
+    const userToVerify = await User.findById(payload.sub)
+    if (!userToVerify) throw new Error('Missing Header')
     
+    //Pass user through to controller that will handle request
+    req.currentUser = userToVerify
+
+    //Pass the request through to the controller
+    next()
   } catch (err) {
     console.log(err)
     return res.status(401).json({ message: 'Unauthorised'})
