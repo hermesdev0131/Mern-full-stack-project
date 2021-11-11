@@ -1,6 +1,7 @@
 import * as React from 'react'
 // import axios from 'axios'
 import MovieList from './components/MovieList'
+import MovieShow from './components/MovieShow'
 import { Routes, Route, Link } from 'react-router-dom'
 
 function Home() {
@@ -27,6 +28,20 @@ function Movies() {
   )
 }
 
+function ShowOneMovie() {
+  return (
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
+      </nav>
+      <main>
+        <MovieShow />
+      </main>
+    </>
+  )
+}
+
 function App() {
 
   return (
@@ -34,6 +49,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />}/>
+        <Route path="/movies/:id" element={<ShowOneMovie />} />
       </Routes>
     </>
   )
