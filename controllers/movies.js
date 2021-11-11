@@ -26,8 +26,9 @@ export const addMovie = async (req, res) => {
 export const getSingleMovie = async (req, res) => {
   try {
     const { id } = req.params
-    const movie = await Movie.findById(id).populate('owner')
+    const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
     console.log(movie)
+    if (!movie) throw new Error()
     return res.status(200).json(movie)
   } catch (err) {
     console.log(`Movie not found`)
@@ -66,7 +67,7 @@ export const removeMovie = async (req, res) => {
   }
 }
 
-//Add a comment
+//Add a rating
 export const addARating = async (req, res) => {
   try {
     const { id } = req.params
@@ -76,10 +77,22 @@ export const addARating = async (req, res) => {
     console.log('newRating', newRating)
     movie.rating.push(newRating)
     console.log('Movie ->', movie)
-    await movie.save()
+    await movie.save({ validateModifiedOnly: true })
     return res.status(200).json(movie)
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: 'Something went wrong'})
   }
+}
+
+//Delete a rating
+export const deleteARating = async () => {
+  try {
+    const { id } = req.params
+    console.log('id', id)
+    console.log('ratingId', ratingId)
+  } catch (err) {
+    
+  }
+
 }

@@ -3,9 +3,9 @@ import uniqueValidator from 'mongoose-unique-validator'
 
 //Comment schema -> 
 const ratingsSchema = new mongoose.Schema({
-  rating: { type: Number, required: true, min: 1, max: 10},
+  rating: { type: Number, required: true, min: 1, max: 10 },
   text: { type: String, maxlength: 280 },
-  owner: {type: mongoose.Schema.objectId, ref: 'User', required: true }
+  owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 })
 
 //Cast Schema
@@ -22,7 +22,6 @@ const movieSchema = new mongoose.Schema({
   description: { type: String, required: true, maxlength: 280 },
   cast: [{ type: String }],
   genre: [{ type: String }],
-  // rating: { type: Number, required: true, min: 1, max: 10 },
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   rating: [ratingsSchema]
 })

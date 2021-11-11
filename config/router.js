@@ -1,8 +1,9 @@
 import express from 'express'
 
 //Bringing in our controllers
-import { addARating, addMovie, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
+import { addARating, addMovie, deleteARating, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
 import { loginUser, registerUser } from '../controllers/auth.js'
+
 
 //Secure Route
 import { secureRoute } from './secureRoute.js'
@@ -15,7 +16,9 @@ router.route('/movies').get(getAllMovies).post(secureRoute, addMovie)
 
 router.route('/movies/:id').get(getSingleMovie).put(secureRoute, updateMovie).delete(secureRoute, removeMovie)
 
-router.route('/shows/:id/rating').post(secureRoute, addARating)
+router.route('/movies/:id/rating').post(secureRoute, addARating)
+
+router.route('/movies/:id/rating/:ratingId').delete(secureRoute, deleteARating)
 
 router.route('/register').post(registerUser)
 
