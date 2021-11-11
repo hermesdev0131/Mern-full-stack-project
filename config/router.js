@@ -3,6 +3,7 @@ import express from 'express'
 //Bringing in our controllers
 import { addARating, addMovie, deleteARating, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
 import { loginUser, registerUser } from '../controllers/auth.js'
+import { getUserProfile } from '../controllers/users.js'
 
 
 //Secure Route
@@ -23,6 +24,8 @@ router.route('/movies/:id/rating/:ratingId').delete(secureRoute, deleteARating)
 router.route('/register').post(registerUser)
 
 router.route('/login').post(loginUser)
+
+router.route('/profile').get(secureRoute, getUserProfile)
 
 //Exporting the router to be used as middleware in index.js
 export default router 

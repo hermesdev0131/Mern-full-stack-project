@@ -10,8 +10,17 @@ const userSchema = new mongoose.Schema({
   
 })
 
+//Reverse relationship, show the movies user has added
+userSchema.virtual('createdMovies', {
+  ref: 'Movie', //Model this relates to
+  localField: '_id', //Field from user model stored on movie model
+  foreignField: 'owner', //Field on the movie that stores the user id
+
+})
+
 //Remove password when returning over as JSON
 userSchema.set('toJSON', {
+  virtuals: true,
   transform(_doc, json){
     delete json.password
     return json
