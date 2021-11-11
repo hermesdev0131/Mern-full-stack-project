@@ -21,6 +21,7 @@ const castSchema = new mongoose.Schema({
 
 //Movie schema
 const movieSchema = new mongoose.Schema({
+  image: { type: String },
   title: { type: String, unique: true, required: true },
   director: { type: String },
   releaseYear: { type: Number },
