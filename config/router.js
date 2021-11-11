@@ -4,13 +4,16 @@ import express from 'express'
 import { addMovie, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
 import { loginUser, registerUser } from '../controllers/auth.js'
 
+//Secure Route
+import { secureRoute } from './secureRoute.js'
+
 //Invoking Express router
 const router = express.Router()
 
 //Setting up a route
 router.route('/movies').get(getAllMovies).post(addMovie)
 
-router.route('/movies/:id').get(getSingleMovie).put(updateMovie).delete(removeMovie)
+router.route('/movies/:id').get(getSingleMovie).put(secureRoute, updateMovie).delete(removeMovie)
 
 router.route('/register').post(registerUser)
 
