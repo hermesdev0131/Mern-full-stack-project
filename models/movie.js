@@ -31,6 +31,21 @@ const movieSchema = new mongoose.Schema({
   rating: [ratingsSchema]
 })
 
+movieSchema.virtual('averageRating').get(function(){
+  //If there are no ratings, return a string
+  if (!this.rating.length) return 'Not Rated Yet'
+  const sumOfRatings = this.rating.reduce((acc, rating) => {
+    if (!rating.rating) return acc
+    return acc + rating.rating
+  }, 0)
+  console.log('sumOfRatings', sumOfRatings)
+  const averageRatingPercentage = ((sumOfRatings / this.rating.length).toFixed(2))*10
+  console.log('averageRatingPercentage', averageRatingPercentage)
+  return `${averageRatingPercentage}%`
+})
+
+movieSchema.set('toJSON', { virtuals: true })
+
 movieSchema.plugin(uniqueValidator)
 
 export default mongoose.model('Movie', movieSchema)
