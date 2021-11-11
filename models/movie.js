@@ -2,11 +2,16 @@ import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
 //Comment schema -> 
-const ratingsSchema = new mongoose.Schema({
+const ratingsSchema = new mongoose.Schema(
+  {
   rating: { type: Number, required: true, min: 1, max: 10 },
   text: { type: String, maxlength: 280 },
   owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-})
+  },
+  {
+  timestamps: true
+  }
+)
 
 //Cast Schema
 const castSchema = new mongoose.Schema({

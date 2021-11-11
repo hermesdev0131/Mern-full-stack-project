@@ -86,13 +86,28 @@ export const addARating = async (req, res) => {
 }
 
 //Delete a rating
-export const deleteARating = async () => {
+export const deleteARating = async (req, res) => {
   try {
-    const { id } = req.params
-    console.log('id', id)
-    console.log('ratingId', ratingId)
+    const { id, ratingId } = req.params
+    //Find movies where rating lives
+    const movie = await Movie.findById(id)
+    //If no movies found throw error
+    if(!movie) throw new Error()
+    //Find the rating with the ratingId
+    const ratingToDelete = movie.rating.id(ratingId)
+    //If rating returns null, throw error
+    if (!ratingToDelete) throw new Error()
+    //If owner of comment is not current user, throw error
+    if (!ratingToDelete.owner.equals(req.currentUser._id)) throw new Error()
+    //Remove rating
+    await ratingToDelete.remove()
+    //Save the movie after rating deleted
+    await movie.save({ validateModifiedOnly: true })
+    //Return positive response
+    return res.sendStatus(204)
   } catch (err) {
-    
+    console.log(err)
+    return res.status(404).json({ 'message': 'Something went wrong'})
   }
 
 }
