@@ -7,20 +7,18 @@ import FormInput from './FormInput'
 
 
 const Login = ({ setIsLoggedIn }) => {
-  const navigate = useNavigate()
+  const [data, setData] = useState({
+    username: '',
+    password: ''
+  })
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false)
-
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const data = {
-      username,
-      password
-    }  
     const config = {
       method: 'post',
       url: 'api/login',
@@ -42,13 +40,28 @@ const Login = ({ setIsLoggedIn }) => {
     } 
   }
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value)
+  // const handleSuccesfulLogin = ({ token }) => {
+  //   setToken(token)
+  //   setIsLoggedIn(true)
+  //   setIsError(false)
+  //   navigate('/movies')
+  // }
+
+  const handleError = (error) => {
+    if (error.response) {
+      setErrorInfo(error.response.data)
+      setIsError(true)
+    }
   }
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
+  const handleFormChange = (event) => {
+    const { name, value } = event.target
+    setData({
+      ...data,
+      [name]: value
+    })
   }
+  const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
     <section>

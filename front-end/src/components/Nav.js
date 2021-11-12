@@ -26,6 +26,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
           {isLoggedIn ? (
             <>
               <li>
+                <Link to="/movies/new">Add A Movie</Link>
+              </li>
+              <li>
                 <button onClick={handleLogout}>Logout</button>
               </li>
             </>

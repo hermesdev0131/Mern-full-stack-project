@@ -7,9 +7,11 @@ import Home from './components/Home'
 import NotFound from './components/NotFound'
 import Nav from './components/Nav'
 import Register from './components/Register'
+import MovieAdd from './components/MovieAdd'
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getToken } from './helpers/auth'
+
 
 function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -21,10 +23,6 @@ function HomePage() {
       setIsLoggedIn(false)
     }
   }, [])
-
-
-
-
 
   return (
     <>
@@ -84,6 +82,30 @@ function ShowOneMovie() {
   )
 }
 
+function AddOneMovie() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+  
+  return (
+    <>
+      <header>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </header>
+      <main>
+        <MovieAdd />
+      </main>
+    </>
+  )
+}
+
+
 function UserLogIn(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -141,7 +163,6 @@ function NotFoundPage() {
     }
   }, [])
 
-
   return (
     <>
       <header>
@@ -162,6 +183,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="/movies" element={<Movies />}/>
         <Route path="/movies/:id" element={<ShowOneMovie />} />
+        <Route path="/movies/new" element={<AddOneMovie />} />
         <Route path="/login" element={<UserLogIn />} />
         <Route path="/register" element={<UserRegister />} />
         <Route element={<NotFoundPage />} />
