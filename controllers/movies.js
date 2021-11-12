@@ -12,7 +12,9 @@ export const getAllMovies = async (_req, res) => {
 //Adds a movie to the movies collection
 export const addMovie = async (req, res) => {
   try {
-    newMovie = { ...req.body, owner: req.currentUser._id }
+    console.log(req.body)
+    // console.log(owner req.currentUser._id)
+    const newMovie = { ...req.body, owner: req.currentUser._id }
     const movieToAdd = await Movie.create(newMovie)
     return res.status(201).json(movieToAdd)
   } catch (err) {
