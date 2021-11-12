@@ -3,12 +3,9 @@ import axios from 'axios'
 import { useState } from 'react'
 import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
+import FormInput from './FormInput'
 
 const Register = () => {
-  const navigate = useNavigate()
-
-  // const [username, setUsername] = useState('')
-  // const [password, setPassword] = useState('')
   const [data, setData] = useState({
     username: '',
     email: '',
@@ -17,8 +14,11 @@ const Register = () => {
     passwordConfirmation: ''
   })
 
+  const [errorInfo, setErrorInfo] = useState({})
+
   const [isError, setIsError] = useState(false)
 
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -32,16 +32,22 @@ const Register = () => {
       data: data
     }
     try {
-      const response = await axios(config)
+      const response = await axios(config).catch(handleError)
       console.log(response.data.token)
       setToken(response.data.token)
-      // setIsLoggedIn(true)
       setIsError(false)
-      navigate('/movies')
+      navigate('/login')
     } catch (err){
       console.error(err)
       setIsError(true)
     } 
+  }
+
+  const handleError = (error) => {
+    if (error.response) {
+      setErrorInfo(error.response.data)
+      setIsError(true)
+    }
   }
 
   const handleFormChange = (event) => {
@@ -51,29 +57,49 @@ const Register = () => {
       [name]: value
     })
   }
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value)
-  // }
+  const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        <h1>Sign in to Burnt Toast</h1>
+        <h1>Sign Up to Burnt Toast</h1>
         <div>
-          <input placeholder="username" type='text' name='username' value={data.username} onChange={handleFormChange} />
+          <FormInput
+            placeholder="username" 
+            type='text' 
+            name='username' 
+            {...formInputProps} 
+          />
+        </div>
+        <FormInput
+          placeholder='email@email.com' 
+          type='email' 
+          name = 'email' 
+          {...formInputProps}
+        />
+        <div>
+          <input 
+            placeholder="image" 
+            type='image' 
+            name = 'image' 
+            {...formInputProps}
+          />
         </div>
         <div>
-          <input placeholder="email@email.com" type='email' name = 'email' value={data.email} onChange={handleFormChange} />
+          <input 
+            placeholder="password" 
+            type='password' 
+            name = 'password' 
+            {...formInputProps}
+          />
         </div>
         <div>
-          <input placeholder="image" type='image' name = 'image' value={data.image} onChange={handleFormChange} />
-        </div>
-        <div>
-          <input placeholder="password" type='password' name = 'password' value={data.password} onChange={handleFormChange} />
-        </div>
-        <div>
-          <input placeholder="password confirmation" type='password' name = 'passwordConfirmation' value={data.passwordConfirmation} onChange={handleFormChange} />
+          <input 
+            placeholder="password confirmation" 
+            type='password' 
+            name = 'passwordConfirmation' 
+            {...formInputProps} 
+          />
         </div>
         <div>
           <input type="submit" value="Register" />

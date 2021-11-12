@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
+import FormInput from './FormInput'
 
 
 const Login = ({ setIsLoggedIn }) => {
@@ -29,7 +30,7 @@ const Login = ({ setIsLoggedIn }) => {
       data: data
     }
     try {
-      const response = await axios(config)
+      const response = await axios(config).catch(handleError)
       console.log(response.data.token)
       setToken(response.data.token)
       setIsLoggedIn(true)
@@ -53,12 +54,18 @@ const Login = ({ setIsLoggedIn }) => {
     <section>
       <form onSubmit={handleSubmit}>
         <h1>Sign in to Burnt Toast</h1>
-        <div>
-          <input placeholder="username" type='text' value={username} onChange={handleUsernameChange} />
-        </div>
-        <div>
-          <input placeholder="password" type='password' value={password} onChange={handlePasswordChange} />
-        </div>
+        <FormInput 
+          placeholder="username" 
+          type='text'
+          name='username' 
+          {...formInputProps} 
+        />
+        <FormInput 
+          placeholder="password" 
+          type='password'
+          name='password' 
+          {...formInputProps} 
+        />
         <div>
           <input type="submit" value="Login" />
         </div>
