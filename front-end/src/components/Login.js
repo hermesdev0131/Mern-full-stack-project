@@ -1,0 +1,66 @@
+import * as React from 'react'
+import axios from 'axios'
+import { useState } from 'react'
+import { setToken } from '../helpers/auth'
+import { useNavigate } from 'react-router-dom'
+
+
+const Login = () => {
+  const navigate = useNavigate()
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const data = {
+      username,
+      password
+    }  
+    const config = {
+      method: 'post',
+      url: 'api/login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data: data
+    }
+    try {
+      const response = await axios(config)
+      console.log(response.data.token)
+      setToken(response.data.token)
+      navigate('/')
+    } catch (err){
+      console.error(err)
+    } 
+  }
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value)
+  }
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value)
+  }
+
+  return (
+    <section>
+      <form onSubmit={handleSubmit}>
+        <h1>Sign in to Burnt Toast</h1>
+        <div>
+          <input placeholder="username" type='text' value={username} onChange={handleUsernameChange} ></input>
+        </div>
+        <div>
+          <input placeholder="password" type='password' value={password} onChange={handlePasswordChange}></input>
+        </div>
+        <div>
+          <input type="submit" value="Login"></input>
+        </div>
+      </form>
+    </section>
+  )
+}
+
+export default Login
