@@ -12,7 +12,7 @@ const MovieCard = ({
   return (
     <div>
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={image} alt={title} style={{ width: '100px', height: '180px' }}/>
+        <Card.Img variant="top" src={image} alt={title} style={{ maxWidth: '100px', maxHeight: '180px' }}/>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
