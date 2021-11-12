@@ -9,9 +9,8 @@ const Slide = () => {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
- 
-    fetchAllMovies().then(setMovies)
     console.log(movies)
+    fetchAllMovies().then(setMovies)
   }, [])
 
   return (
