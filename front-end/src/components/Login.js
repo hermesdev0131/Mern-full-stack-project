@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 import FormInput from './FormInput'
-
+import { getAxiosRequestConfig } from '../helpers/api'
 
 const Login = ({ setIsLoggedIn }) => {
   const [data, setData] = useState({
@@ -19,14 +19,8 @@ const Login = ({ setIsLoggedIn }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = {
-      method: 'post',
-      url: 'api/login',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data: data
-    }
+    const config = getAxiosRequestConfig('/login', data)
+
     try {
       const response = await axios(config).catch(handleError)
       console.log(response.data.token)
@@ -61,6 +55,7 @@ const Login = ({ setIsLoggedIn }) => {
       [name]: value
     })
   }
+  
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (

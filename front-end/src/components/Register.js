@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 import FormInput from './FormInput'
+import { getAxiosRequestConfig } from '../helpers/api'
 
 const Register = () => {
   const [data, setData] = useState({
@@ -23,14 +24,8 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = {
-      method: 'post',
-      url: 'api/register',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data: data
-    }
+    const config = getAxiosRequestConfig('/register', data)
+
     try {
       const response = await axios(config).catch(handleError)
       console.log(response.data.token)
@@ -57,6 +52,7 @@ const Register = () => {
       [name]: value
     })
   }
+  
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (

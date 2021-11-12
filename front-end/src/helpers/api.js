@@ -1,6 +1,19 @@
 import axios from 'axios'
 // import { getToken } from './auth'
 
+const baseUrl = '/api'
+
+export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
+  const config = {
+    method,
+    url: `${baseUrl}${requestUrl}`,
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    data: data
+  }
+  return config
+}
 
 export const fetchAllMovies = async () => {
   const config = {
