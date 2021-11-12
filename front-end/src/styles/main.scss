@@ -1,1 +1,12 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 2%;
+  display: flex;
+  justify-content: center;
+}
+
