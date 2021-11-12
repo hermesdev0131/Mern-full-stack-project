@@ -1,28 +1,16 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import MovieCard from './MovieCard'
-
+import { fetchAllMovies } from '../helpers/api'
 
 const MovieList = () => {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
-    async function fetchMovies() {
-
-      const config = {
-        method: 'get',
-        url: '/api/movies',
-        headers: { }
-      }
-
-      const response = await axios(config)
-      console.log(response.data)
-      setMovies(response.data)
-    }
-    fetchMovies()
+    fetchAllMovies().then(setMovies)
   }, [])
-  
+    
   return (
     <div>
       <ul>
