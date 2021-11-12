@@ -10,7 +10,7 @@ const RatingForm = () => {
           <div key={`inline-${type}`} className="mb-3">
             <Form.Check
               inline
-               label="1"
+              label="1"
               name="group1"
               type={type}
             />
@@ -68,11 +68,11 @@ const RatingForm = () => {
               name="group1"
               type={type}
             />
+          </div>
+        ))}
+      </Form>
     </div>
-  ))}
-</Form>
-        </div>
-    )
+  )
 }
 
 export default RatingForm
