@@ -28,9 +28,14 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
               <button onClick={handleLogout}>Logout</button>
             </li>
           ) : (
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
+            <>
+              <li>
+                <Link to="/login">Log In</Link>
+              </li>
+              <li>
+                <Link to="/register">Sign Up</Link>
+              </li>
+            </>
           )}
         </ul>
       </nav>
