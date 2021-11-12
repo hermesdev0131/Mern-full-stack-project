@@ -5,17 +5,18 @@ import MovieShow from './components/MovieShow'
 import Login from './components/Login'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
-import { Routes, Route, Link } from 'react-router-dom'
-
+import Nav from './components/Nav'
+import { Routes, Route } from 'react-router-dom'
 
 function HomePage() {
   return (
     <>
-      <nav>
-        <Link to="/movies">Movies</Link>
-        <Link to="/login">Log In</Link>
-      </nav>
-      <Home />
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <Home />
+      </main>
     </>
   )
 }
@@ -23,10 +24,9 @@ function HomePage() {
 function Movies() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/login">Log In</Link>
-      </nav>
+      <header>
+        <Nav />
+      </header>
       <main>
         <MovieList />
       </main>
@@ -37,11 +37,9 @@ function Movies() {
 function ShowOneMovie() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-        <Link to="/login">Log In</Link>
-      </nav>
+      <header>
+        <Nav />
+      </header>
       <main>
         <MovieShow />
       </main>
@@ -52,11 +50,9 @@ function ShowOneMovie() {
 function UserLogIn() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-        <Link to="/login">Log In</Link>
-      </nav>
+      <header>
+        <Nav />
+      </header>
       <main>
         <Login />
       </main>
@@ -67,11 +63,9 @@ function UserLogIn() {
 function NotFoundPage() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-        <Link to="/login">Log In</Link>
-      </nav>
+      <header>
+        <Nav />
+      </header>
       <main>
         <NotFound />
       </main>
