@@ -4,17 +4,17 @@ import { useState } from 'react'
 import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 
-const Register = ({ setIsLoggedIn }) => {
+const Register = () => {
   const navigate = useNavigate()
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  // const [username, setUsername] = useState('')
+  // const [password, setPassword] = useState('')
   const [data, setData] = useState({
     username: '',
-      email: '',
-      image: '',
-      password: '',
-      passwordConfirmation: ''
+    email: '',
+    image: '',
+    password: '',
+    passwordConfirmation: ''
   })
 
   const [isError, setIsError] = useState(false)
@@ -29,13 +29,13 @@ const Register = ({ setIsLoggedIn }) => {
       headers: { 
         'Content-Type': 'application/json'
       },
-      data,
+      data: data
     }
     try {
       const response = await axios(config)
       console.log(response.data.token)
       setToken(response.data.token)
-      setIsLoggedIn(true)
+      // setIsLoggedIn(true)
       setIsError(false)
       navigate('/movies')
     } catch (err){
@@ -52,9 +52,9 @@ const Register = ({ setIsLoggedIn }) => {
     })
   }
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
-  }
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value)
+  // }
 
   return (
     <section>
