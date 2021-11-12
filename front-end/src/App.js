@@ -7,12 +7,28 @@ import Home from './components/Home'
 import NotFound from './components/NotFound'
 import Nav from './components/Nav'
 import { Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { getToken } from './helpers/auth'
 
 function HomePage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+
+
+
+
+
   return (
     <>
       <header>
-        <Nav />
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <main>
         <Home />
@@ -22,10 +38,20 @@ function HomePage() {
 }
 
 function Movies() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+
   return (
     <>
       <header>
-        <Nav />
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <main>
         <MovieList />
@@ -35,10 +61,20 @@ function Movies() {
 }
 
 function ShowOneMovie() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+  
   return (
     <>
       <header>
-        <Nav />
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <main>
         <MovieShow />
@@ -47,24 +83,45 @@ function ShowOneMovie() {
   )
 }
 
-function UserLogIn() {
+function UserLogIn(props) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+
   return (
     <>
       <header>
-        <Nav />
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <main>
-        <Login />
+        <Login {...props} setIsLoggedIn={setIsLoggedIn} />
       </main>
     </>
   )
 }
 
 function NotFoundPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+
+
   return (
     <>
       <header>
-        <Nav />
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <main>
         <NotFound />

@@ -5,11 +5,12 @@ import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isError, setIsError] = useState(false)
 
 
   const handleSubmit = async (event) => {
@@ -31,9 +32,12 @@ const Login = () => {
       const response = await axios(config)
       console.log(response.data.token)
       setToken(response.data.token)
-      navigate('/')
+      setIsLoggedIn(true)
+      setIsError(false)
+      navigate('/movies')
     } catch (err){
       console.error(err)
+      setIsError(true)
     } 
   }
 
@@ -50,14 +54,21 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <h1>Sign in to Burnt Toast</h1>
         <div>
-          <input placeholder="username" type='text' value={username} onChange={handleUsernameChange} ></input>
+          <input placeholder="username" type='text' value={username} onChange={handleUsernameChange} />
         </div>
         <div>
-          <input placeholder="password" type='password' value={password} onChange={handlePasswordChange}></input>
+          <input placeholder="password" type='password' value={password} onChange={handlePasswordChange} />
         </div>
         <div>
-          <input type="submit" value="Login"></input>
+          <input type="submit" value="Login" />
         </div>
+        {isError ? (
+          <div className='error'>
+            <p>Error. Please try again.</p>
+          </div> 
+        ) : (
+          <></>
+        )}
       </form>
     </section>
   )

@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { getToken } from '../helpers/auth'
+import { removeToken } from '../helpers/auth'
+import { useNavigate } from 'react-router-dom'
 
-const Nav = () => {
 
-  const isUserLoggedIn = () => {
-    if (getToken()) {
-      return true
-    }
-    return false
+const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    removeToken()
+    setIsLoggedIn(false)
+    navigate('/')
   }
 
   return (
@@ -21,13 +23,13 @@ const Nav = () => {
           <li>
             <Link to="/movies">Movies</Link>
           </li>
-          {!isUserLoggedIn() ? (
+          {isLoggedIn ? (
             <li>
-              <Link to="/login">Log In</Link>
+              <button onClick={handleLogout}>Logout</button>
             </li>
           ) : (
             <li>
-              <Link to="/logout">Logout</Link>
+              <Link to="/login">Log In</Link>
             </li>
           )}
         </ul>
