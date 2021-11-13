@@ -29,7 +29,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
                 <Link to="/movies/new">Add A Movie</Link>
               </li>
               <li>
-                <button onClick={handleLogout}>Logout</button>
+                <span onClick={handleLogout}>Logout</span>
               </li>
             </>
           ) : (

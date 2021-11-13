@@ -33,8 +33,7 @@ const MovieAdd = () => {
     const config = getAxiosRequestConfig('/movies', data)
 
     try {
-      const response = await axios(config)
-        .catch(handleError)
+      const response = await axios(config).catch(handleError)
 
       console.log(response.data)
       setIsError(false)

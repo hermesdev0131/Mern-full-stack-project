@@ -11,6 +11,7 @@ import MovieList from './pages/MovieList'
 import MovieShow from './pages/MovieShow'
 import MovieAdd from './pages/MovieAdd'
 import NotFound from './pages/NotFound'
+import Footer from './components/Footer'
 import { getToken } from './helpers/auth'
 
 function HomePage() {
@@ -33,6 +34,7 @@ function HomePage() {
         <Home />
       </main>
       <footer>
+        <Footer />
       </footer>
     </>
   )
@@ -57,6 +59,9 @@ function Movies() {
       <main>
         <MovieList />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
@@ -80,6 +85,9 @@ function ShowOneMovie() {
       <main>
         <MovieShow />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
@@ -103,6 +111,9 @@ function AddOneMovie() {
       <main>
         <MovieAdd />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
@@ -127,6 +138,9 @@ function UserLogIn(props) {
       <main>
         <Login {...props} setIsLoggedIn={setIsLoggedIn} />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
@@ -150,6 +164,9 @@ function UserRegister() {
       <main>
         <Register />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
@@ -173,6 +190,9 @@ function NotFoundPage() {
       <main>
         <NotFound />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
