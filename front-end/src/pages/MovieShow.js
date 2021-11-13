@@ -30,13 +30,15 @@ const MovieShow = () => {
   }, [id])
 
   return (
-    <div>
-      <img src={movie.image} alt={movie.title} style={{ maxWidth: '500px', maxHeight: '600px' }}/>
-      <div>
+    <div className="movie-show-div">
+      <div className="movie-show-img-div">
+        <img src={movie.image} alt={movie.title} style={{ maxWidth: '650px', maxHeight: '800px' }}/>
+      </div>
+      <div className="movie-info-div">
         <h1>
           {movie.title}
         </h1>
-        <div className="movie-info-div">
+        <div>
           <p>Director: {movie.director}</p>
           <p>Released: {movie.releaseYear}</p>
           <p>Description: {movie.description}</p>
@@ -46,7 +48,7 @@ const MovieShow = () => {
         <div className="rate-n-review-div">
           <RatingForm />
         </div>
-        <div>
+        <div className="comments-div">
           <ul>
             {comments.map((comment) => (
               <li key={comment._id}>

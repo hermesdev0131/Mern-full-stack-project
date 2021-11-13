@@ -32,6 +32,8 @@ function HomePage() {
       <main>
         <Home />
       </main>
+      <footer>
+      </footer>
     </>
   )
 }

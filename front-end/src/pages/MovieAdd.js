@@ -1,5 +1,3 @@
-
-   
 import axios from 'axios'
 import * as React from 'react' 
 import { useState } from 'react'
@@ -40,7 +38,7 @@ const MovieAdd = () => {
 
       console.log(response.data)
       setIsError(false)
-      navigate(`api/movies${response.data._id}`)
+      navigate(`movies/${response.data._id}`)
     } catch (err) {
       console.log(err)
     }
