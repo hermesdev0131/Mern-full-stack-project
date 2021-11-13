@@ -1,22 +1,21 @@
 import axios from 'axios'
-import * as React from 'react'
+import * as React from 'react' 
 import { useState } from 'react'
 import { getAxiosRequestConfig } from '../helpers/api'
-import FormInput from './FormInput'
+import MovieForm from '../components/MovieForm'
 
 const MovieAdd = () => {
   const [data, setData] = useState({
-    title: 'Marvels: Infinity War',
-    director: 'Russo Brothers',
-    releaseYear: 2020,
-    description: 'Avengers Assemble',
-    genre: ['Sci-Fi'],
-    cast: ['Robert Downey Junior', 'Benedict Cumberbatch', 'Tom Holland']
+    title: '',
+    director: '',
+    releaseYear: '',
+    description: '',
+    genre: [],
+    cast: []
   })
 
   const [errorInfo, setErrorInfo] = useState({})
-
-  const [isError, setIsError] = useState(false)
+  const [isError, setIsError] = useState(false) 
 
   const handleError = (error) => {
     if (error.response) {
@@ -28,13 +27,17 @@ const MovieAdd = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = getAxiosRequestConfig('/login', data)
+    const config = getAxiosRequestConfig('/login', data) //why login?
 
     try {
       const response = await axios(config).catch(handleError)
 
       console.log(response.data)
-    } catch (err) {}
+      // setIsError(false)
+      // navigator?
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const handleFormChange = (event) => {
@@ -51,12 +54,17 @@ const MovieAdd = () => {
     <section>
       <form onSubmit={handleSubmit}>
         <h1>Add a Movie</h1>
-        <FormInput
-          name='name'
-          type='text'
-          placeholder='Movie Title'
-          {...formInputProps}
-        />
+        <MovieForm formInputProps={formInputProps} />
+        <div>
+          <input type="submit" value="Add Movie" />
+        </div>
+        {isError ? (
+          <div className="error">
+            <p>Error. Please try again</p>
+          </div>
+        ) : (
+          <></>
+        )}
       </form>
     </section>
   )

@@ -1,17 +1,17 @@
 import * as React from 'react'
-// import axios from 'axios'
-import MovieList from './components/MovieList'
-import MovieShow from './components/MovieShow'
-import Login from './components/Login'
-import Home from './components/Home'
-import NotFound from './components/NotFound'
-import Nav from './components/Nav'
-import Register from './components/Register'
-import MovieAdd from './components/MovieAdd'
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getToken } from './helpers/auth'
 
+// import axios from 'axios'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Nav from './components/Nav'
+import Home from './pages/Home'
+import MovieList from './pages/MovieList'
+import MovieShow from './pages/MovieShow'
+import MovieAdd from './pages/MovieAdd'
+import NotFound from './pages/NotFound'
+import { getToken } from './helpers/auth'
 
 function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)

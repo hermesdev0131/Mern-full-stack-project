@@ -11,14 +11,16 @@ const MovieCard = ({
 }) => {
   return (
     <div>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={image} alt={title} style={{ maxWidth: '100px', maxHeight: '180px' }}/>
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>
+      <Card style={{ width: '18rem' }} className="movie-card">
+        <Card.Img variant="top" src={image} alt={title} style={{ maxWidth: '200px', maxHeight: '280px' }}/>
+        <Card.Body classname="card-body">
+          <Card.Title classname="card-title">{title}</Card.Title>
+          <Card.Text classname="card-text">
             {averageRating}
           </Card.Text>
-          <Button><Link to={`/movies/${id}`}>More Info</Link></Button>
+          <Button classname="card-button">
+            <Link to={`/movies/${id}`} className="more-info-link">More Info</Link>
+          </Button>
         </Card.Body>
       </Card>
     </div>

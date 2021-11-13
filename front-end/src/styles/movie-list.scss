@@ -1,0 +1,16 @@
+.movie-list-div {
+  padding: 0;
+}
+
+.movie-list {
+  margin: 0 auto;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  li {
+    list-style: none;
+    margin: 10px auto;
+  }
+}
+
