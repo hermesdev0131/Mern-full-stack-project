@@ -1,0 +1,32 @@
+.movie-card {
+  padding: 0.8rem;
+  flex-basis: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  button {
+    align-self: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    .more-info-link {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+}

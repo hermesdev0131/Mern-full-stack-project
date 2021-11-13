@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import RatingForm from './RatingForm'
+import RatingForm from '../components/RatingForm'
 
 const MovieShow = () => {
   const [movie, setMovie] = useState([])

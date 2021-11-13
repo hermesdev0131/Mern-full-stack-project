@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 // import axios from 'axios'
-import MovieCard from './MovieCard'
+import MovieCard from '../components/MovieCard'
 import { fetchAllMovies } from '../helpers/api'
 
 const MovieList = () => {
@@ -12,8 +12,8 @@ const MovieList = () => {
   }, [])
     
   return (
-    <div>
-      <ul>
+    <div className="movie-list-div">
+      <ul className="movie-list">
         {movies.map((m) => (
           <li key={m._id}>
             <MovieCard {...m} />
