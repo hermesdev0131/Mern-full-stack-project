@@ -1,6 +1,9 @@
+
+   
 import axios from 'axios'
 import * as React from 'react' 
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
 
@@ -10,14 +13,14 @@ const MovieAdd = () => {
     director: '',
     releaseYear: '',
     description: '',
-    genre: '',
-    cast: ''
+    genre: [],
+    cast: []
   })
 
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleError = (error) => {
     if (error.response) {
@@ -29,14 +32,15 @@ const MovieAdd = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = getAxiosRequestConfig('/login', data) //why login?
+    const config = getAxiosRequestConfig('/movies', data)
 
     try {
-      const response = await axios(config).catch(handleError)
+      const response = await axios(config)
+        .catch(handleError)
 
       console.log(response.data)
-      // setIsError(false)
-      // navigator?
+      setIsError(false)
+      navigate(`api/movies${response.data._id}`)
     } catch (err) {
       console.log(err)
     }

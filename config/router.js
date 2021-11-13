@@ -15,6 +15,8 @@ const router = express.Router()
 //Setting up a route
 router.route('/movies').get(getAllMovies).post(secureRoute, addMovie)
 
+// router.route('/movies/new').post(secureRoute, addMovie)
+
 router.route('/movies/:id').get(getSingleMovie).put(secureRoute, updateMovie).delete(secureRoute, removeMovie) //why is this delete method chained here?
 
 router.route('/movies/:id/rating').post(secureRoute, addARating)

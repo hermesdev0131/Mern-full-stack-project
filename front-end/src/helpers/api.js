@@ -1,34 +1,17 @@
 import axios from 'axios'
 import { getToken } from './auth'
 
-
-const baseUrl = '/api'
-
-export const login = async (data) => {    
-  return makeAxiosRequest('/login', data)   
-}
-
-export const register = (data) => {    
-  return makeAxiosRequest('/register', data)   
-}
-
-export const makeAxiosRequest = async (url, data) => {
-  const config = getAxiosRequestConfig(url, data)
-  const response = await axios(config)
-  return response.data
-}
+// const baseUrl = '/api'
 
 export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
-  // const token = localStorage.token
-
   const config = {
     method,
-    url: `${baseUrl}${requestUrl}`,
-    headers: {
-      Authorization: `${getToken}`,
+    url: `/api${requestUrl}`,
+    headers: { 
+      Authorization: `${getToken()}`,
       'Content-Type': 'application/json'
     },
-    data: data
+    data
   }
   return config
 }
