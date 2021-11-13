@@ -10,8 +10,8 @@ const MovieAdd = () => {
     director: '',
     releaseYear: '',
     description: '',
-    genre: [],
-    cast: []
+    genre: '',
+    cast: ''
   })
 
   const [errorInfo, setErrorInfo] = useState({})
