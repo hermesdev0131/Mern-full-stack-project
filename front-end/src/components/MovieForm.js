@@ -1,5 +1,5 @@
 import FormInput from './FormInput'
-
+// import Form from 'react-bootstrap/Form'
 import React from 'react'
 
 const MovieForm = ({ formInputProps }) => {

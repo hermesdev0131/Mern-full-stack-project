@@ -1,16 +1,22 @@
-.movie-show-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 1%;
-  gap: 1%;
-  .movie-info-div {
-    h1 {
-      font-size: 4rem;
-    }
-    .movie-info {
-      border: 1px solid grey;
-      border-radius: 5px;
+body {
+  height: 100vh;
+  main {
+    height: 100%;
+    .movie-show-div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 1%;
+      gap: 1%;
+      .movie-info-div {
+        h1 {
+          font-size: 4rem;
+        }
+        .movie-info {
+          border: 1px solid grey;
+          border-radius: 5px;
+        }
+      }
     }
   }
 }

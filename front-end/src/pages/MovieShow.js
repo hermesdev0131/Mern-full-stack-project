@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import RatingForm from '../components/RatingForm'
+import { Link } from 'react-router-dom'
 
 const MovieShow = () => {
   const [movie, setMovie] = useState([])
@@ -44,6 +45,7 @@ const MovieShow = () => {
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
           <p>Rating: {movie.averageRating}</p>
+          <p><Link to={`/movies/${id}/edit`}>Edit this movie!</Link></p>
         </div>
         <div className="rate-n-review-div">
           <RatingForm />

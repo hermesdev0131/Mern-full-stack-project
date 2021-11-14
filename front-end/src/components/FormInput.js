@@ -10,7 +10,7 @@ const FormInput = ({
 }) => {
   return (
     <div>
-      <input 
+      <input className="text-field"
         placeholder={placeholder} 
         type={type} 
         name = {name} 

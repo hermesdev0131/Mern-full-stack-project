@@ -6,7 +6,7 @@ import { fetchOneMovie, getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
 
 const MovieEdit = () => {
-  const [data, setData] = useState({
+  const [movie, setMovie] = useState({
     title: '',
     director: '',
     releaseYear: '',
@@ -22,7 +22,7 @@ const MovieEdit = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetchOneMovie(id).then(setData)
+    fetchOneMovie(id).then(setMovie)
   }, [id])
 
   const handleError = (error) => {
@@ -35,14 +35,14 @@ const MovieEdit = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = getAxiosRequestConfig('/movies', data)
+    const config = getAxiosRequestConfig(`/movies/${id}`, movie, 'put')
 
     try {
       const response = await axios(config).catch(handleError)
 
       console.log(response.data)
       setIsError(false)
-      navigate(`movies/${response.data._id}`)
+      navigate(`/movies/${response.data._id}`)
     } catch (err) {
       console.log(err)
     }
@@ -50,21 +50,28 @@ const MovieEdit = () => {
 
   const handleFormChange = (event) => {
     const { name, value } = event.target
-    setData({
-      ...data,
+    setMovie({
+      ...movie,
       [name]: value
     })
   }
 
-  const formInputProps = { data, errorInfo, handleFormChange }
+  const goBack = () => {
+    navigate(goBack)
+  }
+
+  const formInputProps = { data: movie, errorInfo, handleFormChange }
 
   return (
     <section className="form-section">
       <form onSubmit={handleSubmit}>
-        <h1>Add a Movie</h1>
+        <h1>Edit a Movie</h1>
         <MovieForm formInputProps={formInputProps} />
         <div>
-          <input type="submit" value="Add Movie" />
+          <input type="submit" value="Edit Movie" />
+        </div>
+        <div>
+          <input type="button" onClick={goBack} value="Cancel" />
         </div>
         {isError ? (
           <div className="error">

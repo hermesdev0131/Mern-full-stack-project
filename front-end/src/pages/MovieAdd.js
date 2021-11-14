@@ -39,7 +39,7 @@ const MovieAdd = () => {
 
       console.log(response.data)
       setIsError(false)
-      navigate(`movies/${response.data._id}`)
+      navigate(`/movies/${response.data._id}`)
     } catch (err) {
       console.log(err)
     }
@@ -57,11 +57,11 @@ const MovieAdd = () => {
 
   return (
     <section className="form-section">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="add-movie-form">
         <h1>Add a Movie</h1>
         <MovieForm formInputProps={formInputProps} />
         <div>
-          <input type="submit" value="Add Movie" />
+          <input id="submit-button" type="submit" value="Add Movie" />
         </div>
         {isError ? (
           <div className="error">

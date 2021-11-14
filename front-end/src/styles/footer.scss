@@ -2,7 +2,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgba(163, 82, 27, 0.89);
+  background-color: rgb(95, 58, 34);
+  color: rgb(250, 241, 190);
   div {
     width: 100%;
     div {
@@ -12,7 +13,7 @@ footer {
       width: 100%;
     }
     a {
-      color: black;
+      color: rgb(250, 241, 190);
       text-decoration: none;
     }
   }
