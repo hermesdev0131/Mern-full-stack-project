@@ -32,7 +32,7 @@ const MovieShow = () => {
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
-        <img src={movie.image} alt={movie.title} style={{ maxWidth: '650px', maxHeight: '750px' }}/>
+        <img src={movie.image} alt={movie.title} style={{ maxWidth: '70vh', maxHeight: '70vh' }}/>
       </div>
       <div className="movie-data-container-div">
         <h1>

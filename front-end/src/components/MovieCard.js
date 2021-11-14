@@ -4,10 +4,11 @@ import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
 
 const MovieCard = ({
-  id,
+  _id,
   title, 
   image, 
-  averageRating
+  averageRating,
+  user
 }) => {
   return (
     <div>
@@ -18,8 +19,11 @@ const MovieCard = ({
           <Card.Text className="card-text">
             {averageRating}
           </Card.Text>
+          <Card.Text className="card-user">
+            <p>Added by {user?.username}</p>
+          </Card.Text>
           <Button className="card-button">
-            <Link to={`/movies/${id}`} className="more-info-link">More Info</Link>
+            <Link to={`/movies/${_id}`} className="more-info-link">More Info</Link>
           </Button>
         </Card.Body>
       </Card>

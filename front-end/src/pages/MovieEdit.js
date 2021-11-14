@@ -1,12 +1,11 @@
 import axios from 'axios'
 import * as React from 'react' 
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getAxiosRequestConfig } from '../helpers/api'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { fetchOneMovie, getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
-// import Form from 'react-bootstrap/Form'
 
-const MovieAdd = () => {
+const MovieEdit = () => {
   const [data, setData] = useState({
     title: '',
     director: '',
@@ -19,8 +18,12 @@ const MovieAdd = () => {
 
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
-
+  const { id } = useParams()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    fetchOneMovie(id).then(setData)
+  }, [id])
 
   const handleError = (error) => {
     if (error.response) {
@@ -75,4 +78,4 @@ const MovieAdd = () => {
   )
 }
 
-export default MovieAdd
+export default MovieEdit

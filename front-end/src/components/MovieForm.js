@@ -18,7 +18,7 @@ const MovieForm = ({ formInputProps }) => {
         {...formInputProps}
       />
       <FormInput
-        name='realse year'
+        name='releaseYear'
         type='number'
         placeholder='Year of release'
         {...formInputProps}
@@ -27,6 +27,12 @@ const MovieForm = ({ formInputProps }) => {
         name='description'
         type='text'
         placeholder='Description'
+        {...formInputProps}
+      />
+      <FormInput
+        name='image'
+        type='text'
+        placeholder='<Copy Url Here>'
         {...formInputProps}
       />
       <FormInput

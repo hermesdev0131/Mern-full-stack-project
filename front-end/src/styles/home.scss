@@ -4,14 +4,14 @@
   flex-direction: column;
   text-align: center;
   .carousel-div {
+    background: black;
     display: flex;
     justify-content: center;
     .carousel {
-      height: 70vh;
+      height: 80vh;
       width: 60vw;
-      align-items: center;
       img {
-        margin: 3% auto;
+        margin: 5% auto 0 auto;
         max-height: 70%;
         max-width: 70%;
       }

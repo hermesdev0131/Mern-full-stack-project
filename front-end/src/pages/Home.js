@@ -15,8 +15,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Welcome to Burnt Toast</h1>
-      <p>The Worlds leading movie review site</p>
       <div className="carousel-div">
         <Carousel>
           {movies.map((m) => (

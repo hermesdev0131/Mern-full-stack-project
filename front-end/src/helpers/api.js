@@ -3,19 +3,6 @@ import { getToken } from './auth'
 
 // const baseUrl = '/api'
 
-export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
-  const config = {
-    method,
-    url: `/api${requestUrl}`,
-    headers: { 
-      Authorization: `${getToken()}`,
-      'Content-Type': 'application/json'
-    },
-    data
-  }
-  return config
-}
-
 export const fetchAllMovies = async () => {
   const config = {
     method: 'get',
@@ -33,9 +20,21 @@ export const fetchOneMovie = async (id) => {
     url: `/api/movies/${id}`,
     headers: {}
   }
-
   const response = await axios(config)
   return response.data
+}
+
+export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
+  const config = {
+    method,
+    url: `/api${requestUrl}`,
+    headers: { 
+      Authorization: `${getToken()}`,
+      'Content-Type': 'application/json'
+    },
+    data
+  }
+  return config
 }
 
 // export const deleteMovie = async (id) => {
