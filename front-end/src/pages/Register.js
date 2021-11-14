@@ -57,7 +57,7 @@ const Register = () => {
 
   return (
     <section className="form-section">
-      <form onSubmit={handleSubmit}>
+      <form className="registration-form" onSubmit={handleSubmit}>
         <h1>Sign Up to Burnt Toast</h1>
         <div>
           <FormInput

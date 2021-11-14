@@ -64,7 +64,7 @@ const MovieEdit = () => {
 
   return (
     <section className="form-section">
-      <form onSubmit={handleSubmit}>
+      <form className="edit-a-movie-form" onSubmit={handleSubmit}>
         <h1>Edit a Movie</h1>
         <MovieForm formInputProps={formInputProps} />
         <div>

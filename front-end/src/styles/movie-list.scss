@@ -11,14 +11,21 @@ main {
   padding: 0;
 }
 
-.add-movie-form {
+.add-movie-form,
+.login-form,
+.edit-a-movie-form,
+.registration-form {
   text-align: center;
   width: 20%;
-  margin-top: 15%;
   border: 5px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
   input {
     text-align: center;
-    margin: 1.5%;
+    margin: 2.5%;
     width: 60%;
     background-color: rgb(250, 241, 190);
   }

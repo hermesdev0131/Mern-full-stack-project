@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import RatingForm from '../components/RatingForm'
 import { Link } from 'react-router-dom'
+import { deleteMovie } from '../helpers/api'
 
 const MovieShow = () => {
   const [movie, setMovie] = useState([])
   const [genre, setGenre] = useState([])
   const [comments, setComments] = useState([])
   const { id } = useParams()
+  const navigate = useNavigate()
   
 
   useEffect(() => {
@@ -30,6 +32,18 @@ const MovieShow = () => {
     fetchMovie()
   }, [id])
 
+  const handleDeleteClick = () => {
+    deleteMovie(id)
+      .then((data) => {
+        console.log(data)
+        navigate('/movies')
+      })
+      .catch((err) => {
+        console.log(err)
+        alert(err)
+      })
+  }
+
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
@@ -45,7 +59,10 @@ const MovieShow = () => {
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
           <p>Rating: {movie.averageRating}</p>
-          <p><Link to={`/movies/${id}/edit`}>Edit this movie!</Link></p>
+          <p>
+            <Link to={`/movies/${id}/edit`}>Edit this movie!</Link>
+            <button onClick={handleDeleteClick}>Delete this movie!</button>
+          </p>
         </div>
         <div className="rate-n-review-div">
           <RatingForm />

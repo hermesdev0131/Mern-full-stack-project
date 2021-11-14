@@ -16,6 +16,13 @@ const Login = ({ setIsLoggedIn }) => {
   const [isError, setIsError] = useState(false)
   const navigate = useNavigate()
 
+  // const handleSuccesfulLogin = ({ token }) => {
+  //   setToken(token)
+  //   setIsLoggedIn(true)
+  //   setIsError(false)
+  //   navigate('/home')
+  // }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -34,13 +41,7 @@ const Login = ({ setIsLoggedIn }) => {
     } 
   }
 
-  // const handleSuccesfulLogin = ({ token }) => {
-  //   setToken(token)
-  //   setIsLoggedIn(true)
-  //   setIsError(false)
-  //   navigate('/movies')
-  // }
-
+  
   const handleError = (error) => {
     if (error.response) {
       setErrorInfo(error.response.data)
@@ -60,7 +61,7 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <section className="form-section">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form">
         <h1>Sign in to Burnt Toast</h1>
         <FormInput 
           placeholder="username" 
