@@ -24,6 +24,9 @@ body {
 
 .form-section {
   height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-movie-form,
@@ -33,17 +36,13 @@ body {
   padding: 3%;
   text-align: center;
   border: 1px solid rgb(250, 241, 190);
-  border-radius: 5%;
-  justify-content: center;
-  align-items: center;
+  border-radius: 5px;
   flex-direction: column;
   input {
     text-align: center;
     margin: 2.5%;
     width: 100%;
     background-color: rgb(250, 241, 190);
-    border: 1px solid none;
-    border-radius: 5%;
   }
 }
 
@@ -51,3 +50,4 @@ body {
   background-color: rgb(95, 58, 34);
   width: 100%;
 }
+

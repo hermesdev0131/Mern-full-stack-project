@@ -5,6 +5,7 @@ import { setToken } from '../helpers/auth'
 import { login } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
+import Form from 'react-bootstrap/Form'
 // import { getAxiosRequestConfig } from '../helpers/api'
 
 const Login = ({ setIsLoggedIn }) => {
@@ -51,31 +52,33 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <section className="form-section">
-      <form onSubmit={handleSubmit} className="login-form">
+      <Form onSubmit={handleSubmit} className="login-form">
         <h1>Sign in to Burnt Toast</h1>
-        <FormInput 
-          placeholder="username" 
-          type='text'
-          name='username' 
-          {...formInputProps} 
-        />
-        <FormInput 
-          placeholder="password" 
-          type='password'
-          name='password' 
-          {...formInputProps} 
-        />
-        <div>
-          <input type="submit" value="Login" />
-        </div>
-        {isError ? (
-          <div className='error'>
-            <p>Error. Please try again.</p>
-          </div> 
-        ) : (
-          <></>
-        )}
-      </form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <FormInput 
+            placeholder="username" 
+            type='text'
+            name='username' 
+            {...formInputProps} 
+          />
+          <FormInput 
+            placeholder="password" 
+            type='password'
+            name='password' 
+            {...formInputProps} 
+          />
+          <div>
+            <Form.Control type="submit" value="Login" />
+          </div>
+          {isError ? (
+            <div className='error'>
+              <p>Error. Please try again.</p>
+            </div> 
+          ) : (
+            <></>
+          )}
+        </Form.Group>
+      </Form>
     </section>
   )
 }

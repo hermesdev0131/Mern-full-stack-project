@@ -1,4 +1,5 @@
 import React from 'react'
+import Form from 'react-bootstrap/Form'
 
 const FormInput = ({ 
   name, 
@@ -10,7 +11,8 @@ const FormInput = ({
 }) => {
   return (
     <div>
-      <input className="text-field"
+      <Form.Control
+        className="text-field"
         placeholder={placeholder} 
         type={type} 
         name = {name} 

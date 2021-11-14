@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
+import Form from 'react-bootstrap/Form'
 import { getAxiosRequestConfig } from '../helpers/api'
 
 const Register = () => {
@@ -57,7 +58,7 @@ const Register = () => {
 
   return (
     <section className="form-section">
-      <form className="registration-form" onSubmit={handleSubmit}>
+      <Form className="registration-form" onSubmit={handleSubmit}>
         <h1>Sign Up to Burnt Toast</h1>
         <div>
           <FormInput
@@ -98,7 +99,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <input type="submit" value="Register" />
+          <Form.Control type="submit" value="Register" />
         </div>
         {isError ? (
           <div className='error'>
@@ -107,7 +108,7 @@ const Register = () => {
         ) : (
           <></>
         )}
-      </form>
+      </Form>
     </section>
   )
 }

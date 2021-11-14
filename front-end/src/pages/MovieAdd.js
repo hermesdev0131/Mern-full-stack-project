@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
-// import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form'
 
 const MovieAdd = () => {
   const [data, setData] = useState({
@@ -57,11 +57,11 @@ const MovieAdd = () => {
 
   return (
     <section className="form-section">
-      <form onSubmit={handleSubmit} className="add-movie-form">
+      <Form onSubmit={handleSubmit} className="add-movie-form">
         <h1>Add a Movie</h1>
         <MovieForm formInputProps={formInputProps} />
         <div>
-          <input id="submit-button" type="submit" value="Add Movie" />
+          <Form.Control id="submit-button" type="submit" value="Add Movie" />
         </div>
         {isError ? (
           <div className="error">
@@ -70,7 +70,7 @@ const MovieAdd = () => {
         ) : (
           <></>
         )}
-      </form>
+      </Form>
     </section>
   )
 }
