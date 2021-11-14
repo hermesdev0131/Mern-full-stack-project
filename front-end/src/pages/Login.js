@@ -1,10 +1,11 @@
 import * as React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useState } from 'react'
 import { setToken } from '../helpers/auth'
+import { login } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
-import { getAxiosRequestConfig } from '../helpers/api'
+// import { getAxiosRequestConfig } from '../helpers/api'
 
 const Login = ({ setIsLoggedIn }) => {
   const [data, setData] = useState({
@@ -16,29 +17,18 @@ const Login = ({ setIsLoggedIn }) => {
   const [isError, setIsError] = useState(false)
   const navigate = useNavigate()
 
-  // const handleSuccesfulLogin = ({ token }) => {
-  //   setToken(token)
-  //   setIsLoggedIn(true)
-  //   setIsError(false)
-  //   navigate('/home')
-  // }
+  const handleSuccesfulLogin = ({ token }) => {
+    setToken(token)
+    setIsLoggedIn(true)
+    setIsError(false)
+    navigate('/')
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = getAxiosRequestConfig('/login', data)
+    login(data).then(handleSuccesfulLogin).catch(handleError)
 
-    try {
-      const response = await axios(config).catch(handleError)
-      console.log(response.data.token)
-      setToken(response.data.token)
-      setIsLoggedIn(true)
-      setIsError(false)
-      navigate('/movies')
-    } catch (err){
-      console.error(err)
-      setIsError(true)
-    } 
   }
 
   
