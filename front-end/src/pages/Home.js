@@ -17,13 +17,15 @@ const Home = () => {
     <div className="home">
       <h1>Welcome to Burnt Toast</h1>
       <p>The Worlds leading movie review site</p>
-      <Carousel>
-        {movies.map((m) => (
-          <Carousel.Item key={m._id} className="carousel">
-            <Slide {...m} />
-          </Carousel.Item>
-        ))}
-      </Carousel>
+      <div>
+        <Carousel>
+          {movies.map((m) => (
+            <Carousel.Item key={m._id} className="carousel">
+              <Slide {...m} />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
     </div>
   )
 }

@@ -12,7 +12,7 @@ const Slide = ( {
     <>
       <img
         className="d-block w-100"
-        style={{ maxHeight: '750px' }}
+        style={{ minWidth: '800px', minHeight: '600px' }}
         src={image}
         alt={title}
       />
