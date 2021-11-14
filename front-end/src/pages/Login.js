@@ -59,7 +59,7 @@ const Login = ({ setIsLoggedIn }) => {
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
-    <section>
+    <section className="form-section">
       <form onSubmit={handleSubmit}>
         <h1>Sign in to Burnt Toast</h1>
         <FormInput 

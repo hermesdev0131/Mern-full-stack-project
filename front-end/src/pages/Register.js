@@ -31,7 +31,7 @@ const Register = () => {
       console.log(response.data.token)
       setToken(response.data.token)
       setIsError(false)
-      navigate('/login')
+      navigate('/')
     } catch (err){
       console.error(err)
       setIsError(true)
@@ -56,7 +56,7 @@ const Register = () => {
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
-    <section>
+    <section className="form-section">
       <form onSubmit={handleSubmit}>
         <h1>Sign Up to Burnt Toast</h1>
         <div>

@@ -8,28 +8,28 @@ footer {
   color: black;
   height: 5%;
   font-size: 22px;
-  div{
-    width: 100%;
   div {
-    display: flex;
     width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    p {
-      width: 100%;
+    div {
       display: flex;
-      justify-content: space-evenly;
-      list-style-type: none;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      p {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+      }
     }
-  }
-  div {
-    width: 100%;
-    p {
+    div {
       width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      list-style-type: none;
-    }  
+      p {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+      }
       a {
         color: black;
         text-decoration: none;
@@ -37,4 +37,3 @@ footer {
     }
   }
 }
-

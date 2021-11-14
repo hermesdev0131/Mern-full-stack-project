@@ -17,7 +17,7 @@ const Home = () => {
     <div className="home">
       <h1>Welcome to Burnt Toast</h1>
       <p>The Worlds leading movie review site</p>
-      <div>
+      <div className="carousel-div">
         <Carousel>
           {movies.map((m) => (
             <Carousel.Item key={m._id} className="carousel">

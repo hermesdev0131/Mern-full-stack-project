@@ -54,7 +54,7 @@ const MovieAdd = () => {
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
-    <section>
+    <section className="form-section">
       <form onSubmit={handleSubmit}>
         <h1>Add a Movie</h1>
         <MovieForm formInputProps={formInputProps} />

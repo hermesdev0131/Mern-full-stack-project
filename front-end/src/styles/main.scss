@@ -1,13 +1,13 @@
-@import '~bootstrap/scss/bootstrap';
-@import 'movie-list';
-@import 'card';
-@import 'header';
-@import 'movieShow';
-@import 'register';
-@import 'login';
-@import 'home';
-@import 'movie-add';
-@import 'footer';
+@import "~bootstrap/scss/bootstrap";
+@import "movie-list";
+@import "card";
+@import "header";
+@import "movieShow";
+@import "register";
+@import "login";
+@import "home";
+@import "movie-add";
+@import "footer";
 
 * {
   box-sizing: border-box;
@@ -22,3 +22,6 @@ body {
   }
 }
 
+.form-section {
+  height: 80vh;
+}
