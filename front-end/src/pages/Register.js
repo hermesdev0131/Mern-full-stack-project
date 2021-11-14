@@ -74,7 +74,7 @@ const Register = () => {
           {...formInputProps}
         />
         <div>
-          <input 
+          <FormInput
             placeholder="image" 
             type='image' 
             name = 'image' 
@@ -82,7 +82,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <input 
+          <FormInput
             placeholder="password" 
             type='password' 
             name = 'password' 
@@ -90,7 +90,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <input 
+          <FormInput
             placeholder="password confirmation" 
             type='password' 
             name = 'passwordConfirmation' 
