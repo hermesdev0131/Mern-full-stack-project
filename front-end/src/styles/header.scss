@@ -2,36 +2,94 @@ header {
   background-color: rgb(250, 241, 190);
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   height: 15%;
   font-size: 30px;
-  div {
+  .main-header-div {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    .logo {
-      width: 110px;
-    }
-    h1 {
-      font-family: "Pacifico", cursive;
-    }
-  }
-  div {
-    width: 90%;
-    nav {
+    .logo-div {
+      justify-self: flex-start;
       display: flex;
-      width: 100%;
       flex-direction: row;
-      justify-content: center;
-      ul {
-        width: 100%;
+      width: 20%;
+      height: 100%;
+      .logo {
+        width: 20%;
+      }
+      h1 {
+        font-size: 42px;
+        font-family: "Pacifico", cursive;
+        margin-top: 5%;
+      }
+    }
+    .search-bar-and-nav-div {
+      flex-direction: row;
+      display: flex;
+      width: 80%;
+      .search-bar {
+        width: 60%;
+        height: 100%;
+        text-align: center;
+        #category-search {
+          width: 100%;
+          height: 100%;
+        }
+        form {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          #category {
+            height: 60%;
+            border: 4px solid rgb(95, 58, 34);
+            border-radius: 3px 3px 3px;
+            background-color: rgb(231, 209, 171);
+            font-size: 15px;
+          }
+          #toast,
+          input {
+            font-size: 1rem;
+            align-self: center;
+            color: rgb(95, 58, 34);
+            border: 4px solid rgb(95, 58, 34);
+            background-color: rgb(196, 177, 146);
+            border-radius: 5px;
+            text-align: center;
+            height: 60%;
+
+            #toast:hover {
+              background-color: rgb(225, 150, 99);
+            }
+          }
+        }
+      }
+      nav {
+        margin: right;
         display: flex;
-        justify-content: space-evenly;
-        list-style-type: none;
-        a {
-          text-decoration: none;
-          color: rgb(95, 58, 34);
+        width: 70%;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        // height: 100%;
+        ul {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          list-style-type: none;
+          li {
+            flex-direction: row;
+            list-style-type: none;
+            a {
+              text-decoration: none;
+              color: rgb(95, 58, 34);
+              input {
+                background-color: rgb(250, 241, 190);
+              }
+            }
+          }
         }
       }
     }

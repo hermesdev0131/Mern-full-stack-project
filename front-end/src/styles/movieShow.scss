@@ -1,22 +1,78 @@
-body {
+.movie-show-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5%;
+  width: 100vw;
   height: 100vh;
-  main {
-    height: 100%;
-    .movie-show-div {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      padding: 1%;
-      gap: 1%;
-      .movie-info-div {
-        h1 {
-          font-size: 4rem;
-        }
-        .movie-info {
-          border: 1px solid grey;
-          border-radius: 5px;
-        }
+  padding: 1%;
+  img {
+    max-width: 40vw;
+    max-height: 90vh;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+  .movie-data-container-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5%;
+    max-width: 60vw;
+    max-height: 90vh;
+    padding: 0.5%;
+    background-color: rgb(196, 177, 146);
+    color: rgb(95, 58, 34);
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 2%;
+    background-color: rgb(231, 209, 171);
+    border: 2px solid grey;
+    border-radius: 5px;
+    h1 {
+      align-self: center;
+      margin: 0 auto 2.5% auto;
+    }
+  }
+  .comments-div {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 0.5%;
+    padding: 1%;
+    background-color: rgb(250, 241, 190);
+    border: 2px solid grey;
+    border-radius: 5px;
+    h3 {
+      align-self: center;
+      margin: 0 auto;
+    }
+    ul {
+      li {
+        list-style: none;
+        margin: 2%;
+        padding: 2%;
+        color: rgb(225, 150, 99);
+        background-color: rgb(228, 226, 226);
+        border: 2px solid rgb(228, 226, 226);
+        border-radius: 10px;
       }
     }
+  }
+  .alter-movie-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 35%;
+    padding: 1%;
+    gap: 2%;
+    background-color: rgb(231, 209, 171);
+    border: 2px solid grey;
+    border-radius: 5px;
   }
 }

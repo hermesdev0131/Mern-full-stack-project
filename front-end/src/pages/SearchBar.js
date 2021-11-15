@@ -10,9 +10,6 @@ const SearchBar = () => {
   const [browser, setBrowser] = useState('')
   const navigate = useNavigate()
 
-
-
-
   useEffect(() => {
     async function fetchMovie() {
   
@@ -52,7 +49,7 @@ const SearchBar = () => {
         value={search}
         onChange={handleChange}
       />
-      <input className="search-button" type="submit" value="TOAST" />
+      <input id="toast" className="button" type="submit" value="TOAST" />
     </form>
   )
 }

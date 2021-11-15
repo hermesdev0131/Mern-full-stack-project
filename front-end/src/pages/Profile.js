@@ -41,7 +41,7 @@ const Profile = () => {
           <Card.Img variant="top" src={`${userData.image}`} style={{ minWidth: '200px' }}/>
           <Card.Body>
             <Card.Title>
-              {userData.username}
+              <p><span className="movies-added-by">Movies Added by:</span> {userData.username}</p>
             </Card.Title>
           </Card.Body>
         </Card>

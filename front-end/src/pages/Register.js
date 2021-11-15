@@ -78,9 +78,10 @@ const Register = () => {
           <FloatingLabel controlId="floatingSelect" label="Choose your Avatar"> 
             <Form.Select name="image" type="image" aria-label="Floating label select example" {...formInputProps} onChange={handleFormChange} >
               <option>Open this select menu</option>
-              <option value='https://assets.londonist.com/uploads/2009/09/i730/0916_shawshank.jpg'>One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value='https://image.emojipng.com/393/209393.jpg'>😉</option>
+              <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face.png">😀</option>
+              <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-tears-of-joy.png">😂</option>
+              <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nerd-face.png">🤓</option>
             </Form.Select>
           </FloatingLabel>
         </div>

@@ -8,6 +8,7 @@
 @import "home";
 @import "movie-add";
 @import "footer";
+@import "profile";
 
 * {
   box-sizing: border-box;
@@ -48,10 +49,18 @@ body {
   }
 }
 
-button {
+.button {
   align-self: center;
+  color: rgb(95, 58, 34);
   border: 2px solid rgb(95, 58, 34);
   background-color: rgb(250, 241, 190);
   border-radius: 5px;
   text-align: center;
+  .button:hover {
+    background-color: rgb(225, 150, 99);
+  }
+  .link {
+    text-decoration: none;
+    color: rgb(95, 58, 34);
+  }
 }

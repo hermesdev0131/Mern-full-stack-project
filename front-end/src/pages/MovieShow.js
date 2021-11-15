@@ -46,35 +46,35 @@ const MovieShow = () => {
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
-        <img src={movie.image} alt={movie.title} style={{ maxWidth: '70vh', maxHeight: '70vh' }}/>
+        <img src={movie.image} alt={movie.title} />
       </div>
       <div className="movie-data-container-div">
-        <h1>
-          {movie.title}
-        </h1>
         <div className="movie-info">
+          <h1>
+            {movie.title}
+          </h1>
           <p>Director: {movie.director}</p>
           <p>Released: {movie.releaseYear}</p>
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
           <p>Rating: {movie.averageRating}</p>
-          <div className="alter-movie-buttons">
-            <Button><Link to={`/movies/${id}/edit`}>Edit this movie!</Link></Button>
-            <Button onClick={handleDeleteClick}>Delete this movie!</Button>
-            <Button><Link to={`/movies/${id}/rating`}>Rate this movie!</Link></Button>
+          <div className="comments-div">
+            <h3>Comments</h3>
+            <ul>
+              {comments.map((comment) => (
+                comment.text.length > 0 ? 
+                  <li key={comment._id}>
+                    {comment.owner.username}: {comment.text}  {comment.timestamps} 
+                  </li>
+                  : false
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="comments-div">
-          <h3>Comments</h3>
-          <ul>
-            {comments.map((comment) => (
-              comment.text.length > 0 ? 
-                <li key={comment._id}>
-                  {comment.owner.username} commented: {comment.text}  {comment.timestamps} 
-                </li>
-                : false
-            ))}
-          </ul>
+        <div className="alter-movie-buttons">
+          <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit Movie</Link></Button>
+          <Button className="button" onClick={handleDeleteClick}>Delete movie</Button>
+          <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate movie</Link></Button>
         </div>
       </div>
       
