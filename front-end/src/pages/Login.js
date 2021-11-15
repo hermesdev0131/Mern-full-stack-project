@@ -53,7 +53,7 @@ const Login = ({ setIsLoggedIn }) => {
   return (
     <section className="form-section">
       <Form onSubmit={handleSubmit} className="login-form">
-        <h1>Sign in to Burnt Toast</h1>
+        <h1>Log in to Burnt Toast</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <FormInput 
             placeholder="username" 
