@@ -98,9 +98,9 @@ const MovieShow = () => {
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
           <p>Rating: {movie.averageRating}</p>
-          <p>
+          <p className="edit-links">
             <Link to={`/movies/${id}/edit`}>Edit this movie!</Link>
-            <button onClick={handleDeleteClick}>Delete this movie!</button>
+            <span onClick={handleDeleteClick}>Delete this movie!</span>
           </p>
         </div>
         <Form onSubmit={handleSubmit} className="add-rating-form">
