@@ -1,71 +1,81 @@
 import Form from 'react-bootstrap/Form'
-
-import React from 'react'
+import * as React from 'react' 
 
 const RatingForm = () => {
+
   return (
     <div>
-      <Form>
+      <>
         <Form.Label>Rate this film</Form.Label>
         <div key='inline-radio' className="mb-3">
           <Form.Check
             inline
+            name="rating"
             label="1"
-            name="group1"
+            value="1"
             type={'radio'}
           />
           <Form.Check
             inline
+            name="rating"
             label="2"
-            name="group1"
+            value="2"
             type={'radio'}
           />
           <Form.Check
             inline
+            name="rating"
             label="3"
-            name="group1"
+            value="3"
             type={'radio'}
           />
           <Form.Check
             inline
             label="4"
-            name="group1"
+            value="4"
+            name="rating"
             type={'radio'}
           />
           <Form.Check
             inline
             label="5"
-            name="group1"
+            value="5"
+            name="rating"
             type={'radio'}
           />
           <Form.Check
             inline
             label="6"
-            name="group1"
+            value="6"
+            name="rating"
             type={'radio'}
           />
           <Form.Check
             inline
             label="7"
-            name="group1"
+            value="7"
+            name="rating"
             type={'radio'}
           />
           <Form.Check
             inline
             label="8"
-            name="group1"
+            value="8"
+            name="rating"
             type={'radio'}
           />
           <Form.Check
             inline
             label="9"
-            name="group1"
+            value="9"
+            name="rating"
             type={'radio'}
           />
           <Form.Check
             inline
             label="10"
-            name="group1"
+            value="10"
+            name="rating"
             type={'radio'}
           />
         </div>
@@ -73,7 +83,17 @@ const RatingForm = () => {
           <Form.Label>Comment</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
-      </Form>
+        <div>
+          <Form.Control id="submit-button" type="submit" value="Add Rating" />
+        </div>
+        {/* {isError ? (
+          <div className="error">
+            <p>Error. Please try again</p>
+          </div>
+        ) : (
+          <></>
+        )} */}
+      </>
     </div>
   )
 }

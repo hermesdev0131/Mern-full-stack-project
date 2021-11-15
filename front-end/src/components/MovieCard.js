@@ -13,7 +13,10 @@ const MovieCard = ({
   return (
     <div>
       <Card style={{ width: '18rem' }} className="movie-card">
-        <Card.Img variant="top" src={image} alt={title} style={{ maxWidth: '200px', maxHeight: '280px' }}/>
+        <Card.Img className="card-image" variant="top" src={
+          image.length <= 5 
+            ? 'https://spartacus.s9y.org/cvs/additional_themes/wp/preview_fullsize.jpg' : image } 
+        alt={title} style={{ height: '100%', width: '50%' }}/>
         <Card.Body className="card-body">
           <Card.Title className="card-title">{title}</Card.Title>
           <Card.Text className="card-text">

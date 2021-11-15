@@ -1,26 +1,24 @@
 import axios from 'axios'
 import * as React from 'react' 
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getAxiosRequestConfig } from '../helpers/api'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { fetchOneMovie, getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
-import Form from 'react-bootstrap/Form'
 
-const MovieAdd = () => {
-  const [data, setData] = useState({
-    title: '',
-    director: '',
-    releaseYear: '',
-    description: '',
-    image: '',
-    genre: '',
-    cast: ''
+const AddaRating = () => {
+  const [movie, setMovie] = useState({
+    rating: '',
+    text: '',
   })
 
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
-
+  const { id } = useParams()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    fetchOneMovie(id).then(setMovie)
+  }, [id])
 
   const handleError = (error) => {
     if (error.response) {
@@ -32,12 +30,12 @@ const MovieAdd = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = getAxiosRequestConfig('/movies', data)
+    const config = getAxiosRequestConfig(`/movies/${id}`, movie, 'put')
 
     try {
       const response = await axios(config).catch(handleError)
 
-      // console.log(response.data)
+      console.log(response.data)
       setIsError(false)
       navigate(`/movies/${response.data._id}`)
     } catch (err) {
@@ -47,21 +45,28 @@ const MovieAdd = () => {
 
   const handleFormChange = (event) => {
     const { name, value } = event.target
-    setData({
-      ...data,
+    setMovie({
+      ...movie,
       [name]: value
     })
   }
 
-  const formInputProps = { data, errorInfo, handleFormChange }
+  const goBack = () => {
+    navigate(goBack)
+  }
+
+  const formInputProps = { data: movie, errorInfo, handleFormChange }
 
   return (
     <section className="form-section">
-      <Form onSubmit={handleSubmit} className="add-movie-form">
-        <h1>Add a Movie</h1>
+      <form className="edit-a-movie-form" onSubmit={handleSubmit}>
+        <h1>Edit a Movie</h1>
         <MovieForm formInputProps={formInputProps} />
         <div>
-          <Form.Control id="submit-button" type="submit" value="Add Movie" />
+          <input type="submit" value="Edit Movie" />
+        </div>
+        <div>
+          <input type="button" onClick={goBack} value="Cancel" />
         </div>
         {isError ? (
           <div className="error">
@@ -70,9 +75,9 @@ const MovieAdd = () => {
         ) : (
           <></>
         )}
-      </Form>
+      </form>
     </section>
   )
 }
 
-export default MovieAdd
+export default MovieEdit

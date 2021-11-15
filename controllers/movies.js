@@ -4,7 +4,7 @@ import Movie from '../models/movie.js'
 //Returns all movies 
 export const getAllMovies = async (_req, res) => {
     const movies = await Movie.find()
-    console.log('movies', movies)
+    // console.log('movies', movies)
     return res.status(200).json(movies)
   }
 
@@ -12,7 +12,7 @@ export const getAllMovies = async (_req, res) => {
 //Adds a movie to the movies collection
 export const addMovie = async (req, res) => {
   try {
-    console.log(req.body)
+    // console.log(req.body)
     // console.log(owner req.currentUser._id)
     const newMovie = { ...req.body, owner: req.currentUser._id }
     const movieToAdd = await Movie.create(newMovie)
@@ -29,7 +29,7 @@ export const getSingleMovie = async (req, res) => {
   try {
     const { id } = req.params
     const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
-    console.log(movie)
+    // console.log(movie)
     if (!movie) throw new Error()
     return res.status(200).json(movie)
   } catch (err) {
@@ -78,7 +78,7 @@ export const addARating = async (req, res) => {
     const newRating = { ...req.body, owner: req.currentUser._id }
     console.log('newRating', newRating)
     movie.rating.push(newRating)
-    console.log('Movie ->', movie)
+    // console.log('Movie ->', movie)
     await movie.save({ validateModifiedOnly: true })
     return res.status(200).json(movie)
   } catch (err) {

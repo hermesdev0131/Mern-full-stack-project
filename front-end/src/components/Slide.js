@@ -12,7 +12,9 @@ const Slide = ( {
     <>
       <img
         className="d-block w-100"
-        src={image}
+        src={
+          image.length <= 5 
+            ? 'https://spartacus.s9y.org/cvs/additional_themes/wp/preview_fullsize.jpg' : image }
         alt={title}
       />
       <Carousel.Caption>

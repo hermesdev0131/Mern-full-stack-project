@@ -16,6 +16,10 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div>
       <nav>
+        <div>
+          <img src="https://i.ibb.co/1mxkxtP/burnt-toast-icon.png" alt="burnt-toast-icon" className="logo"/>
+          <h1>Burnt Toast</h1>
+        </div>
         <ul>
           <li>
             <Link to="/">Home</Link>

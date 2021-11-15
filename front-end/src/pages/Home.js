@@ -10,7 +10,6 @@ const Home = () => {
 
   useEffect(() => {
     fetchAllMovies().then(setMovies)
-    console.log(movies)
   }, [])
 
   return (

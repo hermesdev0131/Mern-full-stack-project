@@ -3,12 +3,15 @@ body {
 }
 
 main {
-  background: black;
+  background-color: rgb(82, 68, 58);
   color: rgb(250, 241, 190);
+  height: 100%;
 }
 
 .movie-list-div {
   padding: 0;
+  height: 100%;
+  overflow: scroll;
 }
 
 .movie-list {

@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgb(95, 58, 34);
+  background-color: rgb(212, 198, 174);
 }
 
 .card-body {
@@ -13,21 +13,27 @@
   flex-direction: column;
   button {
     align-self: center;
-    border: 2px solid black;
+    border: 2px solid rgb(95, 58, 34);
+    background-color: rgb(250, 241, 190);
     border-radius: 5px;
     width: 100px;
     text-align: center;
     .more-info-link {
-      color: black;
+      color: rgb(95, 58, 34);
       text-decoration: none;
+      .card-image {
+        height: 30%;
+      }
     }
   }
 }
 
 .card-title {
   text-align: center;
+  color: rgb(95, 58, 34);
 }
 
 .card-text {
   text-align: center;
+  color: rgb(95, 58, 34);
 }
