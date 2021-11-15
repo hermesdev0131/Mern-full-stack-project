@@ -1,11 +1,12 @@
 import * as React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useState } from 'react'
-import { setToken } from '../helpers/auth'
+// import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
 import Form from 'react-bootstrap/Form'
-import { getAxiosRequestConfig } from '../helpers/api'
+import { register } from '../helpers/api'
+// import { getAxiosRequestConfig } from '../helpers/api'
 
 const Register = () => {
   const [data, setData] = useState({
@@ -22,22 +23,36 @@ const Register = () => {
 
   const navigate = useNavigate()
 
+  
+
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const config = getAxiosRequestConfig('/register', data)
+    register(data).then(handleSuccesfulRegister).catch(handleError)
 
-    try {
-      const response = await axios(config).catch(handleError)
-      console.log(response.data.token)
-      setToken(response.data.token)
-      setIsError(false)
-      navigate('/')
-    } catch (err){
-      console.error(err)
-      setIsError(true)
-    } 
   }
+
+  const handleSuccesfulRegister = () => {
+    setIsError(false)
+    navigate('/login')
+  }
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault()
+
+  //   const config = getAxiosRequestConfig('/register', data)
+
+  //   try {
+  //     const response = await axios(config).catch(handleError)
+  //     console.log(response.data.token)
+  //     setToken(response.data.token)
+  //     setIsError(false)
+  //     navigate('/')
+  //   } catch (err){
+  //     console.error(err)
+  //     setIsError(true)
+  //   } 
+  // }
 
   const handleError = (error) => {
     if (error.response) {
