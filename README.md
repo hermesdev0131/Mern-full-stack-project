@@ -2,5 +2,5 @@
 
 A group project aimed at creating a MERN full stack application of a movie review webiste.
 SHAK is the leader
-K.PATEL 
+K.PATEL
 A.Ruxton

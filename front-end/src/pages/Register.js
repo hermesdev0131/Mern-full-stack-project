@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
 import Form from 'react-bootstrap/Form'
+// import { FloatingLabel } from 'react-bootstrap'
 import { register } from '../helpers/api'
 // import { getAxiosRequestConfig } from '../helpers/api'
 
@@ -69,13 +70,21 @@ const Register = () => {
         <FormInput
           placeholder='email@email.com' 
           type='email' 
-          name = 'email' 
+          name='email' 
           {...formInputProps}
         />
         <div>
+          {/* <FloatingLabel controlId="floatingSelect" label="Choose your Avatar"> 
+            <Form.Select name="image" type="image" aria-label="Floating label select example" {...formInputProps}>
+              <option>Open this select menu</option>
+              <option value='https://assets.londonist.com/uploads/2009/09/i730/0916_shawshank.jpg'>One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+          </FloatingLabel> */}
           <FormInput
             placeholder="image" 
-            type='image' 
+            type='text' 
             name = 'image' 
             {...formInputProps}
           />

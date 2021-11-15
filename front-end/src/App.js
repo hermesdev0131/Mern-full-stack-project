@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 // import axios from 'axios'
+import Profile from './pages/Profile'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Nav from './components/Nav'
@@ -15,6 +16,32 @@ import MovieEdit from './pages/MovieEdit'
 import Footer from './components/Footer'
 import AddARating from './pages/AddARating'
 import { getToken } from './helpers/auth'
+
+function ProfilePage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+
+  return (
+    <>
+      <header>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </header>
+      <main>
+        <Profile />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  )
+}
 
 function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -262,6 +289,7 @@ function App() {
         <Route path="/movies" element={<Movies />}/>
         <Route path="/login" element={<UserLogIn />} />
         <Route path="/register" element={<UserRegister />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route index element={<HomePage />} />
         <Route element={<NotFoundPage />} />
       </Routes>

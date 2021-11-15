@@ -1,35 +1,50 @@
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import React from 'react'
+import { useEffect } from 'react'
+import axios from 'axios'
 
 const SearchBar = () => {
-  const [search, setSearch] = useState([])
+  const [search, setSearch] = useState('')
+  const [objectSearch, setObjectSearch] = useState('')
+  const [browser, setBrowser] = useState('')
   const navigate = useNavigate()
 
 
-// for (let i = 0; i < response.length; i++) {
-//   if (search === response[i].title) {
-//     setSearch(response[i].id)
-//   }
-//   return
-// }
 
+
+  useEffect(() => {
+    async function fetchMovie() {
+  
+      const config = {
+        method: 'get',
+        url: '/api/movies',
+        headers: { }
+      }
+      const response = await axios(config)
+      setObjectSearch(response.data)  
+    }
+    fetchMovie()
+  }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setSearch()
-    navigate(`/movies/${search}`)
+    for (let i = 0; i < objectSearch.length; i++) {
+      search === objectSearch[i].title ? setBrowser(objectSearch[i]._id) : 'do nothing'
+    }
+    navigate(`/movies/${browser}`)
   }
+
 
   const handleChange = (event) => {
     setSearch(event.target.value)
   }
 
-   
-    
+
+  
   return (
     <form id="category-search" method="GET" onSubmit={handleSubmit}>
-      <input
+      <input className="search-bar"
         type="search"
         name="category"
         id="category"
@@ -37,7 +52,7 @@ const SearchBar = () => {
         value={search}
         onChange={handleChange}
       />
-      <input type="submit" value="TOAST" />
+      <input className="search-button" type="submit" value="TOAST" />
     </form>
   )
 }

@@ -11,7 +11,6 @@ const AddARating = () => {
     rating: '',
     text: ''
   })
-
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
   const { id } = useParams()
@@ -26,21 +25,16 @@ const AddARating = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     const config = getAxiosRequestConfig(`/movies/${id}/rating`, rating)
-
     try {
       const response = await axios(config).catch(handleError)
-
       console.log(response)
       setIsError(false)
       navigate(`/movies/${id}`)
     } catch (err) {
       console.log(err)
     }
-
   }
-
 
   const handleFormChange = (event) => {
     const { name, value } = event.target
@@ -50,24 +44,6 @@ const AddARating = () => {
     })
   }
 
-  
-  // useEffect((event) => {
-  //   event.preventDefault()
-
-  //   const config = getAxiosRequestConfig(`/movies/${id}/rating`, movie, 'put')
-
-  //   try {
-  //     const response = await axios(config).catch(handleError)
-
-  //     console.log(response.data)
-  //     setIsError(false)
-  //     // navigate(`/movies/${response.data._id}`)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }, [id])
-
-  
   const goBack = () => {
     navigate(-1)
   }
@@ -84,6 +60,8 @@ const AddARating = () => {
           value={rating.rating}
           placeholder='How would you rate the movie out of 10?'
           onChange={handleFormChange}
+          min="1"
+          max="10"
           {...formInputProps} 
         />
         <input

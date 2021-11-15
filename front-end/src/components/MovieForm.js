@@ -21,6 +21,8 @@ const MovieForm = ({ formInputProps }) => {
         name='releaseYear'
         type='number'
         placeholder='Year of release'
+        min="1901"
+        max="2050"
         {...formInputProps}
       />
       <FormInput

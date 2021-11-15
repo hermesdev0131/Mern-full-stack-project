@@ -17,6 +17,8 @@ const FormInput = ({
         type={type} 
         name = {name} 
         value={data[name]} 
+        min="1901"
+        max="2050"
         onChange={handleFormChange} 
       />
       {errorInfo.errors?.[name] ? (
