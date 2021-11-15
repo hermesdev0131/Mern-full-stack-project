@@ -12,8 +12,8 @@ const MovieEdit = () => {
     releaseYear: '',
     description: '',
     image: '',
-    genre: [],
-    cast: []
+    genre: '',
+    cast: ''
   })
 
   const [errorInfo, setErrorInfo] = useState({})
@@ -56,9 +56,9 @@ const MovieEdit = () => {
     })
   }
 
-  const goBack = () => {
-    navigate(goBack)
-  }
+  // const goBack = () => {
+  //   navigate(-1)
+  // }
 
   const formInputProps = { data: movie, errorInfo, handleFormChange }
 
@@ -71,7 +71,8 @@ const MovieEdit = () => {
           <input type="submit" value="Edit Movie" />
         </div>
         <div>
-          <input type="button" onClick={goBack} value="Cancel" />
+          {/* <input type="button" onClick={goBack} value="Cancel" /> */}
+          <button onClick={() => navigate(-1)}>go back</button>
         </div>
         {isError ? (
           <div className="error">
