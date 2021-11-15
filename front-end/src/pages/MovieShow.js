@@ -23,6 +23,7 @@ const MovieShow = () => {
         headers: { }
       }
       const response = await axios(config)
+      console.log(response.data.rating)
       setGenre(response.data.genre)
       setComments(response.data.rating)
       setMovie(response.data)
@@ -63,16 +64,20 @@ const MovieShow = () => {
             <Button><Link to={`/movies/${id}/rating`}>Rate this movie!</Link></Button>
           </div>
         </div>
+        <div className="comments-div">
+          <h3>Comments</h3>
+          <ul>
+            {comments.map((comment) => (
+              comment.text.length > 0 ? 
+                <li key={comment._id}>
+                  {comment.owner.username} commented: {comment.text}  {comment.timestamps} 
+                </li>
+                : false
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="comments-div">
-        <ul>
-          {comments.map((comment) => (
-            <li key={comment._id}>
-              {comment.text}
-            </li>
-          ))}
-        </ul>
-      </div>
+      
     </div>
   )
 }

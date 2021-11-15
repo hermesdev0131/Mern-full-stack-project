@@ -8,7 +8,7 @@ import { getAxiosRequestConfig } from '../helpers/api'
 
 const AddARating = () => {
   const [rating, setRating] = useState({
-    rating: '',
+    
     text: ''
   })
   const [errorInfo, setErrorInfo] = useState({})
