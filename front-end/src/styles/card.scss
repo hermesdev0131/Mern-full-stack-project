@@ -12,12 +12,7 @@
   display: flex;
   flex-direction: column;
   button {
-    align-self: center;
-    border: 2px solid rgb(95, 58, 34);
-    background-color: rgb(250, 241, 190);
-    border-radius: 5px;
     width: 100px;
-    text-align: center;
     .more-info-link {
       color: rgb(95, 58, 34);
       text-decoration: none;

@@ -13,6 +13,7 @@ import MovieAdd from './pages/MovieAdd'
 import NotFound from './pages/NotFound'
 import MovieEdit from './pages/MovieEdit'
 import Footer from './components/Footer'
+import AddARating from './pages/AddARating'
 import { getToken } from './helpers/auth'
 
 function HomePage() {
@@ -145,6 +146,32 @@ function EditOneMovie() {
   )
 }
 
+function RateOneMovie() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+  
+  return (
+    <>
+      <header>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </header>
+      <main>
+        <AddARating />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  )
+}
+
 function UserLogIn(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -230,6 +257,7 @@ function App() {
       <Routes>
         <Route path="/movies/new" element={<AddOneMovie />} />
         <Route path="/movies/:id/edit" element={<EditOneMovie />} />
+        <Route path="/movies/:id/rating" element={<RateOneMovie />} />
         <Route path="/movies/:id" element={<ShowOneMovie />} />
         <Route path="/movies" element={<Movies />}/>
         <Route path="/login" element={<UserLogIn />} />

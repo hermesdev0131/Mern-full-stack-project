@@ -28,31 +28,14 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    register(data).then(handleSuccesfulRegister).catch(handleError)
+    register(data).then(handleSuccessfulRegister).catch(handleError)
 
   }
 
-  const handleSuccesfulRegister = () => {
+  const handleSuccessfulRegister = () => {
     setIsError(false)
     navigate('/login')
   }
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault()
-
-  //   const config = getAxiosRequestConfig('/register', data)
-
-  //   try {
-  //     const response = await axios(config).catch(handleError)
-  //     console.log(response.data.token)
-  //     setToken(response.data.token)
-  //     setIsError(false)
-  //     navigate('/')
-  //   } catch (err){
-  //     console.error(err)
-  //     setIsError(true)
-  //   } 
-  // }
 
   const handleError = (error) => {
     if (error.response) {

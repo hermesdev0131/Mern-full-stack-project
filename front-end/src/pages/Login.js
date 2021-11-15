@@ -18,7 +18,7 @@ const Login = ({ setIsLoggedIn }) => {
   const [isError, setIsError] = useState(false)
   const navigate = useNavigate()
 
-  const handleSuccesfulLogin = ({ token }) => {
+  const handleSuccessfulLogin = ({ token }) => {
     setToken(token)
     setIsLoggedIn(true)
     setIsError(false)
@@ -28,7 +28,7 @@ const Login = ({ setIsLoggedIn }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    login(data).then(handleSuccesfulLogin).catch(handleError)
+    login(data).then(handleSuccessfulLogin).catch(handleError)
 
   }
 

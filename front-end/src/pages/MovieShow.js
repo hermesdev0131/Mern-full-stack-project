@@ -2,24 +2,16 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-import RatingForm from '../components/RatingForm'
 import { Link } from 'react-router-dom'
 import { deleteMovie } from '../helpers/api'
-import { getAxiosRequestConfig } from '../helpers/api'
-import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const MovieShow = () => {
-  const [rating, setRating] = useState({
-    rating: '',
-    text: ''
-  })
   const [movie, setMovie] = useState([])
   const [genre, setGenre] = useState([])
   const [comments, setComments] = useState([])
   const { id } = useParams()
 
-  const [errorInfo, setErrorInfo] = useState({})
-  const [isError, setIsError] = useState(false) 
   const navigate = useNavigate()
   
   useEffect(() => {
@@ -31,7 +23,6 @@ const MovieShow = () => {
         headers: { }
       }
       const response = await axios(config)
-      // console.log(response.data)
       setGenre(response.data.genre)
       setComments(response.data.rating)
       setMovie(response.data)
@@ -51,38 +42,6 @@ const MovieShow = () => {
       })
   }
 
-  const handleError = (error) => {
-    if (error.response) {
-      setErrorInfo(error.response.data)
-      setIsError(true)
-    }
-  }
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    const config = getAxiosRequestConfig(`/movies/${id}/rating`, rating, 'post')
-    try {
-      const response = await axios(config).catch(handleError)
-      console.log(response.data)
-      setIsError(false)
-      // navigate(`/movies/${response.data._id}`)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  const handleFormChange = (event) => {
-    const { name, value } = event.target
-    setRating({
-      ...rating,
-      [name]: value
-    })
-  }
-
-  const formInputProps = { data: rating, errorInfo, handleFormChange }
-
-  /////////////////////////////////////////////////////////////
-
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
@@ -98,32 +57,21 @@ const MovieShow = () => {
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
           <p>Rating: {movie.averageRating}</p>
-          <p className="edit-links">
-            <Link to={`/movies/${id}/edit`}>Edit this movie!</Link>
-            <span onClick={handleDeleteClick}>Delete this movie!</span>
-          </p>
+          <div className="alter-movie-buttons">
+            <Button><Link to={`/movies/${id}/edit`}>Edit this movie!</Link></Button>
+            <Button onClick={handleDeleteClick}>Delete this movie!</Button>
+            <Button><Link to={`/movies/${id}/rating`}>Rate this movie!</Link></Button>
+          </div>
         </div>
-        <Form onSubmit={handleSubmit} className="add-rating-form">
-          <div className="rate-n-review-div">
-            <RatingForm formInputProps={formInputProps} />
-          </div>
-          <div className="comments-div">
-            <ul>
-              {comments.map((comment) => (
-                <li key={comment._id}>
-                  {comment.text}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {isError ? (
-            <div className="error">
-              <p>Error. Please try again</p>
-            </div>
-          ) : (
-            <></>
-          )}
-        </Form>
+      </div>
+      <div className="comments-div">
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment._id}>
+              {comment.text}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )

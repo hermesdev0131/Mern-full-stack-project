@@ -48,7 +48,10 @@ body {
   }
 }
 
-#submit-button {
-  background-color: rgb(95, 58, 34);
-  width: 100%;
+button {
+  align-self: center;
+  border: 2px solid rgb(95, 58, 34);
+  background-color: rgb(250, 241, 190);
+  border-radius: 5px;
+  text-align: center;
 }

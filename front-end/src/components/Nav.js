@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { removeToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
+import SearchBar from '../pages/SearchBar'
 
 
 const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -21,6 +22,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
           <h1>Burnt Toast</h1>
         </div>
         <ul>
+          <li className='search-bar'>
+            <SearchBar />
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>
