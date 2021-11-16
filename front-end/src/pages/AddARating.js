@@ -3,8 +3,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
-// import RatingForm from '../components/RatingForm'
-// import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form'
 
 const AddARating = () => {
   const [rating, setRating] = useState({
@@ -52,9 +51,9 @@ const AddARating = () => {
 
   return (
     <section className="form-section">
-      <form className="edit-a-movie-form" onSubmit={handleSubmit}>
+      <Form className="edit-a-movie-form" onSubmit={handleSubmit}>
         <h1>Add a Rating</h1>
-        <input
+        <Form.Control
           name='rating'
           type='number'
           value={rating.rating}
@@ -64,7 +63,7 @@ const AddARating = () => {
           max="10"
           {...formInputProps} 
         />
-        <input
+        <Form.Control
           name='text'
           type='text'
           value={rating.text}
@@ -73,10 +72,10 @@ const AddARating = () => {
           {...formInputProps} 
         />
         <div>
-          <input type="submit" value="Add a rating" />
+          <Form.Control type="submit" value="Add a rating" />
         </div>
         <div>
-          <input type="button" onClick={goBack} value="Cancel" />
+          <Form.Control type="button" onClick={goBack} value="Cancel" />
         </div>
         {isError ? (
           <div className="error">
@@ -85,7 +84,7 @@ const AddARating = () => {
         ) : (
           <></>
         )}
-      </form>
+      </Form>
     </section>
   )
 }

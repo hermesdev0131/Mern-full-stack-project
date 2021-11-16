@@ -46,7 +46,8 @@ const MovieShow = () => {
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
-        <img src={movie.image} alt={movie.title} />
+        <img src={movie.image} 
+          alt={movie.title} />
       </div>
       <div className="movie-data-container-div">
         <div className="movie-info">
