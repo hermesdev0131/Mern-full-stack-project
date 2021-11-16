@@ -37,17 +37,18 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <div className="personal-details">
-        <Card>
-          <Card.Img variant="top" src={`${userData.image}`} style={{ minWidth: '200px' }}/>
-          <Card.Body>
-            <Card.Title>
-              <p><span className="movies-added-by">Movies Added by:</span> {userData.username}</p>
+        <Card className="profile-card">
+          <Card.Img className="card-image" variant="top" src={`${userData.image}`} style={{ minWidth: '200px' }}/>
+          <Card.Body className="card-body">
+            <Card.Title className='card-title'>
+              <p className="username">{userData.username}</p>
             </Card.Title>
           </Card.Body>
         </Card>
       </div>
       <div className="created-movies-div">
-        <ul className="movie-list">
+        <p className="movies-add-by">Your Movies</p>
+        <ul id="profile-movie-list" className="movie-list">
           {moviesAdded.map((m) => (
             <li key={m._id}>
               <MovieCard {...m} />

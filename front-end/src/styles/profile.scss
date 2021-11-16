@@ -1,17 +1,45 @@
-.created-movies-div {
-  overflow: scroll;
-}
+@import "colors";
 
-.personal-details {
-  img {
-    margin: auto;
-    height: 20%;
-    width: 20%;
+.profile-container {
+  height: 100%;
+  .personal-details {
+    background-color: $light-toast;
+    .profile-card {
+      background-color: $light-toast;
+      .card-image {
+        margin: 2% auto 0 auto;
+        background-color: $dark-butter-yellow;
+        height: 10%;
+        width: 10%;
+        border: 3px solid $mid-dark-brown;
+        border-radius: 50%;
+      }
+      .card-body {
+        .card-title {
+          .username {
+            font-size: 3rem;
+            color: $mid-dark-brown;
+          }
+        }
+      }
+    }
   }
-}
-
-.movies-added-by {
-  color: rgb(212, 198, 174);
+  .created-movies-div {
+    width: 100%;
+    height: 80vh;
+    overflow: scroll;
+    text-align: center;
+    .movies-add-by {
+      color: $light-toast;
+      text-align: center;
+      margin-top: 2%;
+      font-size: 2rem;
+    }
+    .movie-list {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 // .personal-details {

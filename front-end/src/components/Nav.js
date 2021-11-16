@@ -32,13 +32,13 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
             <li>
               <Link to="/movies">Movies</Link>
             </li>
-            <li>
-              <Link to ="/profile">Profile</Link>
-            </li>
             {isLoggedIn ? (
               <>
                 <li>
                   <Link to="/movies/new">Add A Movie</Link>
+                </li>
+                <li>
+                  <Link to ="/profile">Profile</Link>
                 </li>
                 <li>
                   <span onClick={handleLogout}>Logout</span>

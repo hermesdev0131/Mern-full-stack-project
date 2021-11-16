@@ -57,20 +57,22 @@ const MovieAdd = () => {
 
   return (
     <section className="form-section">
-      <Form onSubmit={handleSubmit} className="add-movie-form">
+      <div className="form-box">
         <h1>Add a Movie</h1>
-        <MovieForm formInputProps={formInputProps} />
-        <div>
-          <Form.Control id="submit-button" type="submit" value="Add Movie" />
-        </div>
-        {isError ? (
-          <div className="error">
-            <p>Error. Please try again</p>
+        <Form onSubmit={handleSubmit} className="form">
+          <MovieForm formInputProps={formInputProps} />
+          <div>
+            <Form.Control id="submit-button" type="submit" value="Add Movie" />
           </div>
-        ) : (
-          <></>
-        )}
-      </Form>
+          {isError ? (
+            <div className="error">
+              <p>Error. Please try again</p>
+            </div>
+          ) : (
+            <></>
+          )}
+        </Form>
+      </div>
     </section>
   )
 }

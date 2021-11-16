@@ -51,40 +51,42 @@ const AddARating = () => {
 
   return (
     <section className="form-section">
-      <Form className="edit-a-movie-form" onSubmit={handleSubmit}>
+      <div className="form-box">
         <h1>Add a Rating</h1>
-        <Form.Control
-          name='rating'
-          type='number'
-          value={rating.rating}
-          placeholder='How would you rate the movie out of 10?'
-          onChange={handleFormChange}
-          min="1"
-          max="10"
-          {...formInputProps} 
-        />
-        <Form.Control
-          name='text'
-          type='text'
-          value={rating.text}
-          placeholder='What did you think of the movie?'
-          onChange={handleFormChange}
-          {...formInputProps} 
-        />
-        <div>
-          <Form.Control type="submit" value="Add a rating" />
-        </div>
-        <div>
-          <Form.Control type="button" onClick={goBack} value="Cancel" />
-        </div>
-        {isError ? (
-          <div className="error">
-            <p>Error. Please try again</p>
+        <Form onSubmit={handleSubmit} className="form">
+          <Form.Control
+            name='rating'
+            type='number'
+            value={rating.rating}
+            placeholder='How would you rate the movie out of 10?'
+            onChange={handleFormChange}
+            min="1"
+            max="10"
+            {...formInputProps} 
+          />
+          <Form.Control
+            name='text'
+            type='text'
+            value={rating.text}
+            placeholder='What did you think of the movie?'
+            onChange={handleFormChange}
+            {...formInputProps} 
+          />
+          <div>
+            <Form.Control type="submit" value="Add a rating" />
           </div>
-        ) : (
-          <></>
-        )}
-      </Form>
+          <div>
+            <Form.Control type="button" onClick={goBack} value="Cancel" />
+          </div>
+          {isError ? (
+            <div className="error">
+              <p>Error. Please try again</p>
+            </div>
+          ) : (
+            <></>
+          )}
+        </Form>
+      </div>
     </section>
   )
 }

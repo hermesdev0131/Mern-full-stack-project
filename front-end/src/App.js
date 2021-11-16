@@ -112,7 +112,7 @@ function ShowOneMovie() {
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <main>
-        <MovieShow />
+        <MovieShow isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       </main>
       <footer>
         <Footer />

@@ -1,0 +1,26 @@
+@import "colors";
+
+.form-section {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .form-box {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 2px solid $dark-butter-yellow;
+    border-radius: 5px;
+    text-align: center;
+    background-color: $mid-dark-brown;
+    .form {
+      padding: 3%;
+      input {
+        color: $mid-brown;
+        background-color: $dark-butter-yellow;
+        text-align: center;
+      }
+    }
+  }
+}

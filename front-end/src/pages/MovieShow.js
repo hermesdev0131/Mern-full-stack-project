@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { deleteMovie } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
 
-const MovieShow = () => {
+const MovieShow = ({ isLoggedIn }) => {
   const [movie, setMovie] = useState([])
   const [genre, setGenre] = useState([])
   const [comments, setComments] = useState([])
@@ -72,13 +72,19 @@ const MovieShow = () => {
             </ul>
           </div>
         </div>
-        <div className="alter-movie-buttons">
-          <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit Movie</Link></Button>
-          <Button className="button" onClick={handleDeleteClick}>Delete movie</Button>
-          <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate movie</Link></Button>
-        </div>
-      </div>
-      
+        {isLoggedIn ? (
+          <>
+            <div className="alter-movie-buttons">
+              <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit Movie</Link></Button>
+              <Button className="button" onClick={handleDeleteClick}>Delete movie</Button>
+              <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate movie</Link></Button>
+            </div>
+          </>
+        ) : (
+          <>
+          </>
+        )}
+      </div> 
     </div>
   )
 }

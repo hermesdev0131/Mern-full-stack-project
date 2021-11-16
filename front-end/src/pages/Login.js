@@ -52,33 +52,35 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <section className="form-section">
-      <Form onSubmit={handleSubmit} className="login-form">
-        <h1>Log in to Burnt Toast</h1>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <FormInput 
-            placeholder="username" 
-            type='text'
-            name='username' 
-            {...formInputProps} 
-          />
-          <FormInput 
-            placeholder="password" 
-            type='password'
-            name='password' 
-            {...formInputProps} 
-          />
-          <div>
-            <Form.Control type="submit" value="Login" />
-          </div>
-          {isError ? (
-            <div className='error'>
-              <p>Error. Please try again.</p>
-            </div> 
-          ) : (
-            <></>
-          )}
-        </Form.Group>
-      </Form>
+      <div className="form-box">
+        <h1>Log in</h1>
+        <Form onSubmit={handleSubmit} className="form">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <FormInput 
+              placeholder="username" 
+              type='text'
+              name='username' 
+              {...formInputProps} 
+            />
+            <FormInput 
+              placeholder="password" 
+              type='password'
+              name='password' 
+              {...formInputProps} 
+            />
+            <div>
+              <Form.Control type="submit" value="Login" />
+            </div>
+            {isError ? (
+              <div className='error'>
+                <p>Error. Please try again.</p>
+              </div> 
+            ) : (
+              <></>
+            )}
+          </Form.Group>
+        </Form>
+      </div>
     </section>
   )
 }

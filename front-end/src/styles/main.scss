@@ -3,13 +3,11 @@
 @import "card";
 @import "header";
 @import "movieShow";
-@import "register";
-@import "login";
 @import "home";
-@import "movie-add";
 @import "footer";
 @import "profile";
 @import "colors";
+@import "forms";
 
 * {
   box-sizing: border-box;
@@ -23,30 +21,25 @@ body {
   #root {
     width: 100%;
     height: 100%;
-  }
-}
-
-.form-section {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-movie-form,
-.login-form,
-.edit-a-movie-form,
-.registration-form {
-  padding: 3%;
-  text-align: center;
-  border: 1px solid $butter-yellow;
-  border-radius: 5px;
-  flex-direction: column;
-  input {
-    text-align: center;
-    margin: 2.5%;
-    width: 100%;
-    background-color: $butter-yellow;
+    header {
+      background-color: $butter-yellow;
+      display: flex;
+      flex-direction: row;
+      height: 15%;
+      font-size: 30px;
+    }
+    main {
+      height: 70%;
+      width: 100%;
+    }
+    footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      background-color: $dark-brown;
+      color: $light-grey-brown;
+      height: 15%;
+    }
   }
 }
 
@@ -56,7 +49,7 @@ body {
   border: 2px solid $mid-dark-brown;
   background-color: $dark-butter-yellow;
   border-radius: 5px;
-  text-align: center; 
+  text-align: center;
   .link {
     text-decoration: none;
     color: $mid-dark-brown;

@@ -1,95 +1,88 @@
 @import "colors";
 
-header {
-  background-color: $butter-yellow;
+.main-header-div {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  height: 15%;
-  font-size: 30px;
-  .main-header-div {
-    width: 100%;
+  .logo-div {
+    justify-self: flex-start;
     display: flex;
-    .logo-div {
-      justify-self: flex-start;
-      display: flex;
-      flex-direction: row;
+    flex-direction: row;
+    width: 20%;
+    height: 100%;
+    .logo {
       width: 20%;
-      height: 100%;
-      .logo {
-        width: 20%;
-      }
-      h1 {
-        font-size: 42px;
-        font-family: "Pacifico", cursive;
-        margin-top: 5%;
-      }
     }
-    .search-bar-and-nav-div {
-      flex-direction: row;
-      display: flex;
-      width: 80%;
-      .search-bar {
-        width: 60%;
+    h1 {
+      font-size: 42px;
+      font-family: "Pacifico", cursive;
+      margin-top: 5%;
+    }
+  }
+  .search-bar-and-nav-div {
+    flex-direction: row;
+    display: flex;
+    width: 80%;
+    .search-bar {
+      width: 60%;
+      height: 100%;
+      text-align: center;
+      #category-search {
+        width: 100%;
         height: 100%;
-        text-align: center;
-        #category-search {
-          width: 100%;
-          height: 100%;
-        }
-        form {
-          height: 100%;
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          #category {
-            height: 60%;
-            border: 2px solid $mid-dark-brown;
-            border-radius: 5px 0 0 5px;
-            background-color: $dark-butter-yellow;
-            font-size: 15px;
-          }
-          #toast,
-          input {
-            font-size: 1rem;
-            align-self: center;
-            color: $mid-dark-brown;
-            border: 2px solid $mid-dark-brown;
-            background-color: $light-toast;
-            border-radius: 0 5px 5px 0;
-            text-align: center;
-            height: 60%;
-
-            #toast:hover {
-              background-color: rgb(225, 150, 99);
-            }
-          }
-        }
       }
-      nav {
-        margin: right;
+      form {
+        height: 100%;
+        width: 100%;
         display: flex;
-        width: 70%;
         flex-direction: row;
         justify-content: center;
-        align-self: center;
-        align-items: center;
-        // height: 100%;
-        ul {
-          width: 100%;
-          display: flex;
+        #category {
+          height: 60%;
+          border: 2px solid $mid-dark-brown;
+          border-radius: 5px 0 0 5px;
+          background-color: $dark-butter-yellow;
+          font-size: 15px;
+        }
+        #toast,
+        input {
+          font-size: 1rem;
+          align-self: center;
+          color: $mid-dark-brown;
+          border: 2px solid $mid-dark-brown;
+          background-color: $light-toast;
+          border-radius: 0 5px 5px 0;
+          text-align: center;
+          height: 60%;
+
+          #toast:hover {
+            background-color: rgb(225, 150, 99);
+          }
+        }
+      }
+    }
+    nav {
+      margin: right;
+      display: flex;
+      width: 70%;
+      flex-direction: row;
+      justify-content: center;
+      align-self: center;
+      align-items: center;
+      // height: 100%;
+      ul {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style-type: none;
+        li {
           flex-direction: row;
-          justify-content: space-evenly;
           list-style-type: none;
-          li {
-            flex-direction: row;
-            list-style-type: none;
-            a {
-              text-decoration: none;
-              color: $mid-brown;
-              input {
-                background-color: $butter-yellow;
-              }
+          a {
+            text-decoration: none;
+            color: $mid-brown;
+            input {
+              background-color: $butter-yellow;
             }
           }
         }
