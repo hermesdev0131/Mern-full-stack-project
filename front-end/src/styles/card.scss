@@ -1,3 +1,5 @@
+@import "colors";
+
 .movie-card {
   padding: 0.8rem;
   flex-basis: 200px;
@@ -5,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(212, 198, 174);
+  background-color: $light-grey-brown;
 }
 
 .card-body {
@@ -18,10 +20,10 @@
 
 .card-title {
   text-align: center;
-  color: rgb(95, 58, 34);
+  color: $mid-dark-brown;
 }
 
 .card-text {
   text-align: center;
-  color: rgb(95, 58, 34);
+  color: $mid-dark-brown;
 }

@@ -1,12 +1,102 @@
 export default [
   {
+    title: 'West Side Story',
+    director: 'Robert Wise and Jerome Robbins',
+    image: 'https://arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/B2VVRGUU7QI6HKUXQVJXBVNIXU.jpg',
+    releaseYear: 1961,
+    description: 'Two teenagers from different ethnic backgrounds fall in love in 1950s New York City.',
+    cast: ['Natalie Wood', 'Richard Beymer', 'Russ Tamblyn'],
+    genre: ['Musical Romantic Drama']
+  },
+  {
+    title: 'Kill Bill: Volume 1',
+    director: 'Quentin Tarantino',
+    image: 'https://dyn1.heritagestatic.com/lf?set=path%5B1%2F4%2F9%2F6%2F2%2F14962670%5D&call=url%5Bfile%3Aproduct.chain%5D',
+    releaseYear: 2003,
+    description: 'A pregnant assassin, code-named The Bride, goes into a coma for four years after her ex-boss Bill brutally attacks her. When she wakes up, she sets out to seek revenge on him and his associates.',
+    cast: ['Uma Thurman', 'Lucy Liu', 'Vivica A. Fox'],
+    genre: ['Martial Arts Film']
+  },
+  {
+    title: 'Free Solo',
+    director: 'Elizabeth Chai Vasarhelyi and Jimmy Chin',
+    image: 'https://i.natgeofe.com/n/aeb3b014-07c6-4caf-80a8-71d464989f7a/explore-through-the-lens-alex-honnold.jpg',
+    releaseYear: 2018,
+    description: 'Professional rock climber Alex Honnold attempts to conquer the first free solo climb of famed El Capitan\'s 900-metre vertical rock face at Yosemite National Park.',
+    cast: ['Alex Honnold', 'Sanni McCandless', 'Jimmy Chin'],
+    genre: ['Documentary']
+  },
+  {
+    title: 'The Lunchbox',
+    director: 'Ritesh Batra',
+    image: 'https://m.media-amazon.com/images/M/MV5BMTUwMzc1NjIzMV5BMl5BanBnXkFtZTgwODUyMTIxMTE@._V1_.jpg',
+    releaseYear: 2013,
+    description: 'An unlikely mistake by a tiffin carrier service results in Ila\'s tiffin, that was made for her husband, being delivered to Saajan Fernandes. An unusual friendship soon develops between the two.',
+    cast: ['Irrfan Khan', 'Nimrat Kaur', 'Nawazuddin Siddiqui'],
+    genre: ['Romance']
+  },
+  {
+    title: 'Parasite',
+    director: '봉준호 (Bong Joon-ho)',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/91UUDsC2iVS._RI_.jpg',
+    releaseYear: 2019,
+    description: 'The struggling Kim family sees an opportunity when the son starts working for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.',
+    cast: ['Song Kang-ho', 'Lee Sun-kyun', 'Cho Yeo-jeong'],
+    genre: ['Black Comedy Thriller']
+  },
+  {
+    title: 'Cool Runnings',
+    director: 'Jon Turteltaub',
+    image: 'https://flxt.tmsimg.com/assets/p15010_p_v10_aq.jpg',
+    releaseYear: 1993,
+    description: 'A Jamaican bobsleigh team fights many odds, including a reluctant coach, to compete in the 1988 Winter Olympics. They train in harsh and sunny climes for a sport that chills them to their bones.',
+    cast: ['Leon Robinson', 'Doug E. Doug', 'Rawle D. Lewis'],
+    genre: ['Comedy']
+  },
+  {
+    title: 'Breakfast at Tiffany\'s',
+    director: 'Blake Edwards',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Breakfast_at_Tiffany%27s_%281961_poster%29.jpg/440px-Breakfast_at_Tiffany%27s_%281961_poster%29.jpg',
+    releaseYear: 1961,
+    description: 'Based on Truman Capote\'s novel, this is the story of a young woman in New York City who meets a young man when he moves into her apartment building.',
+    cast: ['Audrey Hepburn', 'George Peppard', 'Patricia Neal'],
+    genre: ['Romantic Comedy']
+  },
+  {
+    title: 'Léon: The Professional',
+    director: 'Luc Besson',
+    image: 'https://i.pinimg.com/564x/c6/fc/a2/c6fca2cdbcf07fb7d24f52d241c090fe.jpg',
+    releaseYear: 1994,
+    description: 'When 12-year-old Mathilda\'s family is killed, her neighbour Leon, who is a professional assassin, reluctantly takes her under his wing and teaches her the secrets of his trade.',
+    cast: ['Jean Reno', 'Natalie Portman', 'Gary Oldman'],
+    genre: ['Action Thriller']
+  },
+  {
+    title: 'Modern Times',
+    director: 'Charlie Chaplin',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Modern_Times_poster.jpg/440px-Modern_Times_poster.jpg',
+    releaseYear: 1936,
+    description: 'English silent comedy film written and directed by Charlie Chaplin in which his iconic Little Tramp character struggles to survive in the modern, industrialized world',
+    cast: ['Charlie Chaplin', 'Paulette Goddard', 'Henry Bergman'],
+    genre: ['Silent Comedy']
+  },
+  {
     title: 'The Shawshank Redemption',
     director: 'Frank Darabont',
-    image: "https://assets.londonist.com/uploads/2009/09/i730/0916_shawshank.jpg",
+    image: "https://i.ibb.co/48y521f/shawshank.jpg",
     releaseYear: 1994,
     description: "Andy Dufresne is sentenced to two consecutive life terms in prison for the murders of his wife and her lover and is sentenced to a tough prison.",
     cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
     genre: ['Drama'],
+},
+{
+  title: 'The White Tiger',
+  director: 'Ramin Bahrani',
+  image: 'https://m.media-amazon.com/images/M/MV5BMDVkMDRkMzItN2EyYS00ZTI5LTljYzgtNzRmZDQ0OTQ3M2VjXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg',
+  releaseYear: 2021,
+  description: 'A rich Indian family\'s ambitious driver uses his wit and cunning to escape from poverty and rise to the top as an entrepreneur.',
+  cast: ['Adarsh Gourav', 'Priyanka Chopra-Jonas', 'Rajkummar Rao'],
+  genre: ['Drama']
 },
 {
   title: 'The Godfather',
@@ -18,6 +108,15 @@ export default [
   genre: ['Crime', 'Drama'],
 },
 {
+  title: 'Black Panther',
+  director: 'Ryan Coogler',
+  image: 'https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_FMjpg_UX1000_.jpg',
+  releaseYear: 2018,
+  description: 'After his father\'s death, T\'Challa returns home to Wakanda to inherit his throne. However, a powerful enemy related to his family threatens to attack his nation.',
+  cast: ['Chadwick Boseman', 'Michael B. Jordan', 'Lupita Nyong\'o'],
+  genre: ['Superhero']
+},
+{
   title: 'The Dark Knight',
   director: 'Christopher Nolan',
   image: 'https://cdn.vox-cdn.com/thumbor/K1WKyMb31K-K1vvseGAyFsjfYYE=/0x0:1200x675/1200x800/filters:focal(478x31:670x223)/cdn.vox-cdn.com/uploads/chorus_image/image/60384393/0_c9S8ajFBpwX89ZuU.0.jpeg',
@@ -27,6 +126,24 @@ export default [
   genre: ['Action', 'Crime', 'Drama', 'Thriller'],
 },
 {
+  title: 'Black Swan',
+  director: 'Darren Aronofsky',
+  image: 'https://m.media-amazon.com/images/M/MV5BNzY2NzI4OTE5MF5BMl5BanBnXkFtZTcwMjMyNDY4Mw@@._V1_.jpg',
+  releaseYear: 2010,
+  description: 'Nina (Natalie Portman) is a ballerina whose passion for the dance rules every facet of her life.',
+  cast: ['Natalie Portman', 'Mila Kunis', 'Vincent Cassel'],
+  genre: ['Psychological Horror']
+},
+{
+  title: 'Convict 13',
+  director: 'Edward F.Cline and Buster Keaton',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Keaton_Convict_13_1920.jpg/440px-Keaton_Convict_13_1920.jpg',
+  releaseYear: 1920,
+  description: 'A young golfer is mugged and foils a jailbreak.',
+  cast: ['Buster Keaton', 'Sybil Seely', 'Joe Roberts'],
+  genre: ['Silent Comedy']
+},
+{
   title: 'Sir Alex Ferguson: Never Give In',
   director: 'Jason Ferguson',
   image: 'https://m.media-amazon.com/images/M/MV5BNTA3NmI4MzktODYyOS00ZWZhLWEzYjUtZjBlZjgyZTE4M2MwXkEyXkFqcGdeQXVyNTEyNjg4MzI@._V1_.jpg',
@@ -34,6 +151,24 @@ export default [
   description: "A look at how Glasgow boy Sir Alex Ferguson became one of the greatest football coaches of all time; recovering from cerebral haemorrhage, Sir Alex makes an account of his life and career for his son Jason.",
   cast: ['Alex Ferguson, Jason Ferguson, Cathy Ferguson'],
   genre: ['Documentary'],
+},
+{
+  title: 'Monty Python and the Holy Grail',
+  director: 'Terry Gilliam and Terry Jones',
+  image: 'https://flxt.tmsimg.com/assets/p629_p_v8_af.jpg',
+  releaseYear: 1975,
+  description: 'British comedy film inspired by the Arthurian legend, written and performed by the Monty Python comedy group',
+  cast: ['Graham Chapman', 'Michael Palin', 'John Cleese'],
+  genre: ['Comedy']
+},
+{
+  title: 'Slumdog Millionaire',
+  director: 'Danny Boyle',
+  image: 'https://m.media-amazon.com/images/M/MV5BMTMxNTIyNzY4OF5BMl5BanBnXkFtZTcwNTg0ODEzMg@@._V1_.jpg',
+  releaseYear: 2008,
+  description: 'A teenager from the slums of Mumbai becomes a contestant on the show \'Kaun Banega Crorepati?\' When interrogated under suspicion of cheating, he revisits his past, revealing how he had all the answers.',
+  cast: ['Dev Patel', 'Freida Pinto', 'Madhur Mittal'],
+  genre: ['Drama']
 },
 {
   title: 'The Kissing Booth 3',
@@ -92,8 +227,8 @@ export default [
 {
   title: 'Venom',
   director: 'Ruben Fleischer',
-  image: 'https://m.media-amazon.com/images/M/MV5BNTFiNzBlYmEtMTcxZS00ZTEyLWJmYmQtMjYzYjAxNGQwODAzXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg',
-  releaseYear: 2017,
+  image: 'https://cdn.shopify.com/s/files/1/0037/8008/3782/products/venom_hardy_style_teaser_EB05938_B-893199_1024x1024@2x.jpg?v=1611688561',
+  releaseYear: 2018,
   description: "While trying to take down Carlton, the CEO of Life Foundation, Eddie, a journalist, investigates experiments of human trials. Unwittingly, he gets merged with a symbiotic alien with lethal abilities.",
   cast: ['Tom Hardy', 'Michelle Williams', 'Riz Ahmed'],
   genre: 'Action',
@@ -110,7 +245,7 @@ export default [
 {
   title: 'Dragon Ball Z: Battle of Gods',
   director: 'Masahiro Hosoda',
-  image: "https://upload.wikimedia.org/wikipedia/en/4/43/DBZ_THE_MOVIE_NO._14.png",
+  image: "https://m.media-amazon.com/images/M/MV5BYWUxMDI1ZGItODM0Ny00NWI4LWIzYjQtNGI3MDRjNWJhYjNhXkEyXkFqcGdeQXVyOTU1NjkyODE@._V1_.jpg",
   releaseYear: 2013,
   description: "The Z-Fighters must contend with the God of Destruction, who awakens from a lengthy slumber to threaten humanity. However, it takes a god to fight a god, and none of them are gods.",
   cast: ['Sean Schemmel', 'Masako Nozawa', 'Jason Douglas'],

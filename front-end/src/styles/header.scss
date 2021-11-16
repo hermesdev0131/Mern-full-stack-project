@@ -1,5 +1,7 @@
+@import "colors";
+
 header {
-  background-color: rgb(250, 241, 190);
+  background-color: $butter-yellow;
   display: flex;
   flex-direction: row;
   height: 15%;
@@ -42,19 +44,19 @@ header {
           justify-content: center;
           #category {
             height: 60%;
-            border: 4px solid rgb(95, 58, 34);
-            border-radius: 3px 3px 3px;
-            background-color: rgb(231, 209, 171);
+            border: 2px solid $mid-dark-brown;
+            border-radius: 5px 0 0 5px;
+            background-color: $dark-butter-yellow;
             font-size: 15px;
           }
           #toast,
           input {
             font-size: 1rem;
             align-self: center;
-            color: rgb(95, 58, 34);
-            border: 4px solid rgb(95, 58, 34);
-            background-color: rgb(196, 177, 146);
-            border-radius: 5px;
+            color: $mid-dark-brown;
+            border: 2px solid $mid-dark-brown;
+            background-color: $light-toast;
+            border-radius: 0 5px 5px 0;
             text-align: center;
             height: 60%;
 
@@ -84,9 +86,9 @@ header {
             list-style-type: none;
             a {
               text-decoration: none;
-              color: rgb(95, 58, 34);
+              color: $mid-brown;
               input {
-                background-color: rgb(250, 241, 190);
+                background-color: $butter-yellow;
               }
             }
           }

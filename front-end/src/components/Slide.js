@@ -17,9 +17,8 @@ const Slide = ( {
             ? 'https://spartacus.s9y.org/cvs/additional_themes/wp/preview_fullsize.jpg' : image }
         alt={title}
       />
-      <Carousel.Caption>
-        <h3>{title}</h3>
-        <p>{averageRating}</p>
+      <Carousel.Caption className="slide-caption">
+        <h3>{title} - {averageRating}</h3>
       </Carousel.Caption>
     </>
   )

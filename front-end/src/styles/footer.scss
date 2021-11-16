@@ -1,9 +1,11 @@
+@import "colors";
+
 footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgb(95, 58, 34);
-  color: rgb(250, 241, 190);
+  background-color: $dark-brown;
+  color: $light-grey-brown;
   height: 15%;
   div {
     width: 100%;
@@ -14,7 +16,7 @@ footer {
       width: 100%;
     }
     a {
-      color: rgb(250, 241, 190);
+      color: $light-grey-brown;
       text-decoration: none;
     }
   }

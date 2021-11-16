@@ -59,7 +59,7 @@ const MovieShow = () => {
           <p>Genre: {genre.join(', ')}</p>
           <p>Rating: {movie.averageRating}</p>
           <div className="comments-div">
-            <h3>Comments</h3>
+            <h5>Comments</h5>
             <ul>
               {comments.map((comment) => (
                 comment.text.length > 0 ? 

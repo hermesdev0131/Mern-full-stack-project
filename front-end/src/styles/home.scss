@@ -1,19 +1,36 @@
+@import "colors";
+
 .home {
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
   .carousel-div {
-    background-color: rgb(82, 68, 58);
     display: flex;
     justify-content: center;
+    height: 90vh;
+    padding: 2%;
+    background-color: $black-brown;
     .carousel {
-      height: 80vh;
-      width: 60vw;
+      width: 90vw;
+      height: 90vh;
+      .carousel-indicators {
+        display: none;
+      }       
+      .slide-caption {
+        padding: 0p 0px 0px 0px;
+        h3 {
+          margin: 0px 0px 2% 0px;
+          color: $mid-dark-brown;
+        }
+      }
       img {
-        margin: 5% auto 0 auto;
-        max-height: 70%;
-        max-width: 70%;
+        margin: 0 auto;
+        width:inherit;
+        height:inherit;
+        object-fit: contain;
+        max-height: 85%;
+        max-width: 75%;
       }
     }
   }

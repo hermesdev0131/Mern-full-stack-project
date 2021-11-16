@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="carousel-div">
-        <Carousel>
+        <Carousel indicators="false">
           {movies.map((m) => (
             <Carousel.Item key={m._id} className="carousel">
               <Slide {...m} />
