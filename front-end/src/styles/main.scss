@@ -56,12 +56,14 @@ body {
   border: 2px solid $mid-dark-brown;
   background-color: $dark-butter-yellow;
   border-radius: 5px;
-  text-align: center;
-  .button:hover {
-    background-color: $butter-yellow;
-  }
+  text-align: center; 
   .link {
     text-decoration: none;
     color: $mid-dark-brown;
   }
+}
+.button:hover {
+  background-color: $butter-yellow;
+  border: 2px solid $mid-dark-brown;
+  color: $mid-dark-brown;
 }

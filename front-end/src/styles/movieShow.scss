@@ -22,7 +22,7 @@
     max-width: 60vw;
     max-height: 90vh;
     padding: 0.5%;
-    background-color: rgb(196, 177, 146);
+    background-color: $light-toast;
     color: $mid-dark-brown;
     border: 2px solid grey;
     border-radius: 5px;
@@ -32,7 +32,7 @@
     flex-direction: column;
     align-items: left;
     padding: 2%;
-    background-color: rgb(231, 209, 171);
+    background-color: $dark-butter-yellow;
     border: 2px solid grey;
     border-radius: 5px;
     h1 {
@@ -46,7 +46,7 @@
     align-items: left;
     margin: 0.5%;
     padding: 1%;
-    background-color: rgb(250, 241, 190);
+    background-color: $butter-yellow;
     border: 2px solid grey;
     border-radius: 5px;
     h5 {
@@ -70,10 +70,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    width: 35%;
+    width: 50%;
     padding: 1%;
     gap: 2%;
-    background-color: rgb(231, 209, 171);
+    background-color: $butter-yellow;
     border: 2px solid grey;
     border-radius: 5px;
   }
