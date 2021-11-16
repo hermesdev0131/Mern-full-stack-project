@@ -83,7 +83,7 @@ export default [
   {
     title: 'The Shawshank Redemption',
     director: 'Frank Darabont',
-    image: "https://i.ibb.co/48y521f/shawshank.jpg",
+    image: "https://i.pinimg.com/originals/97/96/9e/97969ee04453f54f0faf837174f2f766.jpg",
     releaseYear: 1994,
     description: "Andy Dufresne is sentenced to two consecutive life terms in prison for the murders of his wife and her lover and is sentenced to a tough prison.",
     cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
@@ -101,7 +101,7 @@ export default [
 {
   title: 'The Godfather',
   director: 'Francis Ford Coppola',
-  image: 'https://media.vanityfair.com/photos/615dcfaf3aae1b3c1f41b920/master/pass/the-godfather-site-story.jpg',
+  image: 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg',
   releaseYear: 1972,
   description: 'An organized crime dynasty\'s aging patriarch transfers control of his clandestine empire to his reluctant son.',
   cast: ['Marlon Brando', 'Al Pacino', 'James Caan'],
@@ -119,7 +119,7 @@ export default [
 {
   title: 'The Dark Knight',
   director: 'Christopher Nolan',
-  image: 'https://cdn.vox-cdn.com/thumbor/K1WKyMb31K-K1vvseGAyFsjfYYE=/0x0:1200x675/1200x800/filters:focal(478x31:670x223)/cdn.vox-cdn.com/uploads/chorus_image/image/60384393/0_c9S8ajFBpwX89ZuU.0.jpeg',
+  image: 'https://i.pinimg.com/originals/d6/57/a4/d657a48442d85023b6960c1cd1e0464e.jpg',
   releaseYear: 2008,
   description: 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
   cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],

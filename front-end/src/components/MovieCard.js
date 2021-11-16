@@ -8,7 +8,7 @@ const MovieCard = ({
   title, 
   image, 
   averageRating,
-  owner
+  user
 }) => {
   return (
     <div>
@@ -23,7 +23,7 @@ const MovieCard = ({
             {averageRating}
           </Card.Text>
           <Card.Text className="card-user">
-            <p>Added by {owner?.username}</p>
+            <p>Added by {user?.username}</p>
           </Card.Text>
           <Button className="button">
             <Link className="link" to={`/movies/${_id}`} >More Info</Link>

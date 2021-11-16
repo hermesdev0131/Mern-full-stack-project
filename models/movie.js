@@ -51,9 +51,7 @@ movieSchema.virtual('averageRating').get(function(){
     if (!rating.rating) return acc
     return acc + rating.rating
   }, 0)
-  console.log('sumOfRatings', sumOfRatings)
   const averageRatingPercentage = ((sumOfRatings / this.rating.length).toFixed(2))*10
-  console.log('averageRatingPercentage', averageRatingPercentage)
   return `${averageRatingPercentage}%`
 })
 
