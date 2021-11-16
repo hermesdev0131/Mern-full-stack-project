@@ -6,17 +6,30 @@
   justify-content: center;
   align-items: center;
   .form-box {
-    margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1% 3% 3% 3%;
+    margin: auto;
     width: 30%;
     border: 2px solid $dark-butter-yellow;
     border-radius: 5px;
     text-align: center;
-    background-color: $mid-dark-brown;
+    background-color: $mid-brown;
+    h1 {
+      font-family: "Pacifico";
+      color: $butter-yellow;
+    }
     .form {
-      padding: 3%;
+      margin: 2%;
       input {
+        margin: 9px auto;
+        color: $mid-brown;
+        background-color: $dark-butter-yellow;
+        text-align: center;
+      }
+      .form-select {
+        margin: 9px auto;
         color: $mid-brown;
         background-color: $dark-butter-yellow;
         text-align: center;

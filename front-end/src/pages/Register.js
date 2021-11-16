@@ -75,7 +75,11 @@ const Register = () => {
             {...formInputProps}
           />
           <div>
-            <Form.Select name="image" type="image" aria-label="Floating label select example" {...formInputProps} onChange={handleFormChange} >
+            <Form.Select 
+              name="image" type="image" 
+              aria-label="Floating label select example" 
+              {...formInputProps} onChange={handleFormChange}
+              className="form-select" >
               <option>Choose your avatar</option>
               <option value='https://image.emojipng.com/393/209393.jpg'>😉</option>
               <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face.png">😀</option>
