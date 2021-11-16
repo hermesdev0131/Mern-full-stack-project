@@ -11,6 +11,8 @@ const Profile = () => {
   const [ userData, setUserData ] = useState({
     username: '',
     email: '',
+    gender: '',
+    favouriteFilm: '',
     image: ''
   })
 
@@ -43,6 +45,12 @@ const Profile = () => {
             <Card.Title className='card-title'>
               <p className="username">{userData.username}</p>
             </Card.Title>
+            <Card.Text>
+              <p className="card-text">Gender: {userData.gender}</p>
+            </Card.Text>
+            <Card.Text>
+              <p className="card-text">Favourite Films: {userData.favouriteFilm}</p>
+            </Card.Text>
           </Card.Body>
         </Card>
       </div>

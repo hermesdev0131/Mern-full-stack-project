@@ -16,7 +16,7 @@
       height: 90vh;
       .carousel-indicators {
         display: none;
-      }       
+      }
       .slide-caption {
         padding: 0p 0px 0px 0px;
         h3 {
@@ -26,11 +26,30 @@
       }
       img {
         margin: 0 auto;
-        width:inherit;
-        height:inherit;
+        width: inherit;
+        height: inherit;
         object-fit: contain;
         max-height: 85%;
         max-width: 75%;
+      }
+      .slide-rating-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        width: 150px;
+        color: $butter-yellow;
+        background: black;
+        border: 2px solid $mid-brown;
+        border-radius: 50%;
+        position: relative;
+        float: left;
+        left: 25%;
+        bottom: 83%;
+        opacity: 70%;
+        p {
+          position: relative;
+        }
       }
     }
   }

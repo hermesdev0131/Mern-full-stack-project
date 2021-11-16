@@ -113,3 +113,48 @@ export const deleteARating = async (req, res) => {
   }
 
 }
+
+//Add a rating
+export const addARatingComment = async (req, res) => {
+  try {
+    const { id } = req.params
+    const movie = await Movie.findById(id)
+    if (!movie) throw new Error()
+    const newRating = { ...req.body, owner: req.currentUser._id }
+    console.log('newRating', newRating)
+    movie.rating.push(newRating)
+    // console.log('Movie ->', movie)
+    await movie.save({ validateModifiedOnly: true })
+    return res.status(200).json(movie)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ message: 'Something went wrong'})
+  }
+}
+
+//Delete a rating
+export const deleteARatingComment = async (req, res) => {
+  try {
+    const { id, ratingId } = req.params
+    //Find movies where rating lives
+    const movie = await Movie.findById(id)
+    //If no movies found throw error
+    if(!movie) throw new Error()
+    //Find the rating with the ratingId
+    const ratingToDelete = movie.rating.id(ratingId)
+    //If rating returns null, throw error
+    if (!ratingToDelete) throw new Error()
+    //If owner of comment is not current user, throw error
+    if (!ratingToDelete.owner.equals(req.currentUser._id)) throw new Error()
+    //Remove rating
+    await ratingToDelete.remove()
+    //Save the movie after rating deleted
+    await movie.save({ validateModifiedOnly: true })
+    //Return positive response
+    return res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ 'message': 'Something went wrong'})
+  }
+
+}

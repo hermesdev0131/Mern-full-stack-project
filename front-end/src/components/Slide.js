@@ -10,15 +10,18 @@ const Slide = ( {
 
   return (
     <>
-      <img
-        className="d-block w-100"
-        src={
-          image.length <= 5 
-            ? 'https://spartacus.s9y.org/cvs/additional_themes/wp/preview_fullsize.jpg' : image }
-        alt={title}
-      />
+      <>
+        <img
+          className="d-block w-100"
+          src={
+            image.length <= 5 
+              ? 'https://spartacus.s9y.org/cvs/additional_themes/wp/preview_fullsize.jpg' : image }
+          alt={title}
+        />
+        <div className="slide-rating-div"><p>{averageRating}</p></div>
+      </>
       <Carousel.Caption className="slide-caption">
-        <h3>{title} - {averageRating}</h3>
+        <h3>{title}</h3>
       </Carousel.Caption>
     </>
   )

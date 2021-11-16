@@ -23,8 +23,6 @@ body {
     height: 100%;
     header {
       background-color: $butter-yellow;
-      display: flex;
-      flex-direction: row;
       height: 15%;
       font-size: 30px;
     }
@@ -59,4 +57,27 @@ body {
   background-color: $butter-yellow;
   border: 2px solid $mid-dark-brown;
   color: $mid-dark-brown;
+}
+
+@media screen and (max-width: 300px) and (max-height: 540px) {
+  body {
+    #root {
+      header {
+        //
+      }
+      main {
+        //
+      }
+      footer {
+        display: none;
+      }
+    }
+  }
+
+  .button {
+    //
+    .link {
+      //
+    }
+  }
 }

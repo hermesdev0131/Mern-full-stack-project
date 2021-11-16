@@ -1,12 +1,24 @@
 import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
+//Likes schema
+const likeRatingsSchema = new mongoose.Schema(
+  {
+  text: { type: String, maxlength: 280, required: true },
+  owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  },
+  {
+  timestamps: true
+  }
+)
+
 //Comment schema -> 
 const ratingsSchema = new mongoose.Schema(
   {
   rating: { type: Number, required: true, min: 1, max: 10 },
   text: { type: String, maxlength: 280 },
-  owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  commentLikes: [likeRatingsSchema]
   },
   {
   timestamps: true

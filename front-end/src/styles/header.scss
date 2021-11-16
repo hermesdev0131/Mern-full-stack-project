@@ -13,7 +13,7 @@
       width: 20%;
     }
     h1 {
-      font-size: 42px;
+      font-size: 1rem;
       font-family: "Pacifico";
       margin-top: 5%;
     }
@@ -23,7 +23,7 @@
     display: flex;
     width: 80%;
     .search-bar {
-      width: 60%;
+      width: 30%;
       height: 100%;
       text-align: center;
       #category-search {
@@ -38,14 +38,15 @@
         justify-content: center;
         #category {
           height: 60%;
+          width: 70%;
           border: 2px solid $mid-dark-brown;
           border-radius: 5px 0 0 5px;
           background-color: $dark-butter-yellow;
-          font-size: 15px;
+          font-size: 0.8rem;
         }
         #toast,
         input {
-          font-size: 1rem;
+          font-size: 0.7rem;
           align-self: center;
           color: $mid-dark-brown;
           border: 2px solid $mid-dark-brown;
@@ -53,6 +54,7 @@
           border-radius: 0 5px 5px 0;
           text-align: center;
           height: 60%;
+          width: 30%;
 
           #toast:hover {
             background-color: rgb(225, 150, 99);
@@ -78,11 +80,75 @@
         li {
           flex-direction: row;
           list-style-type: none;
+          span {
+            font-size: 1rem;
+          }
           a {
             text-decoration: none;
             color: $mid-brown;
+            font-size: 1rem;
             input {
               background-color: $butter-yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) and (max-height: 540px) {
+  .main-header-div {
+    width: 100vw;
+    display: flex;
+    height: 20vh;
+    border: 1px solid red;
+    .logo-div {
+      width: 50%;
+      height: 50%;
+      border: 1px solid black;
+      .logo {
+      }
+      h1 {
+      }
+    }
+    .search-bar-and-nav-div {
+      display: flex;
+      flex-direction: column;
+      .search-bar {
+        width: 100%;
+        height: 50%;
+        border: 1px solid red;
+        #category-search {
+        }
+        form {
+          #category {
+          }
+          #toast,
+          input {
+            #toast:hover {
+            }
+          }
+        }
+      }
+      nav {
+        // height: 100%;
+        display: flex;
+        border: 5px solid red;
+        height: 50%;
+        width: 100vw;
+        overflow: hidden;
+        ul {
+          display: flex;
+          li {
+            display: flex;
+            span {
+              font-size: 0.8rem;
+            }
+            a {
+              font-size: 0.8rem;
+              input {
+              }
             }
           }
         }

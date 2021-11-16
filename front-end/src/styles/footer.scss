@@ -1,23 +1,36 @@
 @import "colors";
 
-footer {
+.footer-container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: $dark-brown;
-  color: $light-grey-brown;
-  height: 15%;
-  div {
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  .project-creators-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
     width: 100%;
-    div {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+    .project-creators-p {
+      text-align: center;
       width: 100%;
+      margin: auto;
     }
-    a {
-      color: $light-grey-brown;
-      text-decoration: none;
+  }
+  .project-creators-social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    p {
+      padding: 0 1%;
+      a {
+        color: $light-grey-brown;
+        text-decoration: none;
+        // img {
+        //   //code
+        // }
+      }
     }
   }
 }

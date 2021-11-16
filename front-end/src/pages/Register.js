@@ -11,7 +11,12 @@ import { register } from '../helpers/api'
 const Register = () => {
   const [data, setData] = useState({
     username: '',
+    firstName: '',
+    surname: '',
     email: '',
+    dateOfBirth: '',
+    favouriteFilm: '',
+    gender: '',
     image: '',
     password: '',
     passwordConfirmation: ''
@@ -62,18 +67,56 @@ const Register = () => {
         <Form onSubmit={handleSubmit} className="form">
           <div>
             <FormInput
+              placeholder="First Name" 
+              type='text' 
+              name='First Name' 
+              {...formInputProps} 
+            />
+          </div>
+          <div>
+            <FormInput
+              placeholder="Surname" 
+              type='text' 
+              name='Surname' 
+              {...formInputProps} 
+            />
+          </div>
+          <div>
+            <FormInput
               placeholder="username" 
               type='text' 
               name='username' 
               {...formInputProps} 
             />
           </div>
-          <FormInput
-            placeholder='email@email.com' 
-            type='email' 
-            name='email' 
-            {...formInputProps}
-          />
+          <div>
+            <FormInput
+              placeholder='email@email.com' 
+              type='email' 
+              name='email' 
+              {...formInputProps}
+            />
+          </div>
+          <div>
+            <FormInput
+              placeholder="Date of Birth" 
+              type='date' 
+              name='dateOfBirth' 
+              {...formInputProps} 
+            />
+          </div>
+          <div>
+            <Form.Select 
+              name="gender" type="text" 
+              aria-label="Floating label select example" 
+              {...formInputProps} onChange={handleFormChange}
+              className="form-select" >
+              <option>Gender</option>
+              <option value='Male'>Male</option>
+              <option value='Female'>Female</option>
+              <option value='Other'>Other</option>
+            </Form.Select>
+          </div>
           <div>
             <Form.Select 
               name="image" type="image" 
@@ -86,6 +129,14 @@ const Register = () => {
               <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-tears-of-joy.png">😂</option>
               <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nerd-face.png">🤓</option>
             </Form.Select>
+          </div>
+          <div>
+            <FormInput
+              placeholder="Tell us your favourite film(s)" 
+              type='type' 
+              name='favourtieFilm' 
+              {...formInputProps} 
+            />
           </div>
           <div>
             <FormInput

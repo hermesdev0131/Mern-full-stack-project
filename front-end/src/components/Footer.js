@@ -2,11 +2,11 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-      <div>
-        <p>A project by Shahrukh Hughes, Arthur Ruxton, Kirtan Patel</p>
+    <div className='footer-container'>
+      <div className='project-creaters-div'>
+        <p className='project-creators-p'>A project by Shahrukh Hughes, Arthur Ruxton, Kirtan Patel</p>
       </div>
-      <div>
+      <div className='project-creators-social-media'>
         <p>
           Shahrukh Hughes{' '}
           <a target="_blank" rel="noreferrer" href="https://github.com/Shak-H"><img 
@@ -60,7 +60,6 @@ const Footer = () => {
             /></a>
         </p>
       </div>
-
     </div>
   )
 }
