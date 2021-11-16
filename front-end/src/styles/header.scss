@@ -101,12 +101,11 @@
   .main-header-div {
     width: 100vw;
     display: flex;
+    flex-direction: column;
     height: 20vh;
-    border: 1px solid red;
     .logo-div {
-      width: 50%;
-      height: 50%;
-      border: 1px solid black;
+      width: 30%;
+      height: 30%;
       .logo {
       }
       h1 {
@@ -114,11 +113,13 @@
     }
     .search-bar-and-nav-div {
       display: flex;
-      flex-direction: column;
+      width: 100%;
+      flex-wrap: wrap;
       .search-bar {
-        width: 100%;
+        display: flex;
+        width: 70%;
+        margin: right;
         height: 50%;
-        border: 1px solid red;
         #category-search {
         }
         form {
@@ -133,11 +134,9 @@
       }
       nav {
         // height: 100%;
+        width: 100%;
         display: flex;
-        border: 5px solid red;
-        height: 50%;
-        width: 100vw;
-        overflow: hidden;
+        height: 40%;
         ul {
           display: flex;
           li {

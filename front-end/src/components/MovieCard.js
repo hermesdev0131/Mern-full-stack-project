@@ -28,6 +28,9 @@ const MovieCard = ({
           <Button className="button">
             <Link className="link" to={`/movies/${_id}`} >More Info</Link>
           </Button>
+          <Button className="button">
+            <Link className="link" to={`/movies/${_id}/rating`} >Add a Rating</Link>
+          </Button>
         </Card.Body>
       </Card>
     </div>

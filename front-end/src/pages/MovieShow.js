@@ -58,7 +58,7 @@ const MovieShow = ({ isLoggedIn }) => {
           <p>Released: {movie.releaseYear}</p>
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
-          <p>Rating: {movie.averageRating}</p>
+          <p><img src="https://i.ibb.co/1mxkxtP/burnt-toast-icon.png"/>Rating: {movie.averageRating}</p>
           <div className="comments-div">
             <h5>Comments</h5>
             <ul>

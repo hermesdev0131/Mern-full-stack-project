@@ -1,4 +1,6 @@
+
 import Movie from '../models/movie.js'
+import { ratingsSchema } from '../models/movie.js'
 
 //Get /movies
 //Returns all movies 
@@ -114,25 +116,25 @@ export const deleteARating = async (req, res) => {
 
 }
 
-//Add a rating
+//Add a rating Comment
 export const addARatingComment = async (req, res) => {
   try {
-    const { id } = req.params
-    const movie = await Movie.findById(id)
-    if (!movie) throw new Error()
-    const newRating = { ...req.body, owner: req.currentUser._id }
-    console.log('newRating', newRating)
-    movie.rating.push(newRating)
+    const { ratingId } = req.params
+    const comment = await ratingsSchema.findOne(ratingId)
+    if (!comment) throw new Error()
+    const newComment = { ...req.body, owner: req.currentUser._id }
+    console.log('newRating', newComment)
+    comment.rating.push(newComment)
     // console.log('Movie ->', movie)
-    await movie.save({ validateModifiedOnly: true })
-    return res.status(200).json(movie)
+    await comment.save({ validateModifiedOnly: true })
+    return res.status(200).json(comment)
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: 'Something went wrong'})
   }
 }
 
-//Delete a rating
+//Delete a rating Comment
 export const deleteARatingComment = async (req, res) => {
   try {
     const { id, ratingId } = req.params

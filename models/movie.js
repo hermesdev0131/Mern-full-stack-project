@@ -13,7 +13,7 @@ const likeRatingsSchema = new mongoose.Schema(
 )
 
 //Comment schema -> 
-const ratingsSchema = new mongoose.Schema(
+export const ratingsSchema = new mongoose.Schema(
   {
   rating: { type: Number, required: true, min: 1, max: 10 },
   text: { type: String, maxlength: 280 },

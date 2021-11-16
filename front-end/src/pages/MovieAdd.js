@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
 import Form from 'react-bootstrap/Form'
+import Fade from 'react-reveal/Fade'
 
 const MovieAdd = () => {
   const [data, setData] = useState({
@@ -37,7 +38,7 @@ const MovieAdd = () => {
     try {
       const response = await axios(config).catch(handleError)
 
-      // console.log(response.data)
+      console.log(response.data)
       setIsError(false)
       navigate(`/movies/${response.data._id}`)
     } catch (err) {
@@ -62,7 +63,9 @@ const MovieAdd = () => {
         <Form onSubmit={handleSubmit} className="form">
           <MovieForm formInputProps={formInputProps} />
           <div>
-            <Form.Control id="submit-button" type="submit" value="Add Movie" />
+            <Fade right>
+              <Form.Control id="submit-button" type="submit" value="Add Movie" />
+            </Fade>
           </div>
           {isError ? (
             <div className="error">

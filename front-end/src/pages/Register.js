@@ -6,14 +6,14 @@ import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
 import Form from 'react-bootstrap/Form'
 import { register } from '../helpers/api'
-// import { getAxiosRequestConfig } from '../helpers/api'
+import Fade from 'react-reveal/Fade'
 
 const Register = () => {
   const [data, setData] = useState({
     username: '',
     firstName: '',
     surname: '',
-    email: '',
+    email: '', 
     dateOfBirth: '',
     favouriteFilm: '',
     gender: '',
@@ -66,96 +66,118 @@ const Register = () => {
         <h1>Sign Up</h1>
         <Form onSubmit={handleSubmit} className="form">
           <div>
-            <FormInput
-              placeholder="First Name" 
-              type='text' 
-              name='First Name' 
-              {...formInputProps} 
-            />
+            <Fade left>
+              <FormInput
+                placeholder="First Name" 
+                type='text' 
+                name='First Name' 
+                {...formInputProps} 
+              />
+            </Fade>  
           </div>
           <div>
-            <FormInput
-              placeholder="Surname" 
-              type='text' 
-              name='Surname' 
-              {...formInputProps} 
-            />
+            <Fade right>
+              <FormInput
+                placeholder="Surname" 
+                type='text' 
+                name='Surname' 
+                {...formInputProps} 
+              />
+            </Fade>
           </div>
           <div>
-            <FormInput
-              placeholder="username" 
-              type='text' 
-              name='username' 
-              {...formInputProps} 
-            />
+            <Fade left>
+              <FormInput
+                placeholder="username" 
+                type='text' 
+                name='username' 
+                {...formInputProps} 
+              />
+            </Fade>
           </div>
           <div>
-            <FormInput
-              placeholder='email@email.com' 
-              type='email' 
-              name='email' 
-              {...formInputProps}
-            />
+            <Fade right>
+              <FormInput
+                placeholder='email@email.com' 
+                type='email' 
+                name='email' 
+                {...formInputProps}
+              />
+            </Fade>
           </div>
           <div>
-            <FormInput
-              placeholder="Date of Birth" 
-              type='date' 
-              name='dateOfBirth' 
-              {...formInputProps} 
-            />
+            <Fade left>
+              <FormInput
+                placeholder="Date of Birth" 
+                type='date' 
+                name='dateOfBirth' 
+                {...formInputProps} 
+              />
+            </Fade>
           </div>
           <div>
-            <Form.Select 
-              name="gender" type="text" 
-              aria-label="Floating label select example" 
-              {...formInputProps} onChange={handleFormChange}
-              className="form-select" >
-              <option>Gender</option>
-              <option value='Male'>Male</option>
-              <option value='Female'>Female</option>
-              <option value='Other'>Other</option>
-            </Form.Select>
+            <Fade right>
+              <Form.Select 
+                name="gender" type="text" 
+                aria-label="Floating label select example" 
+                {...formInputProps} onChange={handleFormChange}
+                className="form-select" >
+                <option>Gender</option>
+                <option value='Male'>Male</option>
+                <option value='Female'>Female</option>
+                <option value='Other'>Other</option>
+              </Form.Select>
+            </Fade>
           </div>
           <div>
-            <Form.Select 
-              name="image" type="image" 
-              aria-label="Floating label select example" 
-              {...formInputProps} onChange={handleFormChange}
-              className="form-select" >
-              <option>Choose your avatar</option>
-              <option value='https://image.emojipng.com/393/209393.jpg'>😉</option>
-              <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face.png">😀</option>
-              <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-tears-of-joy.png">😂</option>
-              <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nerd-face.png">🤓</option>
-            </Form.Select>
+            <Fade left>
+              <Form.Select 
+                name="image" type="image" 
+                aria-label="Floating label select example" 
+                {...formInputProps} onChange={handleFormChange}
+                className="form-select" >
+                <option>Choose your avatar</option>
+                <option value='https://image.emojipng.com/393/209393.jpg'>😉</option>
+                <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face.png">😀</option>
+                <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-tears-of-joy.png">😂</option>
+                <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nerd-face.png">🤓</option>
+              </Form.Select>
+            </Fade>
           </div>
           <div>
-            <FormInput
-              placeholder="Tell us your favourite film(s)" 
-              type='type' 
-              name='favourtieFilm' 
-              {...formInputProps} 
-            />
+            <Fade right>
+              <FormInput
+                placeholder="Tell us your favourite film(s)" 
+                type='type' 
+                name='favourtieFilm' 
+                {...formInputProps} 
+              />
+            </Fade>
           </div>
           <div>
-            <FormInput
-              placeholder="password" 
-              type='password' 
-              name = 'password' 
-              {...formInputProps}
-            />
+            <Fade left>
+              <FormInput
+                placeholder="password" 
+                type='password' 
+                name = 'password' 
+                {...formInputProps}
+              />
+            </Fade>
           </div>
           <div>
-            <FormInput
-              placeholder="password confirmation" 
-              type='password' 
-              name = 'passwordConfirmation' 
-              {...formInputProps} 
-            />
+            <Fade right>
+              <FormInput
+                placeholder="password confirmation" 
+                type='password' 
+                name = 'passwordConfirmation' 
+                {...formInputProps} 
+              />
+            </Fade>
           </div>
           <div>
-            <Form.Control type="submit" value="Register" />
+            <Fade left>
+              <Form.Control type="submit" value="Register" />
+            </Fade>
           </div>
           {isError ? (
             <div className='error'>

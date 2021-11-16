@@ -6,7 +6,7 @@ import { login } from '../helpers/api'
 import { useNavigate } from 'react-router-dom'
 import FormInput from '../components/FormInput'
 import Form from 'react-bootstrap/Form'
-// import { getAxiosRequestConfig } from '../helpers/api'
+import Fade from 'react-reveal/Fade'
 
 const Login = ({ setIsLoggedIn }) => {
   const [data, setData] = useState({
@@ -56,20 +56,26 @@ const Login = ({ setIsLoggedIn }) => {
         <h1>Log in</h1>
         <Form onSubmit={handleSubmit} className="form">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <FormInput 
-              placeholder="username" 
-              type='text'
-              name='username' 
-              {...formInputProps} 
-            />
-            <FormInput 
-              placeholder="password" 
-              type='password'
-              name='password' 
-              {...formInputProps} 
-            />
+            <Fade right>
+              <FormInput 
+                placeholder="username" 
+                type='text'
+                name='username' 
+                {...formInputProps} 
+              />
+            </Fade>
+            <Fade left>
+              <FormInput 
+                placeholder="password" 
+                type='password'
+                name='password' 
+                {...formInputProps} 
+              />
+            </Fade>
             <div>
-              <Form.Control type="submit" value="Login" />
+              <Fade right>
+                <Form.Control type="submit" value="Login" />
+              </Fade>
             </div>
             {isError ? (
               <div className='error'>

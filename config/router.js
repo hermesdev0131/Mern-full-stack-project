@@ -23,7 +23,7 @@ router.route('/movies/:id/rating/:ratingId').delete(secureRoute, deleteARating)
 
 router.route('/movies/:ratingId/comment').post(secureRoute, addARatingComment)
 
-router.route('/movies/:id/rating/:ratingId').delete(secureRoute, deleteARatingComment)
+router.route('/movies/:ratingId/comment/:commentId').delete(secureRoute, deleteARatingComment)
 
 router.route('/register').post(registerUser)
 
