@@ -94,21 +94,18 @@
     flex-direction: column;
     width: 100%;
     text-align: center;
-    justify-content: center;
-    height: 100vh;
+    height: 100%;
     overflow: scroll;
     .movie-show-img-div {
       display: none;
     }
     .movie-data-container-div {
       width: 100%;
-      margin: auto;
       height: 100%;
       text-align: center;
     }
     .movie-info {
       width: 100vw;
-      height: 100%;
       text-align: center;
       display: flex;
       .not-rated-yet {

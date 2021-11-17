@@ -120,14 +120,20 @@ export const deleteARating = async (req, res) => {
 export const addARatingLike = async (req, res) => {
   try {
     const { id, ratingId } = req.params
-    console.log('id, rating-id', id, ratingId)
+    // console.log('id, rating-id', id, ratingId)
     const movie = await Movie.findById(id)
     const ratingArray = movie.rating
-    let ratingSearched;
-    for(let i = 0 ; i < ratingArray.length ; i++) {
-      console.log('rating from array', i)
-      if(ratingArray[i]._id === ratingId){
+    // console.log('ratingArray', ratingArray)
+    // console.log('rating-id', ratingId)
+    // console.log('ratingArray[0]._id', ratingArray[0]._id)
+    // console.log('`new ObjectId("${ratingId}")`',`new ObjectId("${ratingId}")`)
+    let ratingSearched = '';
+    for(let i = 0; i < ratingArray.length; i++) {
+      // console.log('rating from array', i)
+      console.log(ratingArray[i].id)
+      if(ratingArray[i].id === ratingId){
         ratingSearched = i
+        console.log('loop works')
       }
     }
     console.log('ratingSearched', ratingSearched)

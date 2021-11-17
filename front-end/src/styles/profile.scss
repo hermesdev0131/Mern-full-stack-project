@@ -46,16 +46,16 @@
   .profile-container {
     .personal-details {
       .profile-card {
-        height: 36vh;
+        height: 40vh;
+        overflow: scroll;
         .card-image {
-          height: 11vh;
+          height: 14vh;
         }
         .card-body {
           display: flex;
           flex-direction: column;
           .card-title {
             .card-text {
-              margin-bottom: 5%;
               font-size: 1rem;
             }
             .username {
