@@ -7,6 +7,9 @@ import { deleteMovie } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
 
 const MovieShow = ({ isLoggedIn }) => {
+  let numberOfLikes = 0
+  const [likes, setLikes] = useState(0)
+
   const [movie, setMovie] = useState([])
   const [genre, setGenre] = useState([])
   const [comments, setComments] = useState([])
@@ -43,6 +46,11 @@ const MovieShow = ({ isLoggedIn }) => {
       })
   }
 
+  const handleLikeButton = () => {
+    numberOfLikes++
+    setLikes(numberOfLikes)
+  }
+
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
@@ -61,11 +69,15 @@ const MovieShow = ({ isLoggedIn }) => {
           <p className="not-rated-yet"><img src="https://i.ibb.co/1mxkxtP/burnt-toast-icon.png"/>Rating: {movie.averageRating}</p>
           <div className="comments-div">
             <h5>Comments</h5>
-            <ul>
+            <ul className="comments-div-ul">
               {comments.map((comment) => (
                 comment.text.length > 0 ? 
                   <li key={comment._id}>
                     {comment.owner.username}: {comment.text}  {comment.timestamps} 
+                    <div className='like-buttons'>
+                      <Button className="button" onClick={handleLikeButton}>Like</Button>
+                      <p>{likes}</p>
+                    </div>
                   </li>
                   : false
               ))}
@@ -82,6 +94,11 @@ const MovieShow = ({ isLoggedIn }) => {
           </>
         ) : (
           <>
+            <div className="alter-movie-buttons">
+              <p>Log in to rate this movie</p>
+              <Button className="button"><Link className="link" to={'/login'}>Log In</Link></Button>
+              <Button className="button"><Link className="link" to={'/register'}>Sign Up</Link></Button>
+            </div>
           </>
         )}
       </div> 

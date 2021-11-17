@@ -10,8 +10,6 @@ import Fade from 'react-reveal/Fade'
 
 const Register = () => {
   const [data, setData] = useState({
-    username: '',
-    firstName: '',
     surname: '',
     email: '', 
     dateOfBirth: '',
@@ -65,26 +63,6 @@ const Register = () => {
       <div className="form-box">
         <h1>Sign Up</h1>
         <Form onSubmit={handleSubmit} className="form">
-          <div>
-            <Fade left>
-              <FormInput
-                placeholder="First Name" 
-                type='text' 
-                name='First Name' 
-                {...formInputProps} 
-              />
-            </Fade>  
-          </div>
-          <div>
-            <Fade right>
-              <FormInput
-                placeholder="Surname" 
-                type='text' 
-                name='Surname' 
-                {...formInputProps} 
-              />
-            </Fade>
-          </div>
           <div>
             <Fade left>
               <FormInput

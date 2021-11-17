@@ -119,10 +119,18 @@
     }
     .comments-div {
       overflow: scroll;
+      display: flex;
       h5 {
       }
       ul {
+        display: flex;
         li {
+          // code
+          display: flex;
+          margin: 1%;
+          div {
+            display: flex;
+          }
         }
       }
     }
