@@ -20,10 +20,10 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
         <img src="https://i.ibb.co/1mxkxtP/burnt-toast-icon.png" alt="burnt-toast-icon" className="logo"/>
         <h1>Burnt Toast</h1>
       </div>
-      <div className='search-bar-and-nav-div'>
-        <div className='search-bar'>
-          <SearchBar />
-        </div>
+      <div className='search-bar-div'>
+        <SearchBar />
+      </div>
+      <div className='nav-div'>
         <nav>
           <ul>
             <li>

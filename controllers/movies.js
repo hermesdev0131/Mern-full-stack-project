@@ -116,23 +116,54 @@ export const deleteARating = async (req, res) => {
 
 }
 
-//Add a rating Comment
-export const addARatingComment = async (req, res) => {
+//Add a like
+export const addARatingLike = async (req, res) => {
   try {
-    const { ratingId } = req.params
-    const comment = await ratingsSchema.findOne(ratingId)
-    if (!comment) throw new Error()
-    const newComment = { ...req.body, owner: req.currentUser._id }
-    console.log('newRating', newComment)
-    comment.rating.push(newComment)
+    const { id, ratingId } = req.params
+    console.log('id, rating-id', id, ratingId)
+    const movie = await Movie.findById(id)
+    const ratingArray = movie.rating
+    let ratingSearched;
+    for(let i = 0 ; i < ratingArray.length ; i++) {
+      console.log('rating from array', i)
+      if(ratingArray[i]._id === ratingId){
+        ratingSearched = i
+      }
+    }
+    console.log('ratingSearched', ratingSearched)
+    // const ratingSearched = movie.rating.findById
+    // const ratingSearched = indexOf(ratingId)
+    if (!movie) throw new Error()
+    const newRatingLike = { ...req.body, owner: req.currentUser._id }
+    console.log('newRatingLike', newRatingLike)
+    console.log('movie.rating', movie.rating[ratingSearched])
+    movie.rating[ratingSearched].commentLikes.push(newRatingLike)
     // console.log('Movie ->', movie)
-    await comment.save({ validateModifiedOnly: true })
-    return res.status(200).json(comment)
+    await movie.save({ validateModifiedOnly: true })
+    return res.status(200).json(movie)
   } catch (err) {
     console.log(err)
     return res.status(404).json({ message: 'Something went wrong'})
   }
 }
+
+//Add a rating Comment
+// export const addARatingComment = async (req, res) => {
+//   try {
+//     const { ratingId } = req.params
+//     const comment = await ratingsSchema.findOne(ratingId)
+//     if (!comment) throw new Error()
+//     const newComment = { ...req.body, owner: req.currentUser._id }
+//     console.log('newRating', newComment)
+//     comment.rating.push(newComment)
+//     // console.log('Movie ->', movie)
+//     await comment.save({ validateModifiedOnly: true })
+//     return res.status(200).json(comment)
+//   } catch (err) {
+//     console.log(err)
+//     return res.status(404).json({ message: 'Something went wrong'})
+//   }
+// }
 
 // //Delete a rating Comment
 // export const deleteARatingComment = async (req, res) => {

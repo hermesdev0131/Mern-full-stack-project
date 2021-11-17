@@ -8,8 +8,8 @@ import Button from 'react-bootstrap/Button'
 import ReactPlayer from 'react-player'
 
 const MovieShow = ({ isLoggedIn }) => {
-  let numberOfLikes = 0
-  const [likes, setLikes] = useState(0)
+  // let numberOfLikes = 0
+  // const [likes, setLikes] = useState(0)
 
   const [movie, setMovie] = useState([])
   const [genre, setGenre] = useState([])
@@ -47,17 +47,17 @@ const MovieShow = ({ isLoggedIn }) => {
       })
   }
 
-  const handleLikeButton = () => {
-    numberOfLikes++
-    setLikes(numberOfLikes)
-  }
+  // const handleLikeButton = () => {
+  //   numberOfLikes++
+  //   setLikes(numberOfLikes)
+  // }
 
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
         {/* <img src={movie.image} 
           alt={movie.title} /> */}
-        <ReactPlayer
+        <ReactPlayer className="video"
           url={movie.trailer}
           controls
         />
@@ -80,10 +80,6 @@ const MovieShow = ({ isLoggedIn }) => {
                 comment.text.length > 0 ? 
                   <div className="single-comment" key={comment._id}>
                     {comment.owner.username}: {comment.text}  {comment.timestamps} 
-                    <div className='like-buttons'>
-                      <Button className="button" onClick={handleLikeButton}>Like</Button>
-                      <p>{likes}</p>
-                    </div>
                   </div>
                   : false
               ))}
@@ -111,5 +107,10 @@ const MovieShow = ({ isLoggedIn }) => {
     </div>
   )
 }
+
+{/* <div className='like-buttons'>
+<Button className="button" onClick={handleLikeButton}>Like</Button>
+<p>{likes}</p>
+</div> */}
 
 export default MovieShow

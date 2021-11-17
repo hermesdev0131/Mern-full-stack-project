@@ -97,16 +97,18 @@
     justify-content: center;
     height: 100vh;
     overflow: scroll;
-    img {
-      margin: 40% auto auto auto;
+    .movie-show-img-div {
+      display: none;
     }
     .movie-data-container-div {
       width: 100%;
       margin: auto;
+      height: 100%;
       text-align: center;
     }
     .movie-info {
       width: 100vw;
+      height: 100%;
       text-align: center;
       display: flex;
       .not-rated-yet {

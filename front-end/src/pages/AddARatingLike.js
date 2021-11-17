@@ -5,15 +5,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
 import Form from 'react-bootstrap/Form'
 
-const AddARatingComment = () => {
-  const [rating, setRating] = useState({
-    
-    text: ''
-  })
+const AddARatingLike = () => {
+  const [likes, setLikes] = useState('')
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
   const { id } = useParams()
-  const navigate = useNavigate()
+ 
 
   const handleError = (error) => {
     if (error.response) {
@@ -24,12 +21,11 @@ const AddARatingComment = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const config = getAxiosRequestConfig(`/movies/${id}/rating`, rating)
+    const config = getAxiosRequestConfig(`/movies/${ratingId}/likes`, likes)
     try {
       const response = await axios(config).catch(handleError)
       console.log(response)
       setIsError(false)
-      navigate(`/movies/${id}`)
     } catch (err) {
       console.log(err)
     }
@@ -37,10 +33,7 @@ const AddARatingComment = () => {
 
   const handleFormChange = (event) => {
     const { name, value } = event.target
-    setRating({
-      ...rating,
-      [name]: value
-    })
+    setLikes(value)
   }
 
   const goBack = () => {
@@ -52,21 +45,13 @@ const AddARatingComment = () => {
   return (
     <section className="form-section">
       <div className="form-box">
-        <h1>Add a Comment</h1>
-        <Form onSubmit={handleSubmit} className="form">
-          <Form.Control
-            name='text'
-            type='text'
-            value={rating.text}
-            placeholder='What did you think of the movie?'
-            onChange={handleFormChange}
-            {...formInputProps} 
-          />
+        <h1>Add a Like</h1>
+        <Form onSubmit={handleSubmit} className="like-form">
           <div>
-            <Form.Control type="submit" value="Add a comment" />
+            <Form.Control type="submit" value="1" />
           </div>
           <div>
-            <Form.Control type="button" onClick={goBack} value="Cancel" />
+            <Form.Control type="button" onClick={goBack} value="Unlike" />
           </div>
           {isError ? (
             <div className="error">
@@ -81,4 +66,4 @@ const AddARatingComment = () => {
   )
 }
 
-export default AddARatingComment
+export default AddARatingLike

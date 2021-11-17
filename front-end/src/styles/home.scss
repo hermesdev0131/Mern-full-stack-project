@@ -58,3 +58,30 @@
     }
   }
 }
+
+@media screen and (max-width: 300px) and (max-height: 540px) {
+  .home {
+    .carousel-div {
+      .carousel {
+        .carousel-indicators {
+          display: none;
+        }
+        .slide-caption {
+          h3 {
+          }
+        }
+        img {
+        }
+        .slide-rating-div {
+          display: none;
+          img {
+            display: none;
+          }
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

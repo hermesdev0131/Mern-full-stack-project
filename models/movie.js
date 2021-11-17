@@ -4,12 +4,12 @@ import uniqueValidator from 'mongoose-unique-validator'
 //Likes schema
 const likeRatingsSchema = new mongoose.Schema(
   {
-  likes: { type: Number, required: true },
+  like: { type: Number },
   owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
   }
 )
 
-//Comment schema -> 
+//Rating schema -> 
 const ratingsSchema = new mongoose.Schema(
   {
   rating: { type: Number, required: true, min: 1, max: 10 },
@@ -17,7 +17,7 @@ const ratingsSchema = new mongoose.Schema(
   owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   commentLikes: [likeRatingsSchema]
   },
-  {
+{
   timestamps: true
   }
 )
@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
   cast: [{ type: String }],
   genre: [{ type: String }],
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  rating: [ratingsSchema]
+  rating: [ratingsSchema,]
 })
 
 movieSchema.virtual('averageRating').get(function(){
