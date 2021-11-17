@@ -32,7 +32,7 @@ const MovieAdd = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
+    console.log(data)
     const config = getAxiosRequestConfig('/movies', data)
 
     try {
@@ -52,6 +52,7 @@ const MovieAdd = () => {
       ...data,
       [name]: value
     })
+    console.log(data)
   }
 
   const formInputProps = { data, errorInfo, handleFormChange }

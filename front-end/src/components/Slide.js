@@ -13,9 +13,7 @@ const Slide = ( {
       <>
         <img
           className="d-block w-100"
-          src={
-            image.length <= 5 
-              ? 'https://spartacus.s9y.org/cvs/additional_themes/wp/preview_fullsize.jpg' : image }
+          src={image}
           alt={title}
         />
         <div className="slide-rating-div"><p><img src="https://i.ibb.co/1mxkxtP/burnt-toast-icon.png"/>{averageRating}</p></div>
