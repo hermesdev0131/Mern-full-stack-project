@@ -4,16 +4,13 @@ import uniqueValidator from 'mongoose-unique-validator'
 //Likes schema
 const likeRatingsSchema = new mongoose.Schema(
   {
-  text: { type: String, maxlength: 280, required: true },
+  likes: { type: Number, required: true },
   owner: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-  },
-  {
-  timestamps: true
   }
 )
 
 //Comment schema -> 
-export const ratingsSchema = new mongoose.Schema(
+const ratingsSchema = new mongoose.Schema(
   {
   rating: { type: Number, required: true, min: 1, max: 10 },
   text: { type: String, maxlength: 280 },
@@ -33,8 +30,9 @@ const castSchema = new mongoose.Schema({
 
 //Movie schema
 const movieSchema = new mongoose.Schema({
-  image: { type: String },
+  image: { type: String, required: true },
   title: { type: String, unique: true, required: true },
+  trailer: { type: String },
   director: { type: String },
   releaseYear: { type: Number },
   description: { type: String, required: true, maxlength: 280 },

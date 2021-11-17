@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { fetchOneMovie, getAxiosRequestConfig } from '../helpers/api'
 import MovieForm from '../components/MovieForm'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const MovieEdit = () => {
   const [movie, setMovie] = useState({
@@ -64,24 +66,26 @@ const MovieEdit = () => {
 
   return (
     <section className="form-section">
-      <form className="edit-a-movie-form" onSubmit={handleSubmit}>
-        <h1>Edit a Movie</h1>
-        <MovieForm formInputProps={formInputProps} />
-        <div>
-          <input type="submit" value="Edit Movie" />
-        </div>
-        <div>
-          {/* <input type="button" onClick={goBack} value="Cancel" /> */}
-          <button onClick={() => navigate(-1)}>go back</button>
-        </div>
-        {isError ? (
-          <div className="error">
-            <p>Error. Please try again</p>
+      <div className="form-box">
+        <Form className="form" onSubmit={handleSubmit}>
+          <h1>Edit a Movie</h1>
+          <MovieForm formInputProps={formInputProps} />
+          <div>
+            <Form.Control type="submit" value="Edit Movie" />
           </div>
-        ) : (
-          <></>
-        )}
-      </form>
+          <div>
+            {/* <input type="button" onClick={goBack} value="Cancel" /> */}
+            <Button className="button" onClick={() => navigate(-1)}>go back</Button>
+          </div>
+          {isError ? (
+            <div className="error">
+              <p>Error. Please try again</p>
+            </div>
+          ) : (
+            <></>
+          )}
+        </Form>
+      </div>
     </section>
   )
 }

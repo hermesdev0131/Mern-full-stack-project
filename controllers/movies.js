@@ -1,6 +1,6 @@
 
 import Movie from '../models/movie.js'
-import { ratingsSchema } from '../models/movie.js'
+
 
 //Get /movies
 //Returns all movies 

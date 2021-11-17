@@ -7,7 +7,6 @@ const MovieForm = ({ formInputProps }) => {
   const handleFormChange = formInputProps.handleFormChange
 
 
-
   return (
     <>
       <Fade left>

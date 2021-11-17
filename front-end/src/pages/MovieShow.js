@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { deleteMovie } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
+import ReactPlayer from 'react-player'
 
 const MovieShow = ({ isLoggedIn }) => {
   let numberOfLikes = 0
@@ -54,8 +55,13 @@ const MovieShow = ({ isLoggedIn }) => {
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
-        <img src={movie.image} 
-          alt={movie.title} />
+        {/* <img src={movie.image} 
+          alt={movie.title} /> */}
+        <ReactPlayer
+          url={movie.trailer}
+          controls
+        />
+ 
       </div>
       <div className="movie-data-container-div">
         <div className="movie-info">
@@ -67,21 +73,21 @@ const MovieShow = ({ isLoggedIn }) => {
           <p>Description: {movie.description}</p>
           <p>Genre: {genre.join(', ')}</p>
           <p className="not-rated-yet"><img src="https://i.ibb.co/1mxkxtP/burnt-toast-icon.png"/>Rating: {movie.averageRating}</p>
-          <div className="comments-div">
+          <div className="comments-container-div">
             <h5>Comments</h5>
-            <ul className="comments-div-ul">
+            <div className="all-comments">
               {comments.map((comment) => (
                 comment.text.length > 0 ? 
-                  <li key={comment._id}>
+                  <div className="single-comment" key={comment._id}>
                     {comment.owner.username}: {comment.text}  {comment.timestamps} 
                     <div className='like-buttons'>
                       <Button className="button" onClick={handleLikeButton}>Like</Button>
                       <p>{likes}</p>
                     </div>
-                  </li>
+                  </div>
                   : false
               ))}
-            </ul>
+            </div>
           </div>
         </div>
         {isLoggedIn ? (
