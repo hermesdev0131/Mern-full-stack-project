@@ -62,4 +62,3 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
   }
   return config
 }
-

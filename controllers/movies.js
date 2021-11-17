@@ -123,10 +123,6 @@ export const addARatingLike = async (req, res) => {
     // console.log('id, rating-id', id, ratingId)
     const movie = await Movie.findById(id)
     const ratingArray = movie.rating
-    // console.log('ratingArray', ratingArray)
-    // console.log('rating-id', ratingId)
-    // console.log('ratingArray[0]._id', ratingArray[0]._id)
-    // console.log('`new ObjectId("${ratingId}")`',`new ObjectId("${ratingId}")`)
     let ratingSearched = '';
     for(let i = 0; i < ratingArray.length; i++) {
       // console.log('rating from array', i)

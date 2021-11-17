@@ -25,7 +25,7 @@ const AddARating = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const config = getAxiosRequestConfig(`/movies/${id}/rating`, rating)
+    const config = getAxiosRequestConfig(`/movies/${id}/rating`, rating) 
     try {
       const response = await axios(config).catch(handleError)
       console.log(response)

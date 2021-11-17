@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { deleteMovie } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
 import ReactPlayer from 'react-player'
+import AddARatingLike from '../components/AddARatingLike'
+import { deleteMovie } from '../helpers/api'
+
 
 const MovieShow = ({ isLoggedIn }) => {
   // let numberOfLikes = 0
@@ -30,6 +32,7 @@ const MovieShow = ({ isLoggedIn }) => {
       console.log(response.data.rating)
       setGenre(response.data.genre)
       setComments(response.data.rating)
+      console.log('comments', comments)
       setMovie(response.data)
     }
     fetchMovie()
@@ -79,7 +82,8 @@ const MovieShow = ({ isLoggedIn }) => {
               {comments.map((comment) => (
                 comment.text.length > 0 ? 
                   <div className="single-comment" key={comment._id}>
-                    {comment.owner.username}: {comment.text}  {comment.timestamps} 
+                    {comment.owner.username}: {comment.text}  {comment.timestamps} {comment.commentLikes}
+                    <AddARatingLike comment={comment.id}/>
                   </div>
                   : false
               ))}
