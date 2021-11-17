@@ -15,7 +15,7 @@ const Register = () => {
     surname: '',
     email: '', 
     dateOfBirth: '',
-    favouriteFilm: '',
+    favoriteFilm: '',
     gender: '',
     image: '',
     password: '',
@@ -147,9 +147,9 @@ const Register = () => {
           <div>
             <Fade right>
               <FormInput
-                placeholder="Tell us your favourite film(s)" 
+                placeholder="Tell us your favorite film(s)" 
                 type='type' 
-                name='favourtieFilm' 
+                name='favoriteFilm' 
                 {...formInputProps} 
               />
             </Fade>

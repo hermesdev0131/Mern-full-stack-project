@@ -1,7 +1,7 @@
 import express from 'express'
 
 //Bringing in our controllers
-import { addARatingComment, addARating, addMovie, deleteARating, getAllMovies, getSingleMovie, removeMovie, updateMovie, deleteARatingComment } from '../controllers/movies.js'
+import { addARatingComment, addARating, addMovie, deleteARating, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
 import { loginUser, registerUser } from '../controllers/auth.js'
 import { getUserProfile } from '../controllers/users.js'
 
@@ -23,7 +23,7 @@ router.route('/movies/:id/rating/:ratingId').delete(secureRoute, deleteARating)
 
 router.route('/movies/:ratingId/comment').post(secureRoute, addARatingComment)
 
-router.route('/movies/:ratingId/comment/:commentId').delete(secureRoute, deleteARatingComment)
+// router.route('/movies/:ratingId/comment/:commentId').delete(secureRoute, deleteARatingComment)
 
 router.route('/register').post(registerUser)
 

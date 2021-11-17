@@ -101,12 +101,13 @@
   .main-header-div {
     width: 100vw;
     display: flex;
-    flex-direction: column;
     height: 20vh;
     .logo-div {
-      width: 30%;
-      height: 30%;
+      width: 40%;
+      height: 50%;
       .logo {
+        height: 100%;
+        width: 100%;
       }
       h1 {
       }
@@ -117,7 +118,7 @@
       flex-wrap: wrap;
       .search-bar {
         display: flex;
-        width: 70%;
+        width: 100%;
         margin: right;
         height: 50%;
         #category-search {
@@ -134,18 +135,17 @@
       }
       nav {
         // height: 100%;
-        width: 100%;
         display: flex;
-        height: 40%;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-bottom: 60%;
         ul {
-          display: flex;
           li {
-            display: flex;
             span {
-              font-size: 0.8rem;
+              font-size: 0.75rem;
             }
             a {
-              font-size: 0.8rem;
+              font-size: 0.75rem;
               input {
               }
             }

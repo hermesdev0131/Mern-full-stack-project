@@ -83,3 +83,51 @@
     border-radius: 5px;
   }
 }
+
+@media screen and (max-width: 300px) and (max-height: 540px) {
+  .movie-show-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: scroll;
+    img {
+      margin: 40% auto auto auto;
+    }
+    .movie-data-container-div {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+    .movie-info {
+      width: 100vw;
+      text-align: center;
+      display: flex;
+      h1 {
+      }
+      img {
+      }
+      .not-rated-yet {
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+    }
+    .comments-div {
+      overflow: scroll;
+      h5 {
+      }
+      ul {
+        li {
+        }
+      }
+    }
+    .alter-movie-buttons {
+      width: 100vw;
+    }
+  }
+}

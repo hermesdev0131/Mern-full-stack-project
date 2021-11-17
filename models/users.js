@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   surname: {type: String},
   email: { type: String, unique: true, required: true },
   dateOfBirth: {type: Date},
-  favouriteFilm: [{type: String}],
+  favoriteFilm: [{type: String}],
   image: { type: String },
   gender: {type: String},
   password: { type: String, required: true },
@@ -39,7 +39,7 @@ userSchema.set('toJSON', {
 userSchema.virtual('passwordConfirmation').set(function(passwordConfirmation){
   this._passwordConfirmation = passwordConfirmation
 })
-//Custome pre validation
+//Custom pre validation
 userSchema.pre('validate', function(next){
   if (this.isModified('password') && this.password !== this._passwordConfirmation){
     this.invalidate('passwordConfirmation', 'Passwords do not match')
@@ -47,7 +47,7 @@ userSchema.pre('validate', function(next){
   next()
 })
 
-//Custome pre save
+//Custom pre save
 userSchema.pre('save', function(next){
   if (this.isModified('password')){
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
