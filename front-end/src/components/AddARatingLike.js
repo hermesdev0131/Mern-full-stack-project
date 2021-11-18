@@ -28,8 +28,7 @@ const AddARatingLike = ({
     } catch (err) {
       console.log(err)
     }
-    handleClick()
-  }, [])
+  }
 
   // .catch(handleError)
 
