@@ -62,3 +62,16 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
   }
   return config
 }
+
+export const deleteLikes = (requestUrl, data, method = 'delete') => {
+  const config = {
+    method,
+    url: `/api${requestUrl}`,
+    headers: { 
+      Authorization: `${getToken()}`,
+      'Content-Type': 'application/json'
+    },
+    data
+  }
+  return config
+}

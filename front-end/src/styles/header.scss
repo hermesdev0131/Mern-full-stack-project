@@ -8,35 +8,32 @@
   justify-content: center;
   .logo-div {
     display: flex;
-    width: 25%;
+    width: 20%;
     height: 100%;
     .logo {
-      width: 30%;
-      img {
-      }
+      width: 20%;
     }
     h1 {
-      font-size: 0.5em;
+      width: 50%;
+      font-size: 0.9em;
       font-family: "Pacifico";
       margin: auto auto auto 0;
     }
   }
-
   .search-bar-div {
-    width: 40%;
-    height: 60%;
-    margin: auto;
+    width: 30%;
+    height: 100%;
     text-align: center;
     flex-wrap: wrap;
     #category-search {
-      margin: auto;
+      // margin: auto;
       width: 100%;
-      height: 60%;
+      height: 100%;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-content: center;
-      #category {
+      .search-bar {
         width: 70%;
         border: 2px solid $mid-dark-brown;
         border-radius: 5px 0 0 5px;
@@ -47,8 +44,8 @@
         background-color: $dark-butter-yellow;
         text-align: center;
       }
-      #toast,
-      input {
+      #toast {
+        height: 100%;
         font-size: 0.5em;
         align-self: center;
         color: $mid-dark-brown;
@@ -67,49 +64,41 @@
       }
     }
   }
-}
-
-.nav-div {
-  display: flex;
-  width: 35%;
-  height: 100%;
-  flex-wrap: wrap;
-  margin: auto;
-  font-size: 30px;
-  nav {
-    // margin: right;
+  .nav-div {
     display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-self: center;
-    align-items: center;
-    // height: 100%;
-    // flex-direction: row;
-    // justify-content: center;
-    // align-self: center;
-    // align-items: center;
+    width: 50%;
     height: 100%;
-    ul {
-      width: 100%;
-      height: 100%;
+    flex-wrap: wrap;
+    margin: auto;
+    font-size: 30px;
+    nav {
+      // margin: right;
       display: flex;
+      width: 100%;
+      flex-direction: row;
       justify-content: center;
-      list-style-type: none;
-      li {
-        font-size: 1.5em;
-        flex-direction: row;
-        list-style-type: none;
-        height: 100%;
-        text-align: center;
+      align-self: center;
+      align-items: center;
+      height: 100%;
+      ul {
         width: 100%;
-        a {
-          font-size: 4em;
-          text-decoration: none;
-          color: $mid-brown;
-          // input {
-          //   background-color: $butter-yellow;
-          // }
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        li {
+          list-style-type: none;
+          height: 100%;
+          text-align: center;
+          width: 100%;
+          .nav-link {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: $mid-brown;
+            // input {
+            //   background-color: $butter-yellow;
+            // }
+          }
         }
       }
     }
@@ -146,25 +135,15 @@
       }
     }
   }
-}
-
-.nav-div {
-  height: 50%;
-  width: 100%;
-  justify-content: space-evenly;
-  nav {
+  .nav-div {
+    height: 50%;
+    width: 100%;
     justify-content: space-evenly;
-    margin: auto;
-    ul {
-      li {
-        span {
-          font-size: 0.8rem;
-        }
-        a {
-          font-size: 0.8rem;
-          input {
-          }
-        }
+    nav {
+      justify-content: space-evenly;
+      margin: auto;
+      .nav-link {
+        font-size: 0.7rem;
       }
     }
   }

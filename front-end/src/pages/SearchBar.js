@@ -52,10 +52,6 @@ const SearchBar = () => {
     console.log('Search', search)
   }
 
-
-
-
-
   return (
     <form id="category-search" method="GET" onSubmit={handleSubmit}>
       <input className="search-bar"
@@ -66,7 +62,7 @@ const SearchBar = () => {
         value={search}
         onChange={handleChange}
       />
-      <button id="toast" className="button"><Link to={`/movies/${search}`}>Toast</Link></button>
+      <button id="toast" ><Link to={`/movies/${search}`}>Toast</Link></button>
     </form>
   )
 }

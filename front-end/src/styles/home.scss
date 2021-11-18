@@ -85,3 +85,27 @@
     }
   }
 }
+
+@media screen and (max-width: 1800px) {
+  .home {
+    .carousel-div {
+      .carousel {
+        .carousel-indicators {
+        }
+        .slide-caption {
+          h3 {
+          }
+        }
+        img {
+        }
+        .slide-rating-div {
+          display: none;
+          img {
+          }
+          p {
+          }
+        }
+      }
+    }
+  }
+}

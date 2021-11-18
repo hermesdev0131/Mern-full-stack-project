@@ -27,30 +27,30 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link className='nav-link' to="/">Home</Link>
             </li>
             <li>
-              <Link to="/movies">Movies</Link>
+              <Link className='nav-link' to="/movies">Movies</Link>
             </li>
             {isLoggedIn ? (
               <>
                 <li>
-                  <Link to="/movies/new">Add Movie</Link>
+                  <Link to="/movies/new" className='nav-link' >Add Movie</Link>
                 </li>
                 <li>
-                  <Link to ="/profile">Profile</Link>
+                  <Link className='nav-link' to ="/profile">Profile</Link>
                 </li>
                 <li>
-                  <span onClick={handleLogout}>Logout</span>
+                  <span className='nav-link' onClick={handleLogout}>Logout</span>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <Link to="/login">Log In</Link>
+                  <Link className='nav-link' to="/login">Log In</Link>
                 </li>
                 <li>
-                  <Link to="/register">Sign Up</Link>
+                  <Link className='nav-link' to="/register">Sign Up</Link>
                 </li>
               </>
             )}

@@ -94,7 +94,7 @@ const MovieShow = ({ isLoggedIn }) => {
         </div>
         {isLoggedIn ? (
           <>
-            <div className="alter-movie-buttons">
+            <div id="alter-movie-buttons" className="alter-movie-buttons">
               <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit</Link></Button>
               <Button className="button" onClick={handleDeleteClick}>Delete</Button>
               <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate</Link></Button>
@@ -102,10 +102,10 @@ const MovieShow = ({ isLoggedIn }) => {
           </>
         ) : (
           <>
-            <div className="alter-movie-buttons">
+            <div id="alter-movie-buttons" className="alter-movie-buttons">
               <p>Log in to rate this movie</p>
-              <Button className="button"><Link className="link" to={'/login'}>Log In</Link></Button>
-              <Button className="button"><Link className="link" to={'/register'}>Sign Up</Link></Button>
+              <Button id="button"  className="button"><Link className="link" to={'/login'}>Log In</Link></Button>
+              <Button id="button" className="button"><Link className="link" to={'/register'}>Sign Up</Link></Button>
             </div>
           </>
         )}

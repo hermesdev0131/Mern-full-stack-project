@@ -1,9 +1,7 @@
 import axios from 'axios'
 import * as React from 'react' 
-// import { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-// import { useEffect } from 'react'
-import { getAxiosRequestConfig } from '../helpers/api'
+import { useParams } from 'react-router-dom'
+import { getAxiosRequestConfig, deleteLikes } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
 
 const AddARatingLike = ({
@@ -12,7 +10,6 @@ const AddARatingLike = ({
 }) => {
 
   const { id } = useParams()
-  const navigate = useNavigate()
   const commentLikes = {
     like: 1
   }
@@ -30,32 +27,72 @@ const AddARatingLike = ({
     }
   }
 
-  // .catch(handleError)
-
-  const goBack = () => {
-    navigate(-1)
+  async function fetchMovie() {
+    const config = {
+      method: 'get',
+      url: `/api/movies/${id}`,
+      headers: { }
+    }
+    const response = await axios(config)
+    console.log(response.data.rating)
+    setComments(response.data.rating)
+    console.log('comments', comment)
   }
 
-  // const formInputProps = { errorInfo, handleFormChange }
+  const handleDislike = async () => {
+    const config = deleteLikes(`/movies/${id}/rating/${comment}/commentLikes`)
+    console.log(commentLikes)
+    try {
+      await axios(config)
+      fetchMovie()
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
-      <Button onClick={handleLike} value="button" className="button">
+      <Button onClick={handleLike} className="button">
         Like
       </Button>
-      <Button onClick={goBack} value="Unlike" className="button">
+      <Button onClick={handleDislike} className="button">
         Unlike
       </Button>
     </>
   )
 }
 
-// {isError ? (
-//   <div className="error">
-//     <p>Error. Please try again</p>
-//   </div>
-// ) : (
-//   <></>
-// )}
-
 export default AddARatingLike
+
+const [ userId, setUserId ] = useState('')
+
+useEffect(() => {
+  async function getProfile() {
+    const config = {
+      method: 'get',
+      url: '/api/profile',
+      headers: { 
+        Authorization: `${getToken()}`
+      }
+    }
+    const response = await axios(config)
+    setUserData(response.data.id)
+    console.log(response.data)
+  }
+  getProfile()
+}, [])
+
+// const likesArray = comment.commentLikes
+// for(let i = 0; i < likesArray.length; i++) {
+//   const ownerId = toString(likesArray[i].owner) 
+//   const userId = toString(currentUser._id)
+//   if(ownerId === userId){
+//   <Button onClick={handleDislike} className="button">
+//   Unlike
+//   </Button>
+//   } else {
+//   <Button onClick={handleLike} className="button">
+//   Like
+//   </Button>
+//   }
+// }

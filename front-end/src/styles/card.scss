@@ -8,22 +8,19 @@
   justify-content: center;
   align-items: center;
   background-color: $light-grey-brown;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  button {
-    width: 100px;
+  .card-img-top .card-image {
+    border: $mid-brown;
   }
-}
-
-.card-title {
-  text-align: center;
-  color: $mid-dark-brown;
-}
-
-.card-text {
-  text-align: center;
-  color: $mid-dark-brown;
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    .card-title {
+      text-align: center;
+      color: $mid-dark-brown;
+    }
+    .card-text {
+      text-align: center;
+      color: $mid-dark-brown;
+    }
+  }
 }

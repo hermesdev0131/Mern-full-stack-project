@@ -24,11 +24,11 @@ body {
     header {
       background-color: $butter-yellow;
       height: 10%;
-      font-size: 30px;
     }
     main {
       height: 70%;
       width: 100%;
+      background-color: $mid-brown;
     }
     footer {
       display: flex;
@@ -49,6 +49,7 @@ body {
   border-radius: 5px;
   text-align: center;
   font-size: 0.8rem;
+  margin: 1%;
   .link {
     text-decoration: none;
     color: $mid-dark-brown;

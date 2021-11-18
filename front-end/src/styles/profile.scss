@@ -15,7 +15,10 @@
         border-radius: 50%;
       }
       .card-body {
+        text-align: center;
         .card-title {
+          .card-title {
+          }
           .username {
             font-size: 3rem;
             color: $mid-dark-brown;
@@ -68,6 +71,34 @@
     .created-movies-div {
       .movies-add-by {
         font-size: 1rem;
+      }
+      .movie-list {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) and (max-height: 810px) {
+  .profile-container {
+    .personal-details {
+      .profile-card {
+        .card-image {
+        }
+        .card-body {
+          .card-title {
+            text-align: center;
+            margin: auto;
+            .card-text {
+            }
+            .username {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    .created-movies-div {
+      .movies-add-by {
       }
       .movie-list {
       }
