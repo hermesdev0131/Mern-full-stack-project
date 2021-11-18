@@ -2,35 +2,29 @@ import axios from 'axios'
 import * as React from 'react' 
 // import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+// import { useEffect } from 'react'
 import { getAxiosRequestConfig } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
 
-const AddARatingLike = (props) => {
+const AddARatingLike = ({
+  comment, 
+  setComments
+}) => {
+
+  const { id } = useParams()
+  const navigate = useNavigate()
   const commentLikes = {
     like: 1
   }
-  // const [errorInfo, setErrorInfo] = useState({})
-  // const [isError, setIsError] = useState(false) 
-  const { id } = useParams()
-  const ratingId = props.comment
-  const navigate = useNavigate()
  
-
-  // const handleError = (error) => {
-  //   if (error.response) {
-  //     setErrorInfo(error.response.data)
-  //     setIsError(true)
-  //   }
-  // }
-
-  const handleClick = async (event) => {
-    event.preventDefault()
-    const config = getAxiosRequestConfig(`/movies/${id}/rating/${ratingId}/commentLikes`, commentLikes)
+  const handleLike = async () => {
+    const config = getAxiosRequestConfig(`/movies/${id}/rating/${comment}/commentLikes`, commentLikes)
     console.log(commentLikes)
     try {
-      const response = await axios(config)
-      console.log(response)
-      // setIsError(false)
+      const { data } = await axios(config)
+      console.log(data.rating)
+      setComments(data.rating)
+    // setIsError(false)
     } catch (err) {
       console.log(err)
     }
@@ -46,7 +40,7 @@ const AddARatingLike = (props) => {
 
   return (
     <>
-      <Button onClick={handleClick} className="button">
+      <Button onClick={handleLike} value="button">
         Like
       </Button>
       <Button onClick={goBack} value="Unlike" className="button">

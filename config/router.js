@@ -1,7 +1,7 @@
 import express from 'express'
 
 //Bringing in our controllers
-import { addARatingLike, addARating, addMovie, deleteARating, getAllMovies, getSingleMovie, removeMovie, updateMovie } from '../controllers/movies.js'
+import { addARatingLike, addARating, addMovie, deleteARating, getAllMovies, getSingleMovie, removeMovie, updateMovie, getSingleRating } from '../controllers/movies.js'
 import { loginUser, registerUser } from '../controllers/auth.js'
 import { getUserProfile } from '../controllers/users.js'
 
@@ -20,6 +20,8 @@ router.route('/movies/:id').get(getSingleMovie).put(secureRoute, updateMovie).de
 router.route('/movies/:id/rating').post(secureRoute, addARating)
 
 router.route('/movies/:id/rating/:ratingId').delete(secureRoute, deleteARating)
+
+router.route('/movies/:id/rating/:ratingId').get(secureRoute, getSingleRating)
 
 router.route('/movies/:id/rating/:ratingId/commentLikes').post(secureRoute, addARatingLike)
 

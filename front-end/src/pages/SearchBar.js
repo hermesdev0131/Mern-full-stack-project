@@ -1,55 +1,59 @@
-// import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import React from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import Button from 'react/bootstrap/Button' 
+
 
 const SearchBar = () => {
-  // const [search, setSearch] = useState('')
-  // const [objectSearch, setObjectSearch] = useState('')
-  // const [browser, setBrowser] = useState('')
-  // const navigate = useNavigate()
-  let search = ''
-  let testData = ''
-  const [searchX, setSearchX] = useState('')
+
+  const navigate = useNavigate()
+
+  const [info, setInfo] = useState([])
+  const [search, setSearch] = useState('')
+  const [film, setFilm] = useState('')
+
 
   useEffect(() => {
-    async function fetchMovie() {
-      
-
-      const config = {
-        method: 'get',
-        url: '/api/movies',
-        headers: { }
+    const fetchMovie = async () => {
+      try {
+        const config = {
+          method: 'get',
+          url: '/api/movies',
+          headers: {}
+        }
+        const { data } = await axios(config)
+        setInfo(data)
+        console.log('Info', info)
+      } catch (err) {
+        console.log(err)
       }
-      const response = await axios(config)
-      // setObjectSearch(response.data)  
-      testData = response.data
-      console.log('Test Data', testData)
     }
     fetchMovie()
-  }, [])
+  }, [film])
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    for (let i = 0; i < testData.length; i++) {
-      // search === objectSearch[i].title ? setBrowser(objectSearch[i]._id) : 'do nothing'
-      // console.log('Browser', browser)
-      // console.log('SEARCH', search)
-      search = searchX === testData[i].title ? testData[i]._id : 'do nothing'
-    }
-    console.log('String Search', search)
-    // navigate(`/movies/${browser}`)
+    setFilm(search)
+    console.log('Search', search)
+
+    const filmObject = info.filter(item => item.title === search)
+    console.log('Film Object', filmObject)
+    if (filmObject[0]._id === null || undefined) return
+    const filmObjectId = (filmObject[0]._id)
+    console.log('Film Object Id', filmObjectId)
+    navigate(`/movies/${filmObjectId}`)
   }
+
 
   const handleChange = (event) => {
-    setSearchX(event.target.value)
+    setSearch(event.target.value)
+    console.log('Search', search)
   }
 
 
-  
+
   return (
     <form id="category-search" method="GET" onSubmit={handleSubmit}>
       <input className="search-bar"
@@ -57,11 +61,10 @@ const SearchBar = () => {
         name="category"
         id="category"
         placeholder="Search For a Movie"
-        value={searchX}
+        value={search}
         onChange={handleChange}
-          
+    
       />
-      {/* <input id="toast" className="button" type="submit" value="TOAST" /> */}
       <button id="toast" className="button"><Link to={`/movies/${search}`}>Toast</Link></button>
     </form>
   )
