@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as React from 'react' 
 // import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 import { getAxiosRequestConfig } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
 
@@ -23,18 +24,21 @@ const AddARatingLike = (props) => {
   //   }
   // }
 
-  const handleClick = async (event) => {
-    event.preventDefault()
-    const config = getAxiosRequestConfig(`/movies/${id}/rating/${ratingId}/commentLikes`, commentLikes)
-    console.log(commentLikes)
-    try {
-      const response = await axios(config)
-      console.log(response)
+  useEffect(() => {
+    const handleClick = async (event) => {
+      event.preventDefault()
+      const config = getAxiosRequestConfig(`/movies/${id}/rating/${ratingId}/commentLikes`, commentLikes)
+      console.log(commentLikes)
+      try {
+        const response = await axios(config)
+        console.log(response)
       // setIsError(false)
-    } catch (err) {
-      console.log(err)
+      } catch (err) {
+        console.log(err)
+      }
     }
-  }
+    handleClick()
+  }, [])
 
   // .catch(handleError)
 
