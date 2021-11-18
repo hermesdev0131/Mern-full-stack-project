@@ -13,7 +13,7 @@
       width: 50%;
     }
     h1 {
-      font-size: 1rem;
+      font-size: 0.5em;
       font-family: "Pacifico";
       margin-top: 5%;
     }
@@ -38,7 +38,7 @@
         border: 2px solid $mid-dark-brown;
         border-radius: 5px 0 0 5px;
         background-color: $dark-butter-yellow;
-        font-size: 1rem;
+        font-size: 0.5em;
         border: 2px solid $mid-dark-brown;
         border-radius: 5px 0 0 5px;
         background-color: $dark-butter-yellow;
@@ -46,7 +46,7 @@
       }
       #toast,
       input {
-        font-size: 1rem;
+        font-size: 0.5em;
         align-self: center;
         color: $mid-dark-brown;
         border: 2px solid $mid-dark-brown;
@@ -67,7 +67,7 @@
   display: flex;
   // width: 80%;
   nav {
-    margin: right;
+    // margin: right;
     display: flex;
     width: 100%;
     height: 100%;
@@ -76,11 +76,15 @@
     align-self: center;
     align-items: center;
     // height: 100%;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-self: center;
+    // align-items: center;
+    height: 100%;
     ul {
       width: 100%;
       height: 100%;
       display: flex;
-      flex-direction: row;
       justify-content: space-evenly;
       list-style-type: none;
       li {
@@ -89,13 +93,12 @@
         height: 100%;
         width: 100%;
         span {
-          font-size: 1.3em;
+          font-size: 1.5rem;
         }
         a {
+          font-size: 1.5rem;
           text-decoration: none;
           color: $mid-brown;
-          font-size: 1.3rem;
-          height: 100%;
           input {
             background-color: $butter-yellow;
           }

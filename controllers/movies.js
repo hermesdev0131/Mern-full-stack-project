@@ -116,12 +116,33 @@ export const deleteARating = async (req, res) => {
 
 }
 
+//Get /rating/:id
+//Get single rating
+export const getSingleRating = async (req, res) => {
+  try {
+    const { id, ratingId } = req.params
+    const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
+    // console.log(movie)
+    if (!movie) throw new Error()
+    const ratingToLike = movie.rating.id(ratingId)
+    //If rating returns null, throw error
+    if (!ratingToLike) throw new Error()
+    //If owner of comment is not current user, throw error
+    // if (!ratingToLike.owner.equals(req.currentUser._id)) throw new Error()
+    return res.status(200).json(ratingToLike)
+  } catch (err) {
+    console.log(`Comment not found`)
+    console.log(err)
+    return res.status(404).json({ 'message': 'Comment Not Found'})
+  }
+}
+
 //Add a like
 export const addARatingLike = async (req, res) => {
   try {
     const { id, ratingId } = req.params
     // console.log('id, rating-id', id, ratingId)
-    const movie = await Movie.findById(id)
+    const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
     const ratingArray = movie.rating
     let ratingSearched = '';
     for(let i = 0; i < ratingArray.length; i++) {
@@ -148,24 +169,6 @@ export const addARatingLike = async (req, res) => {
     return res.status(404).json({ message: 'Something went wrong'})
   }
 }
-
-//Add a rating Comment
-// export const addARatingComment = async (req, res) => {
-//   try {
-//     const { ratingId } = req.params
-//     const comment = await ratingsSchema.findOne(ratingId)
-//     if (!comment) throw new Error()
-//     const newComment = { ...req.body, owner: req.currentUser._id }
-//     console.log('newRating', newComment)
-//     comment.rating.push(newComment)
-//     // console.log('Movie ->', movie)
-//     await comment.save({ validateModifiedOnly: true })
-//     return res.status(200).json(comment)
-//   } catch (err) {
-//     console.log(err)
-//     return res.status(404).json({ message: 'Something went wrong'})
-//   }
-// }
 
 // //Delete a rating Comment
 // export const deleteARatingComment = async (req, res) => {
