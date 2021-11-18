@@ -82,7 +82,7 @@ const MovieShow = ({ isLoggedIn }) => {
               {comments.map((comment) => (
                 comment.text.length > 0 ? 
                   <div className="single-comment" key={comment._id}>
-                    <p> {comment.owner.username}: {comment.text}  {comment.timestamps} {comment.commentLikes} </p>
+                    <p> {comment.owner.username}: {comment.text}  {comment.timestamps} {comment.commentLikes.length} </p>
                     <AddARatingLike comment={comment._id}/>
                   </div>
                   : false
