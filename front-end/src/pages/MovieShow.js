@@ -58,13 +58,12 @@ const MovieShow = ({ isLoggedIn }) => {
   return (
     <div className="movie-show-div">
       <div className="movie-show-img-div">
-        {/* <img src={movie.image} 
-          alt={movie.title} /> */}
         <ReactPlayer className="video"
           url={movie.trailer}
           controls
+          width={640}
+          height={360}
         />
- 
       </div>
       <div className="movie-data-container-div">
         <div className="movie-info">
@@ -82,7 +81,10 @@ const MovieShow = ({ isLoggedIn }) => {
               {comments.map((comment) => (
                 comment.text.length > 0 ? 
                   <div className="single-comment" key={comment._id}>
-                    <p> {comment.owner.username}: {comment.text}  {comment.timestamps} {comment.commentLikes.length} </p>
+                    <div className="single-comment-p">
+                      <p>{comment.owner.username}: {comment.text}  {comment.timestamps}</p>
+                      <p>Likes: {comment.commentLikes.length} </p>
+                    </div>
                     <AddARatingLike setComments={setComments} comment={comment._id}/>
                   </div>
                   : false
@@ -93,9 +95,9 @@ const MovieShow = ({ isLoggedIn }) => {
         {isLoggedIn ? (
           <>
             <div className="alter-movie-buttons">
-              <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit Movie</Link></Button>
-              <Button className="button" onClick={handleDeleteClick}>Delete movie</Button>
-              <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate movie</Link></Button>
+              <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit</Link></Button>
+              <Button className="button" onClick={handleDeleteClick}>Delete</Button>
+              <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate</Link></Button>
             </div>
           </>
         ) : (

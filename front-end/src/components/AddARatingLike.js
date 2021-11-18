@@ -40,7 +40,7 @@ const AddARatingLike = ({
 
   return (
     <>
-      <Button onClick={handleLike} value="button">
+      <Button onClick={handleLike} value="button" className="button">
         Like
       </Button>
       <Button onClick={goBack} value="Unlike" className="button">

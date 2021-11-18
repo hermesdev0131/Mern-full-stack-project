@@ -7,84 +7,99 @@
   gap: 0.5%;
   width: 100vw;
   height: 100vh;
-  padding: 1%;
-  img {
-    max-width: 45vw;
-    max-height: 90vh;
-    border: 2px solid grey;
-    border-radius: 5px;
+  padding-top: 1%;
+  .movie-show-img-div {
+    width: 50%;
+    .video {
+      width: 100%;
+      border: 3px solid rgb(250, 241, 190);
+      box-shadow: 5px 10px rgb(196, 177, 146);
+    }
   }
   .movie-data-container-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5%;
-    width: 50vw;
-    max-height: 80vh;
+    width: 45%;
+    max-height: 100%;
     padding: 0.5%;
     background-color: $light-toast;
     color: $mid-dark-brown;
-    border: 2px solid grey;
+    border: 2px solid $light-grey-brown;
     border-radius: 5px;
-  }
-  .movie-info {
-    display: flex;
-    flex-direction: column;
-    max-height: 90%;
-    align-items: left;
-    padding: 2%;
-    background-color: $dark-butter-yellow;
-    border: 2px solid grey;
-    border-radius: 5px;
-    h1 {
-      align-self: center;
-      margin: 0 auto 2.5% auto;
-    }
-    img {
-      border: none;
-      width: 50px;
-      height: 50px;
-    }
-  }
-  .comments-container-div {
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    align-items: left;
-    margin: 0.5%;
-    padding: 1%;
-    background-color: $butter-yellow;
-    border: 2px solid grey;
-    border-radius: 5px;
-    h5 {
-      align-self: center;
-      margin: 0 auto;
-    }
-    .all-comments {
-      .single-comment {
+    .movie-info {
+      display: flex;
+      flex-direction: column;
+      max-height: 90%;
+      align-items: left;
+      padding: 2%;
+      background-color: $dark-butter-yellow;
+      border: 2px solid $light-grey-brown;
+      border-radius: 5px;
+      h1 {
+        align-self: center;
+        margin: 0 auto 2.5% auto;
+      }
+      img {
+        border: none;
+        width: 50px;
+        height: 50px;
+      }
+      .comments-container-div {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 2%;
+        flex-direction: column;
+        overflow: scroll;
+        align-items: left;
+        margin: 0.5%;
         padding: 1%;
-        color: rgb(225, 150, 99);
-        background-color: rgb(228, 226, 226);
-        border: 2px solid rgb(228, 226, 226);
-        border-radius: 10px;
+        background-color: $butter-yellow;
+        border: 2px solid $light-grey-brown;
+        border-radius: 5px;
+        h5 {
+          align-self: center;
+          margin: 0 auto;
+        }
+        .all-comments {
+          .single-comment {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 2%;
+            padding: 1%;
+            background-color: $light-toast;
+            border: 2px solid $light-grey-brown;
+            border-radius: 10px;
+            .single-comment-p {
+              display: flex;
+              flex-direction: column;
+              p {
+                color: $mid-dark-brown;
+              }
+            }
+          }
+        }
       }
     }
-  }
-  .alter-movie-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 50%;
-    padding: 1%;
-    gap: 2%;
-    background-color: $butter-yellow;
-    border: 2px solid grey;
-    border-radius: 5px;
+    .alter-movie-buttons {
+      display: flex;
+      height: 10%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 50%;
+      padding: 1%;
+      gap: 2%;
+      background-color: $butter-yellow;
+      border: 2px solid $light-grey-brown;
+      border-radius: 5px;
+      .button {
+        height: 80%;
+        width: 23%;
+        flex-wrap: wrap;
+        margin: auto;
+      }
+    }
   }
 }
 
@@ -124,10 +139,38 @@
         li {
           // code
           display: flex;
+          text-align: center;
           margin: 1%;
           div {
             display: flex;
             margin: 1%;
+          }
+        }
+      }
+    }
+    .alter-movie-buttons {
+      width: 100vw;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .movie-show-div {
+    .movie-show-img-div {
+      display: none;
+      width: 100%;
+    }
+    .movie-data-container-div {
+    }
+    .movie-info {
+      .not-rated-yet {
+      }
+    }
+    .comments-div {
+      ul {
+        li {
+          // code
+          div {
           }
         }
       }

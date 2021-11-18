@@ -118,24 +118,24 @@ export const deleteARating = async (req, res) => {
 
 //Get /rating/:id
 //Get single rating
-export const getSingleRating = async (req, res) => {
-  try {
-    const { id, ratingId } = req.params
-    const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
-    // console.log(movie)
-    if (!movie) throw new Error()
-    const ratingToLike = movie.rating.id(ratingId)
-    //If rating returns null, throw error
-    if (!ratingToLike) throw new Error()
-    //If owner of comment is not current user, throw error
-    // if (!ratingToLike.owner.equals(req.currentUser._id)) throw new Error()
-    return res.status(200).json(ratingToLike)
-  } catch (err) {
-    console.log(`Comment not found`)
-    console.log(err)
-    return res.status(404).json({ 'message': 'Comment Not Found'})
-  }
-}
+// export const getSingleRating = async (req, res) => {
+//   try {
+//     const { id, ratingId } = req.params
+//     const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
+//     // console.log(movie)
+//     if (!movie) throw new Error()
+//     const ratingToLike = movie.rating.id(ratingId)
+//     //If rating returns null, throw error
+//     if (!ratingToLike) throw new Error()
+//     //If owner of comment is not current user, throw error
+//     // if (!ratingToLike.owner.equals(req.currentUser._id)) throw new Error()
+//     return res.status(200).json(ratingToLike)
+//   } catch (err) {
+//     console.log(`Comment not found`)
+//     console.log(err)
+//     return res.status(404).json({ 'message': 'Comment Not Found'})
+//   }
+// }
 
 //Add a like
 export const addARatingLike = async (req, res) => {
@@ -153,9 +153,7 @@ export const addARatingLike = async (req, res) => {
         console.log('loop works')
       }
     }
-    console.log('ratingSearched', ratingSearched)
-    // const ratingSearched = movie.rating.findById
-    // const ratingSearched = indexOf(ratingId)
+    // console.log('ratingSearched', ratingSearched)
     if (!movie) throw new Error()
     const newRatingLike = { ...req.body, owner: req.currentUser._id }
     console.log('newRatingLike', newRatingLike)
@@ -170,29 +168,93 @@ export const addARatingLike = async (req, res) => {
   }
 }
 
-// //Delete a rating Comment
-// export const deleteARatingComment = async (req, res) => {
+// pass current user id 
+// loop through commentLikes array
+// if ratingArray[i].owner === user id ---> .remove() / .splice [i]
+
+//Delete a rating Like
+export const deleteARatingLike = async (req, res) => {
+  try {
+    const { id, ratingId } = req.params // id = movieId
+    //Find movies where rating lives
+    const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
+    //If no movies found throw error
+    if(!movie) throw new Error()
+    //find the rating we are looking for
+    const ratingArray = movie.rating
+    let ratingSearched = ''; // store the rating in this variable
+    for(let i = 0; i < ratingArray.length; i++) {
+      // console.log('rating from array', i)
+      console.log(ratingArray[i].id)
+      if(ratingArray[i].id === ratingId){
+        ratingSearched = i
+        console.log('loop works, ratingSearched =', i)
+      }
+    }
+    // Find the likes we are looking for
+    const likesArray = movie.rating[ratingSearched].commentLikes
+    // console.log(likesArray) / this works
+    let likesToDelete = '';
+    for(let i = 0; i < likesArray.length; i++) {
+      // convert the id's we want to compare into strings
+      const ownerId = toString(likesArray[i].owner) 
+      const userId = toString(req.currentUser._id)
+      // console.log(ownerId === userId) / quick comparison of the strings
+      // if the ownerId and the userId match
+      if(ownerId === userId){
+        //store the current object in a variable
+        likesToDelete = likesArray[i] 
+        console.log('loop works, likesToDelete', likesToDelete) // logging the object to make sure its correct
+      }
+    }
+    //If rating returns null, throw error
+    if (!likesArray) throw new Error()
+    // remove the like at the chosen index from likesArray
+    // console.log('likesTodDelete', likesToDelete)
+    await likesToDelete.remove() // delete the chosen item from the array
+    // save the movie after the like has been removed
+    await movie.save({ validateModifiedOnly: true })
+    //Return positive response
+    return res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ 'message': 'Unable to delete rating like'})
+  }
+}
+
+// const ratingToDelete = movie.rating.commentLikes.id(commentLikesId)
+
+//Delete a rating Like
+// export const deleteARatingLike = async (req, res) => {
 //   try {
-//     const { id, ratingId } = req.params
+//     const { id, ratingId, commentLikesId } = req.params // id = movieId
 //     //Find movies where rating lives
 //     const movie = await Movie.findById(id)
 //     //If no movies found throw error
 //     if(!movie) throw new Error()
-//     //Find the rating with the ratingId
-//     const ratingToDelete = movie.rating.id(ratingId)
+//     //Find the ratingLike with the commentLikesId
+//     // const likesArray = movie.rating.commentLikes
+//     // const likeToDelete = movie.rating.commentLikes.id(commentLikesId)
+//     // for(let i = 0; i < likesArray.length; i++) {
+//     //   // console.log('rating from array', i)
+//     //   console.log(likesArray[i].owner)
+//     //   if(likesArray[i].owner === req.currentUser._id){
+//     //     likesArray[i].remove()
+//     //     console.log('loop works')
+//     //   }
+//     // }
 //     //If rating returns null, throw error
-//     if (!ratingToDelete) throw new Error()
+//     if (!likeToDelete) throw new Error()
 //     //If owner of comment is not current user, throw error
-//     if (!ratingToDelete.owner.equals(req.currentUser._id)) throw new Error()
+//     if (!likeToDelete.owner.equals(req.currentUser._id)) throw new Error()
 //     //Remove rating
-//     await ratingToDelete.remove()
+//     await likeToDelete.remove()
 //     //Save the movie after rating deleted
 //     await movie.save({ validateModifiedOnly: true })
 //     //Return positive response
 //     return res.sendStatus(204)
 //   } catch (err) {
 //     console.log(err)
-//     return res.status(404).json({ 'message': 'Something went wrong'})
+//     return res.status(404).json({ 'message': 'Unable to delete rating like'})
 //   }
-
 // }

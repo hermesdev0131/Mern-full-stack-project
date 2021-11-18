@@ -54,6 +54,8 @@ const SearchBar = () => {
 
 
 
+
+
   return (
     <form id="category-search" method="GET" onSubmit={handleSubmit}>
       <input className="search-bar"
