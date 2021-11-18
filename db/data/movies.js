@@ -222,7 +222,7 @@ export default [
   title: 'He\'s All That',
   director: 'Mark Waters',
   image: 'https://m.media-amazon.com/images/M/MV5BYzM3NmYyMTItZWY5My00MTQzLWFmMzEtOTc2ZjRkMDJkYWM3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg',
-  title: 'https://www.youtube.com/watch?v=XqTPaRz8Nx8',
+  trailer: 'https://www.youtube.com/watch?v=XqTPaRz8Nx8',
   releaseYear: 2021,
   description: "An influencer who specializes in makeovers bets that she can transform an unpopular classmate into a prom king.",
   cast: ['Addison Rae', 'Tanner Bauchanan', 'Pet'],

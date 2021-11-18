@@ -12,10 +12,10 @@ const Profile = () => {
     username: '',
     email: '',
     gender: '',
-    favouriteFilm: '',
+    favoriteFilm: '',
     image: ''
   })
-
+  
 
   useEffect(() => {
     async function getProfile() {
@@ -49,14 +49,14 @@ const Profile = () => {
               <p className="card-text">Gender: {userData.gender}</p>
             </Card.Text>
             <Card.Text>
-              <p className="card-text">Favourite Films: {userData.favouriteFilm}</p>
+              <p className="card-text">Favorite Films: {userData.favoriteFilm}</p>
             </Card.Text>
           </Card.Body>
         </Card>
       </div>
-      <div className="created-movies-div">
+      <div className="movie-list-div" id="created-movies-div">
         <p className="movies-add-by">Your Movies</p>
-        <ul id="profile-movie-list" className="movie-list">
+        <ul className="movie-list" id="profile-movie-list">
           {moviesAdded.map((m) => (
             <li key={m._id}>
               <MovieCard {...m} />

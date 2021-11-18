@@ -1,21 +1,56 @@
 import axios from 'axios'
 import * as React from 'react' 
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getAxiosRequestConfig, deleteLikes } from '../helpers/api'
 import Button from 'react-bootstrap/Button'
+import { getAxiosRequestConfig, deleteLikes } from '../helpers/api'
+import { getToken } from '../helpers/auth'
 
 const AddARatingLike = ({
-  comment, 
-  setComments
+  setComments,
+  commentId, 
+  commentLikesArray
 }) => {
 
   const { id } = useParams()
   const commentLikes = {
     like: 1
   }
- 
+  
+  const [ userId, setUserId ] = useState('')
+  const [ userLike, setUserLike ] = useState(false)
+
+  ////////////////check whether a user has liked a comment.///////////////////
+  useEffect(() => {
+    async function getProfile() {
+      const config = {
+        method: 'get',
+        url: '/api/profile',
+        headers: { 
+          Authorization: `${getToken()}`
+        }
+      }
+      const response = await axios(config)
+      setUserId(response.data.id)
+      console.log(response.data)
+    }
+    getProfile()
+  }, [])
+
+  useEffect(() => {
+    for (let i = 0; i < commentLikesArray.length; i++) {
+      const ownerId = toString(commentLikesArray[i].owner)
+      if (ownerId === userId){
+        setUserLike(true)
+      } else {
+        setUserLike(false)
+      }
+    }
+  }, [])
+
+  ///////////////////////////////handle the like.///////////////////
   const handleLike = async () => {
-    const config = getAxiosRequestConfig(`/movies/${id}/rating/${comment}/commentLikes`, commentLikes)
+    const config = getAxiosRequestConfig(`/movies/${id}/rating/${commentId}/commentLikes`, commentLikes)
     console.log(commentLikes)
     try {
       const { data } = await axios(config)
@@ -27,6 +62,7 @@ const AddARatingLike = ({
     }
   }
 
+  ///////////////////////////////handle the dislike.///////////////////
   async function fetchMovie() {
     const config = {
       method: 'get',
@@ -36,11 +72,11 @@ const AddARatingLike = ({
     const response = await axios(config)
     console.log(response.data.rating)
     setComments(response.data.rating)
-    console.log('comments', comment)
+    console.log('comments', commentId)
   }
 
   const handleDislike = async () => {
-    const config = deleteLikes(`/movies/${id}/rating/${comment}/commentLikes`)
+    const config = deleteLikes(`/movies/${id}/rating/${commentId}/commentLikes`)
     console.log(commentLikes)
     try {
       await axios(config)
@@ -52,47 +88,16 @@ const AddARatingLike = ({
 
   return (
     <>
-      <Button onClick={handleLike} className="button">
-        Like
-      </Button>
-      <Button onClick={handleDislike} className="button">
-        Unlike
-      </Button>
+      { userLike === true ?
+        (<Button onClick={handleDislike} className="button">
+          Unlike
+        </Button>) :
+        (<Button onClick={handleLike} className="button">
+          Like
+        </Button>)
+      }
     </>
   )
 }
 
 export default AddARatingLike
-
-const [ userId, setUserId ] = useState('')
-
-useEffect(() => {
-  async function getProfile() {
-    const config = {
-      method: 'get',
-      url: '/api/profile',
-      headers: { 
-        Authorization: `${getToken()}`
-      }
-    }
-    const response = await axios(config)
-    setUserData(response.data.id)
-    console.log(response.data)
-  }
-  getProfile()
-}, [])
-
-// const likesArray = comment.commentLikes
-// for(let i = 0; i < likesArray.length; i++) {
-//   const ownerId = toString(likesArray[i].owner) 
-//   const userId = toString(currentUser._id)
-//   if(ownerId === userId){
-//   <Button onClick={handleDislike} className="button">
-//   Unlike
-//   </Button>
-//   } else {
-//   <Button onClick={handleLike} className="button">
-//   Like
-//   </Button>
-//   }
-// }

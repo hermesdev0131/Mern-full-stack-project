@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
 import Form from 'react-bootstrap/Form'
 
+
 const AddARatingLike = () => {
   const [ like, setLike ] = useState('')
   const [errorInfo, setErrorInfo] = useState({})

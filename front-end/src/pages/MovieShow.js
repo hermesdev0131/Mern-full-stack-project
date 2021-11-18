@@ -85,7 +85,7 @@ const MovieShow = ({ isLoggedIn }) => {
                       <p>{comment.owner.username}: {comment.text}  {comment.timestamps}</p>
                       <p>Likes: {comment.commentLikes.length} </p>
                     </div>
-                    <AddARatingLike setComments={setComments} comment={comment._id}/>
+                    <AddARatingLike setComments={setComments} commentId={comment._id} commentLikesArray={comment.commentLikes}/>
                   </div>
                   : false
               ))}

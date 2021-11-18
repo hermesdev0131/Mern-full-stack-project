@@ -40,7 +40,7 @@ const SearchBar = () => {
 
     const filmObject = info.filter(item => item.title === search)
     console.log('Film Object', filmObject)
-    if (filmObject[0]._id === null || undefined) return
+    if (filmObject[0]._id === null || filmObject[0]._id === undefined) return
     const filmObjectId = (filmObject[0]._id)
     console.log('Film Object Id', filmObjectId)
     navigate(`/movies/${filmObjectId}`)
