@@ -290,6 +290,7 @@ function App() {
         <Route path="/login" element={<UserLogIn />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/notfound" element={<NotFoundPage />} />
         <Route index element={<HomePage />} />
         <Route element={<NotFoundPage />} />
       </Routes>
