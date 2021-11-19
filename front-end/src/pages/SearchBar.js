@@ -10,6 +10,7 @@ const SearchBar = () => {
 
   const navigate = useNavigate()
 
+  // const allFilms = []
   const [info, setInfo] = useState([])
   const [search, setSearch] = useState('')
   const [film, setFilm] = useState('')
@@ -32,6 +33,9 @@ const SearchBar = () => {
     }
     fetchMovie()
   }, [film])
+
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault()

@@ -2,6 +2,8 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
+import { getToken } from '../helpers/auth'
+import { useState, useEffect } from 'react'
 
 const MovieCard = ({
   _id,
@@ -9,6 +11,16 @@ const MovieCard = ({
   image, 
   averageRating
 }) => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
 
   return (
     <div>
@@ -26,9 +38,10 @@ const MovieCard = ({
           <Button className="button">
             <Link className="link" to={`/movies/${_id}`} >More Info</Link>
           </Button>
-          <Button className="button">
+          { isLoggedIn ? (<Button className="button">
             <Link className="link" to={`/movies/${_id}/rating`} >Add a Rating</Link>
-          </Button>
+          </Button>) : (<></>)
+          }
         </Card.Body>
       </Card>
     </div>
