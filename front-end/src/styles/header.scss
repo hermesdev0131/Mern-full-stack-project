@@ -28,13 +28,14 @@
     #category-search {
       // margin: auto;
       width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      align-content: center;
+      flex-wrap: wrap;
+      // justify-content: center;
+      // align-content: center;
       .search-bar {
-        width: 70%;
+        width: 80%;
+        height: 50%;
         border: 2px solid $mid-dark-brown;
         border-radius: 5px 0 0 5px;
         background-color: $dark-butter-yellow;
@@ -44,7 +45,7 @@
         text-align: center;
       }
       #toast {
-        height: 100%;
+        height: 50%;
         font-size: 0.8em;
         align-self: center;
         color: $mid-dark-brown;
@@ -60,6 +61,16 @@
         #toast:hover {
           background-color: rgb(225, 150, 99);
         }
+      }
+      .search-options {
+        width: 100%;
+        height: 50%;
+        border: 2px solid $mid-dark-brown;
+        border-radius: 5px 0 0 5px;
+        background-color: $dark-butter-yellow;
+        font-size: 0.7em;
+        border-radius: 5px 0 0 5px;
+        background-color: $dark-butter-yellow;
       }
     }
   }

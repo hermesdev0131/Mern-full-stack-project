@@ -6,15 +6,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
+
 const SearchBar = () => {
-
   const navigate = useNavigate()
-
   const [info, setInfo] = useState([])
   const [search, setSearch] = useState('')
   const [film, setFilm] = useState('')
-
-
+  const arrayOfAllFilms = []
+  
   useEffect(() => {
     const fetchMovie = async () => {
       try {
@@ -25,6 +24,7 @@ const SearchBar = () => {
         }
         const { data } = await axios(config)
         setInfo(data)
+        console.log(info)
         console.log('Info', info)
       } catch (err) {
         console.log(err)
@@ -37,20 +37,34 @@ const SearchBar = () => {
     event.preventDefault()
     setFilm(search)
     console.log('Search', search)
-
+    if (!arrayOfAllFilms.includes(search)) {
+      navigate('/')
+    }
     const filmObject = info.filter(item => item.title === search)
     console.log('Film Object', filmObject)
-    if (filmObject[0]._id === null || filmObject[0]._id === undefined) return
-    const filmObjectId = (filmObject[0]._id)
-    console.log('Film Object Id', filmObjectId)
-    navigate(`/movies/${filmObjectId}`)
+    if (filmObject[0]._id === null || filmObject[0]._id === undefined) {
+      return 
+    } else {
+      const filmObjectId = filmObject[0]._id
+      console.log('Film Object Id', filmObjectId)
+      navigate(`/movies/${filmObjectId}`)
+      setSearch('')
+    }
   }
+
+
+  for (let i = 0; i < info.length; i ++) {
+    arrayOfAllFilms.push(info[i].title)
+  }
+
+  arrayOfAllFilms.sort()
 
 
   const handleChange = (event) => {
     setSearch(event.target.value)
     console.log('Search', search)
   }
+
 
   return (
     <form id="category-search" method="GET" onSubmit={handleSubmit}>
@@ -63,6 +77,35 @@ const SearchBar = () => {
         onChange={handleChange}
       />
       <button id="toast" ><Link to={`/movies/${search}`}>Toast</Link></button>
+      <select className="search-options">
+        {arrayOfAllFilms.filter((val) => {
+          if (search === '') {
+            return val 
+          } else if (val.includes(search)) {
+            return val
+          }
+        }).map((val, key) => {
+          return (
+            <option 
+              key={key} 
+              className="option" 
+              value={val}
+              onClick={(event) => {
+                event.preventDefault()
+                setSearch(event.target.value)
+                // for (let i = 0; i < info.length; i++) {
+                //   search === info[i].title ? setSearch(info[i]._id) : 'do nothing'
+                // }
+              }} 
+              
+              onSubmit={handleSubmit}
+            > 
+              {val}
+            </option>
+          )
+        })
+        }
+      </select>
     </form>
   )
 }

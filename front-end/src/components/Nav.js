@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import SearchBar from '../pages/SearchBar'
 
 
+
 const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate()
 
