@@ -3,7 +3,7 @@ import { useState } from 'react'
 import React from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 
@@ -76,7 +76,8 @@ const SearchBar = () => {
         value={search}
         onChange={handleChange}
       />
-      <button id="toast" ><Link to={`/movies/${search}`}>Toast</Link></button>
+      <button id="toast" onClick={handleSubmit} >Toast</button>
+      {/* <Link to={`/movies/${search}`}>Toast</Link> */}
       <select className="search-options">
         {arrayOfAllFilms.filter((val) => {
           if (search === '') {
@@ -96,7 +97,7 @@ const SearchBar = () => {
                 // for (let i = 0; i < info.length; i++) {
                 //   search === info[i].title ? setSearch(info[i]._id) : 'do nothing'
                 // }
-              }} 
+              }}
               
               onSubmit={handleSubmit}
             > 

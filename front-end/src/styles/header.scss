@@ -45,7 +45,7 @@
         text-align: center;
       }
       #toast {
-        height: 50%;
+        height: 100%;
         font-size: 0.8em;
         align-self: center;
         color: $mid-dark-brown;
@@ -63,7 +63,7 @@
         }
       }
       .search-options {
-        width: 100%;
+        width: 80%;
         height: 50%;
         border: 2px solid $mid-dark-brown;
         border-radius: 5px 0 0 5px;

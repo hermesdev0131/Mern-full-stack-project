@@ -24,8 +24,17 @@ body {
     header {
       background-color: $butter-yellow;
       height: 10%;
+      font-size: 1.5rem;
+      h1 {
+        font-size: 2rem;
+      }
+      a,
+      span {
+        font-size: 1.5rem;
+      }
     }
     main {
+      font-size: 1.5rem;
       height: 70%;
       width: 100%;
       background-color: $mid-brown;
@@ -48,7 +57,7 @@ body {
   background-color: $dark-butter-yellow;
   border-radius: 5px;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   margin: 1%;
   .link {
     text-decoration: none;
