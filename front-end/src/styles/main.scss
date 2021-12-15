@@ -69,26 +69,3 @@ body {
   border: 2px solid $mid-dark-brown;
   color: $mid-dark-brown;
 }
-
-@media screen and (max-width: 300px) and (max-height: 540px) {
-  body {
-    #root {
-      header {
-        //
-      }
-      main {
-        //
-      }
-      footer {
-        display: none;
-      }
-    }
-  }
-
-  .button {
-    //
-    .link {
-      //
-    }
-  }
-}

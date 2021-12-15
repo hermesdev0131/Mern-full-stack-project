@@ -68,45 +68,46 @@ const SearchBar = () => {
 
   return (
     <form id="category-search" method="GET" onSubmit={handleSubmit}>
-      <input className="search-bar"
-        type="search"
-        name="category"
-        id="category"
-        placeholder="Search For a Movie"
-        value={search}
-        onChange={handleChange}
-      />
-      <button id="toast" onClick={handleSubmit} >Toast</button>
-      {/* <Link to={`/movies/${search}`}>Toast</Link> */}
-      <select className="search-options">
-        {arrayOfAllFilms.filter((val) => {
-          if (search === '') {
-            return val 
-          } else if (val.includes(search)) {
-            return val
+      <div className="search-div">
+        <input className="search-bar"
+          type="search"
+          name="category"
+          id="category"
+          placeholder="Search For a Movie"
+          value={search}
+          onChange={handleChange}
+        />
+        <select className="search-bar">
+          {arrayOfAllFilms.filter((val) => {
+            if (search === '') {
+              return val 
+            } else if (val.includes(search)) {
+              return val
+            }
+          }).map((val, key) => {
+            return (
+              <option 
+                key={key} 
+                className="option" 
+                value={val}
+                onClick={(event) => {
+                  event.preventDefault()
+                  setSearch(event.target.value)
+                  // for (let i = 0; i < info.length; i++) {
+                  //   search === info[i].title ? setSearch(info[i]._id) : 'do nothing'
+                  // }
+                }}
+                
+                onSubmit={handleSubmit}
+              > 
+                {val}
+              </option>
+            )
+          })
           }
-        }).map((val, key) => {
-          return (
-            <option 
-              key={key} 
-              className="option" 
-              value={val}
-              onClick={(event) => {
-                event.preventDefault()
-                setSearch(event.target.value)
-                // for (let i = 0; i < info.length; i++) {
-                //   search === info[i].title ? setSearch(info[i]._id) : 'do nothing'
-                // }
-              }}
-              
-              onSubmit={handleSubmit}
-            > 
-              {val}
-            </option>
-          )
-        })
-        }
-      </select>
+        </select>
+      </div>
+      <button id="toast" onClick={handleSubmit} >Toast</button>
     </form>
   )
 }
