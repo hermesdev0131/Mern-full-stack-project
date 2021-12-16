@@ -17,10 +17,6 @@
     "react-scripts": "4.0.3",
     "sass": "^1.43.4"
   },
-  "engines": {
-    "node": "17.x",
-    "yarn": "1.x"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
