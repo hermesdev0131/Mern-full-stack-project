@@ -8,7 +8,9 @@
   "type": "module",
   "scripts": {
     "serve": "npx nodemon index.js",
-    "seed": "node db/seeds.js"
+    "seed": "node db/seeds.js",
+    "start": "node index.js",
+    "build": "cd front-end && yarn && yarn build"
   },
   "dependencies": {
     "axios": "^0.24.0",
