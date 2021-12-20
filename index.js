@@ -7,7 +7,7 @@ import path from 'path'
 
 
 const app = express()
-const __dirname = path.resolve()
+const __dirname = path.resolve() // added for deployment
 
 const startServers = async () => {
   try {
@@ -15,7 +15,7 @@ const startServers = async () => {
     console.log('Database connected successfully')
 
     //JSON Parser
-    app.use(express.static(`${__dirname}/front-end/build`))
+    app.use(express.static(`${__dirname}/front-end/build`)) // deployment, path which defines where data is served from
     app.use(express.json())
 
     //Logger
@@ -26,7 +26,8 @@ const startServers = async () => {
 
     //Router
     app.use('/api', router)
-      app.use('/*', (_, res) => res.sendFile(`${__dirname}/front-end/build/index.html`))
+    // catcher middleware
+    app.use('/*', (_, res) => res.sendFile(`${__dirname}/front-end/build/index.html`))
 
     //Catch all
     app.use((_req, res) => {

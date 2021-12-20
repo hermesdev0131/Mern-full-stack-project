@@ -33,6 +33,9 @@ const SearchBar = () => {
     fetchMovie()
   }, [film])
 
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault()
     setFilm(search)
@@ -58,6 +61,7 @@ const SearchBar = () => {
   }
 
   arrayOfAllFilms.sort()
+
 
 
   const handleChange = (event) => {

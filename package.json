@@ -25,8 +25,8 @@
     "react-scripts": "^4.0.3",
     "uuid": "^8.3.2"
   },
-    "engines": {
-    "node": "17.x",
+  "engines": {
+    "node": "12.x",
     "yarn": "1.x"
   }
 }
