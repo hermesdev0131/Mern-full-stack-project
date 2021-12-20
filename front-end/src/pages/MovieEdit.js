@@ -75,7 +75,7 @@ const MovieEdit = () => {
           </div>
           <div>
             {/* <input type="button" onClick={goBack} value="Cancel" /> */}
-            <Button className="button" onClick={() => navigate(-1)}>go back</Button>
+            <Button className="button" onClick={() => navigate(-1)}>Go Back</Button>
           </div>
           {isError ? (
             <div className="error">
