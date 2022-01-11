@@ -1,5 +1,5 @@
 # General Assembly - project 3
-# Burnt Toast - MERN stack - film review website
+# Burnt Toast - MERN stack - film review site
 The live project: [Burnt Toast](http://burnt-toast-ga.herokuapp.com/)
 
 <details>
@@ -152,81 +152,66 @@ The live project: [Burnt Toast](http://burnt-toast-ga.herokuapp.com/)
 </details>
 
 <details>
-  <summary></summary>
+  <summary>Key learnings</summary>
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Planning is everything.</li>
+    <li>Create and populate a mongo database + working with express and node.</li>
+    <li>Adapt when using newly updated architectures (react-router-dom)</li>
+    <li>SASS makes for more readable and reusable CSS.</li>
+    <li>React Reveal for simple animation of any component.</li>
+    <li>Heavily customised react-bootstrap components can cause issues, be sure to allow time to achieve and test the intended effect.</li>
   </ul>
 </details>
 
 <details>
-  <summary></summary>
+  <summary>Challenges</summary>
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>
+      Time management - packing as many features in as possible but making sure they all work effectively, removing the ones I couldn’t polish before                     deadline.
+    </li>
+    <li>Writing the logic for liking a comment was more complex than it sounds. I am yet to perfect the system.</li>
+    <li>Creating working media queries to make an app fully responsive is no joke, this takes time and attention.</li>
+    <li>
+      Properly implementing useEffect() while working with props and components that instantiate inner components. (When you like a comment on a movie - it should       be updated live and the like button should become an unlike button in that moment, without refreshing the page). 
+    </li>
   </ul>
 </details>
 
 <details>
-  <summary></summary>
+  <summary>Possible future improvements</summary>
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>View other users profiles.</li>
+    <li>Like button fully functioning + add like button to movies as well as comments.</li>
+    <li>More interesting home page (possibly a list of the top-rated movies at that time). </li>
+    <li>Improved styling - currently feels clunky and outdated.</li>
+    <li>Media queries need considerable work.</li>
+    <li>Forms could appear in pop ups instead of on separate pages.</li>
   </ul>
 </details>
 
 <details>
-  <summary></summary>
+  <summary>Bugs</summary>
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Some of the styling doesn’t work well when resizing the page (text jumps out of buttons and elements are laid on top of eachother)</li>
+    <li>The Like button allows you to like a comment more than once.</li>
   </ul>
 </details>
 
 <details>
-  <summary></summary>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+  <summary>Visuals</summary>
+  <p></p>
+  <img src= />
+  <p></p>
+  <img src= />
+  <p></p>
+  <img src= />
+  <p></p>
+  <img src= />
+  <p></p>
+  <img src= />
+  <p></p>
+  <img src= />
 </details>
+
+
+
