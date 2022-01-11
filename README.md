@@ -152,6 +152,20 @@ The live project: [Burnt Toast](http://burnt-toast-ga.herokuapp.com/)
 </details>
 
 <details>
+  <summary>Visuals</summary>
+  <p>Homepage :</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148926456-b9cdac8c-4c9d-413a-8e50-b6dc8bad171d.png />
+  <p>View all films :</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148926563-8da54d73-2fce-48e3-8526-58cef765d67d.png />
+  <p>View one film: </p>
+  <img src=https://user-images.githubusercontent.com/89402596/148926681-6cb50114-fe97-4359-b5f5-b48506d84d70.png />
+  <p>Add a film :</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148926730-fe21e5de-aba1-4690-b820-c2ce763f6f5f.png />
+  <p>Profile page :</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148926800-2fb00561-71fb-4ab8-b4e4-78267df857a9.png />
+</details>
+
+<details>
   <summary>Key learnings</summary>
   <ul>
     <li>Planning is everything.</li>
@@ -196,22 +210,3 @@ The live project: [Burnt Toast](http://burnt-toast-ga.herokuapp.com/)
     <li>The Like button allows you to like a comment more than once.</li>
   </ul>
 </details>
-
-<details>
-  <summary>Visuals</summary>
-  <p></p>
-  <img src= />
-  <p></p>
-  <img src= />
-  <p></p>
-  <img src= />
-  <p></p>
-  <img src= />
-  <p></p>
-  <img src= />
-  <p></p>
-  <img src= />
-</details>
-
-
-
