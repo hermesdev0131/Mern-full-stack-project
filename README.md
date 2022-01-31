@@ -288,14 +288,19 @@ Here is an outline of our final UX:
 
 #### All movies
 
-
+![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/all-movies.gif)
 
 #### Single Movie
 
+![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/single-movie.gif)
 
 #### Add a Movie form
 
+![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/add-movie.gif)
+
 #### Profile
+
+![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/profile.gif)
 
 ## <a name='featured-code'>FEATURED CODE</a>
 
@@ -307,12 +312,58 @@ It was important that the user experience changed depending on if they were logg
 
 Firstly, on the `App.js` file, I used React’s State Hook to set variables for whether a user was logged in, and then used React’s Effect Hook to set the variable to True or False depending on whether or not the user had been allocated a JWT (jsonwebtoken). Then I set this as a prop on all the `Nav.js` files, as well as the `MovieShow.js` file.
 
+```
 
+function ShowOneMovie() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  useEffect(() => {
+    if (getToken()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
+  
+  return (
+    <>
+      <header>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </header>
+      <main>
+        <MovieShow isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  )
+}
+
+```
 I then wrote a ternary statement to display different information, if the user was logged in versus if they were not.
 
+```
 
-
+ {isLoggedIn ? (
+  <>
+    <div id="alter-movie-buttons" className="alter-movie-buttons">
+        <Button className="button"><Link className="link" to={`/movies/${id}/edit`}>Edit</Link></Button>
+      <Button className="button" onClick={handleDeleteClick}>Delete</Button>
+      <Button className="button"><Link className="link" to={`/movies/${id}/rating`}>Rate</Link></Button>
+    </div>
+  </>
+  ) : (
+  <>
+    <div id="alter-movie-buttons" className="alter-movie-buttons">
+      <p>Log in to rate this movie</p>
+      <Button id="button"  className="button"><Link className="link" to={'/login'}>Log In</Link></Button>
+      <Button id="button" className="button"><Link className="link" to={'/register'}>Sign Up</Link></Button>
+    </div>
+  </>
+ )}
+        
+```
 ### SINGLE MOVIE PAGE PLAYS MOVIE TRAILER
 
 One of the extra features we wanted to include was to have videos of movie trailers on the Movie Show page, as this was a constant feature on most Movie sites. I did this using React Player.
@@ -323,22 +374,83 @@ Then I had to import React Player.
 
 Finally I had to use the React Player tag, passing in props which set the; url to be the ‘trailer’ defined in the movie schema, controls so users could play and pause the video while on the site, height and width (all YouTube videos have the same height and width parameters)
 
+```
 
-
+ return (
+    <div className="movie-show-div">
+      <div className="movie-show-img-div">
+        <ReactPlayer className="video"
+          url={movie.trailer}
+          controls
+          width={640}
+          height={360}
+        />
+      </div>
+ 
+ ```
 ### PROFILE PAGE
 
 I created the profile page, which was another extra feature we wanted to include to improve the social aspect of the site. Here you can see it takes advantage of the reverse relationship created in the backend, between users and the movies which they have added. 
 
 These are saved as an array, therefore I map over them to be displayed in the same format as movies are on all the pages of the site. 
 
+```
 
-
+return (
+    <div className="profile-container">
+      <div className="personal-details">
+        <Card className="profile-card">
+          <Card.Img className="card-image" variant="top" src={`${userData.image}`} style={{ minWidth: '200px' }}/>
+          <Card.Body className="card-body">
+            <Card.Title className='card-title'>
+              <p className="username">{userData.username}</p>
+            </Card.Title>
+            <Card.Text>
+              <p className="card-text">Gender: {userData.gender}</p>
+            </Card.Text>
+            <Card.Text>
+              <p className="card-text">Favorite Films: {userData.favoriteFilm}</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+      <div className="movie-list-div" id="created-movies-div">
+        <p className="movies-add-by">Your Movies</p>
+        <ul className="movie-list" id="profile-movie-list">
+          {moviesAdded.map((m) => (
+            <li key={m._id}>
+              <MovieCard {...m} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+  
+```
 ### USER AVATARS
 
 I liked the idea of users having pre-selected Avatars. I used the select tag, and set the values to be images, so the user could pick from different Avatars in a dropdown menu.
 
+```
 
-
+<div>
+  <Fade left>
+    <Form.Select 
+      name="image" type="image" 
+      aria-label="Floating label select example" 
+      {...formInputProps} onChange={handleFormChange}
+      className="form-select" >
+      <option>Choose your avatar</option>
+      <option value='https://image.emojipng.com/393/209393.jpg'>😉</option>
+      <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face.png">😀</option>
+      <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-tears-of-joy.png">😂</option>
+      <option value="http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nerd-face.png">🤓</option>
+    </Form.Select>
+  </Fade>
+</div>
+          
+ ```
 ## <a name='bugs'>BUGS & KNOWN ERRORS</a>
 
 There are issues with the styling when the page size changes and some of the Media Queries don't work. 
