@@ -1,12 +1,12 @@
 # Burnt Toast - GA Project 3
 
-![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/Screen%20Recording%202022-01-28%20at%2015.09.53(1).gif)
-
 This is my third project for the General Assembly Software Engineering Immersive course. Aioli is a full-stack MERN app, developed as a team with my classmates [Kirtan Patel](https://github.com/kirtanp8) and [Arthur Ruxton](https://github.com/arthur-ruxton).
 
 This app is deployed with Heroku and available [here](http://burnt-toast-ga.herokuapp.com/).
 
 Burnt Toast is a movie review website (based on rotten tomatoes), where users can not only rate and review movies, but also add and edit movies of their choice. 
+
+![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/Screen%20Recording%202022-01-28%20at%2015.09.53(1).gif)
 
 ## TABLE OF CONTENTS
 
@@ -71,9 +71,13 @@ The first task was coming up with an idea for the project. I wanted to have a si
 
 We then set up a Trello board to allow us to collaborate effectively and use, as a single point of reference for the group. This was by far the largest project we had been tasked with so far on the course, and along with the fact it was a group project, having a clear plan was imperative. 
 
+![image](https://user-images.githubusercontent.com/89402596/149979693-9c0ab063-e8ef-4023-a320-8ffa8d3d6294.png)
+
 We first created wireframes to envisage how we wanted each page to look, along with potential schemas so we had an idea of how our models interacted with each other and the frontend. 
 
-My experience in management came in handy here, and understanding of the importance of time management, so we came up with timescales for when we wanted each section to be complete. In particular, we wanted the MVP to be completed within 5 days, meaning we would have the remaining 5 days to add extra features and work on styling, ensuring the site was aesthetically pleasing and matched the theme.
+![image](https://user-images.githubusercontent.com/81522060/151805540-a9e15a27-ce75-460e-8d0b-e575b6b3e38e.png)
+
+My experience in management came in handy here, and an understanding of the importance of time management, so we came up with timescales for when we wanted each section to be complete. In particular, we wanted the MVP to be completed within 5 days, meaning we would have the remaining 5 days to add extra features and work on styling, ensuring the site was aesthetically pleasing and matched the theme.
 
 We then allocated responsibilities for each group member. 
 
@@ -110,28 +114,164 @@ We decided to create our database across two central models, one for movies and 
 
 We used a Mongoose schema to dictate the information each movie would display. This was the longest schema we built. In addition to containing all of the movie information, each movie had a reference relationship with a user as that movies’ owner, and an embedded relationship with the ratings schema where the ‘ratings’ and ‘comments’ made by other users were stored.
 
+```
 
+//Movie schema
+const movieSchema = new mongoose.Schema({
+  image: { type: String, required: true },
+  title: { type: String, unique: true, required: true },
+  trailer: { type: String },
+  director: { type: String },
+  releaseYear: { type: Number },
+  description: { type: String, required: true, maxlength: 280 },
+  cast: [{ type: String }],
+  genre: [{ type: String }],
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  rating: [ratingsSchema,]
+})
+
+```
 We then leveraged Mongoose virtuals to enable us to get a sum of all the ratings for a particular movie and return an average rating for that movie. This was essential for the site so that each movie had one overall rating by the community, as opposed to lots of ratings by individual users. 
 
+```
 
+movieSchema.virtual('averageRating').get(function(){
+  //If there are no ratings, return a string
+  if (!this.rating.length) return 'Not Rated Yet'
+  const sumOfRatings = this.rating.reduce((acc, rating) => {
+    if (!rating.rating) return acc
+    return acc + rating.rating
+  }, 0)
+  const averageRatingPercentage = ((sumOfRatings / this.rating.length).toFixed(2))*10
+  return `${averageRatingPercentage}%`
+})
+
+```
 Our user model also had quite a lot of information in its schema, as one of our planned extras was to have a profile page for each user. We then, again, leveraged Mongoose virtuals to add extra properties that we did not want mapped to the MongoDB collection, such as a password confirmation field as part of the authentication process (see below). 
 
 With virtual fields, we were also able to create a reverse relationship and populate a ‘created movies’ field, using local and foreign fields to identify movies a particular user has added.
 
+```
+const userSchema = new mongoose.Schema({
+  username: { type: String, unique: true, required: true, maxlength: 30},
+  firstName: {type: String},
+  surname: {type: String},
+  email: { type: String, unique: true, required: true },
+  dateOfBirth: {type: Date},
+  favoriteFilm: [{type: String}],
+  image: { type: String },
+  gender: {type: String},
+  password: { type: String, required: true },
+})
 
+//Reverse relationship, show the movies user has added
+userSchema.virtual('createdMovies', {
+  ref: 'Movie', //Model this relates to
+  localField: '_id', //Field from user model stored on movie model
+  foreignField: 'owner', //Field on the movie that stores the user id
+})
+
+```
 For user authentication, we wrote in custom pre-validation and pre-save checks to ensure that the password and password confirmation match and to hash the plain-text password with bcrypt before saving. We also added a method to the user model to validate passwords, checking the user inputted plain text password against the stored hash.
+
+```
+
+//Custom pre validation
+userSchema.pre('validate', function(next){
+  if (this.isModified('password') && this.password !== this._passwordConfirmation){
+    this.invalidate('passwordConfirmation', 'Passwords do not match')
+  }
+  next()
+})
+
+//Custom pre save
+userSchema.pre('save', function(next){
+  if (this.isModified('password')){
+    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
+  }
+  next()
+})
+
+```
 
 #### CONTROLLERS
 
 We stored all functions that control endpoint functionality within a controllers folder. Movies could be created, read, updated, and deleted by users, while ratings and comments could be created and deleted. Auth controllers could be used to register and login users, while our user model also had controllers to view profile details. 
 
+```
 
+//Get /movies/:id
+//Get single movie
+export const getSingleMovie = async (req, res) => {
+  try {
+    const { id } = req.params
+    const movie = await Movie.findById(id).populate('owner').populate('rating.owner')
+    // console.log(movie)
+    if (!movie) throw new Error()
+    return res.status(200).json(movie)
+  } catch (err) {
+    console.log(`Movie not found`)
+    console.log(err)
+    return res.status(404).json({ 'message': 'Movie Not Found'})
+  }
+}
+
+```
 The CRUD methods are assigned to the correct backend routes in config/router.js. We also added a secure route middleware to routes where user authentication was required, such as adding, deleting, or editing movies. Here’s an example route for a single movie.
 
+```
+
+router
+  .route("/movies/:id")
+  .get(getSingleMovie)
+  .put(secureRoute, updateMovie)
+  .delete(secureRoute, removeMovie);
+  
+```
 
 #### SEEDING THE DATABASE
 
 While we wanted users to be able to add movies of their choice, we needed the database to have a list of movies already stored. This was also important when testing routes and the CRUD functionality, so we could easily revert back to an original list of movies. We saved these in db/data.js where they could be exported, and then wrote out a seed function using Mongoose to drop and reseed the database.
+
+```
+
+const seedDatabase = async () => {
+  try {
+    //Connect to the db
+    await mongoose.connect(dbURI)
+    console.log(`DB connected`)
+    //Drop the db
+    await mongoose.connection.db.dropDatabase()
+    console.log(`DB Dropped`)
+
+    //Add the user to db
+    const users = await User.create(userData)
+    // console.log(`Users added to the db`, users)
+
+    //Add owner to each movie
+    const moviesWithOwners = movieData.map(movie => {
+      movie.owner = users[0]._id
+      return movie
+    })
+
+    //Seed the db with data file
+    const moviesAdded = await Movie.create(moviesWithOwners)
+    console.log(`DB has been seed with ${moviesAdded.length} Movies`)
+    //Close our connection to db
+    await mongoose.connection.close()
+    console.log(`Connection to DB closed`)
+    
+  } catch (err) {
+    console.log(err)
+    //Close the connection to db
+    await mongoose.connection.close()
+    console.log(`Error. DB connection closed`)
+  }
+}
+
+seedDatabase()
+
+```
 
 I was very confident with how the backend needed to work to make the site function which is why I took responsibility for setting this up. So much so, that by the end of day 2, all our backend endpoints were working in Postman and we were on track to hit our deadlines. 
 
