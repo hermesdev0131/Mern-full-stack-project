@@ -193,7 +193,6 @@ userSchema.pre('save', function(next){
 })
 
 ```
-
 #### CONTROLLERS
 
 We stored all functions that control endpoint functionality within a controllers folder. Movies could be created, read, updated, and deleted by users, while ratings and comments could be created and deleted. Auth controllers could be used to register and login users, while our user model also had controllers to view profile details. 
@@ -228,7 +227,6 @@ router
   .delete(secureRoute, removeMovie);
   
 ```
-
 #### SEEDING THE DATABASE
 
 While we wanted users to be able to add movies of their choice, we needed the database to have a list of movies already stored. This was also important when testing routes and the CRUD functionality, so we could easily revert back to an original list of movies. We saved these in db/data.js where they could be exported, and then wrote out a seed function using Mongoose to drop and reseed the database.
@@ -286,7 +284,11 @@ Here is an outline of our final UX:
 
 #### Homepage
 
+![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/home.gif)
+
 #### All movies
+
+
 
 #### Single Movie
 
