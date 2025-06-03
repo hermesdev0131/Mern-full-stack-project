@@ -6,7 +6,11 @@ This app is deployed with Heroku and available [here](http://burnt-toast-ga.hero
 
 Burnt Toast is a movie review website (based on rotten tomatoes), where users can not only rate and review movies, but also add and edit movies of their choice. 
 
+<<<<<<< HEAD
 ![gif](https://github.com/hermesdev0131/Mern-full-stack-project/blob/main/screen.gif)
+=======
+![gif](https://github.com/hermesdev0131/Mern-full-stack-project/Screen%20Recording%202022-01-28%20at%2015.09.53(1).gif)
+>>>>>>> 3809a49a04364d5627e41b8560031c1e27be76eb
 
 ## TABLE OF CONTENTS
 
