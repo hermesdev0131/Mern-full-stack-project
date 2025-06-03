@@ -1,12 +1,12 @@
 # Burnt Toast - GA Project 3
 
-This is my third project for the General Assembly Software Engineering Immersive course. Aioli is a full-stack MERN app, developed as a team with my classmates [Kirtan Patel](https://github.com/kirtanp8) and [Arthur Ruxton](https://github.com/arthur-ruxton).
+This is my third project for the General Assembly Software Engineering Immersive course.
 
 This app is deployed with Heroku and available [here](http://burnt-toast-ga.herokuapp.com/).
 
 Burnt Toast is a movie review website (based on rotten tomatoes), where users can not only rate and review movies, but also add and edit movies of their choice. 
 
-![gif](https://github.com/Shak-H/MERN-Full-Stack-Project---Movie-Review-Site/blob/main/Screen%20Recording%202022-01-28%20at%2015.09.53(1).gif)
+![gif](https://github.com/hermesdev0131/Mern-full-stack-project/Screen%20Recording%202022-01-28%20at%2015.09.53(1).gif)
 
 ## TABLE OF CONTENTS
 
